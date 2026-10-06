@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pondok Pesantren & SIT Al Firdaus | Islami, Modern & Berprestasi</title>
+    <meta name="description" content="Website Resmi Pondok Pesantren & Sekolah Islam Terpadu Al Firdaus. Mencetak Generasi Rabbani, Hafizh Qur'an, Berbahasa Internasional, dan Menguasai Teknologi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                        kufi: ['Reem Kufi', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Geometric Background Patterns & Animations -->
+    <style>
+        .bg-islamic-pattern {
+            background-color: #064e3b;
+            background-image: radial-gradient(#10b981 0.75px, transparent 0.75px), radial-gradient(#10b981 0.75px, #064e3b 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.98;
+        }
+        .bg-subtle-pattern {
+            background-image: radial-gradient(#059669 0.4px, transparent 0.4px);
+            background-size: 16px 16px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(6, 78, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Hide scrollbar for smooth tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-emerald-600 selection:text-white">
+
+    <!-- Top Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-400 via-emerald-500 to-teal-300 z-50 transition-all duration-150 w-0"></div>
+
+    <!-- HEADER / TOP BAR -->
+    <header class="w-full relative z-40">
+        <!-- Top Bar Upper (Sesuai Permintaan: Kiri dan Kanan) -->
+        <div class="bg-emerald-950 text-slate-200 text-xs py-2 px-4 border-b border-emerald-800/50">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+                <!-- Top Bar Kiri -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <span class="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
+                        <i class="fa-solid fa-location-dot text-amber-400"></i>
+                        <span>Jl. Firdaus No. 99, Kawasan Pesantren, Kota Al-Madinah</span>
+                    </span>
+                    <span class="hidden sm:flex items-center gap-1.5 hover:text-amber-400 transition-colors">
+                        <i class="fa-solid fa-phone text-amber-400"></i>
+                        <span>(021) 8765-4321 / +62 812-3456-7890</span>
+                    </span>
+                    <span class="hidden lg:flex items-center gap-1.5 hover:text-amber-400 transition-colors">
+                        <i class="fa-solid fa-envelope text-amber-400"></i>
+                        <span>info@ponpesalfirdaus.sch.id</span>
+                    </span>
+                </div>
+
+                <!-- Top Bar Kanan -->
+                <div class="flex items-center gap-4">
+                    <!-- Social Media Links -->
+                    <div class="flex items-center gap-3 border-r border-emerald-800 pr-4">
+                        <a href="#" class="hover:text-amber-400 transition-colors" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-amber-400 transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-amber-400 transition-colors" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="hover:text-amber-400 transition-colors" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <!-- Quick Portal Links -->
+                    <div class="flex items-center gap-2">
+                        <a href="#simulasi" class="bg-emerald-800/60 hover:bg-emerald-700 text-amber-300 px-2.5 py-1 rounded-md transition-colors text-[11px] font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-calculator text-xs"></i> Cek Biaya
+                        </a>
+                        <a href="#" onclick="openModal('portalModal')" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold px-2.5 py-1 rounded-md transition-colors text-[11px] flex items-center gap-1">
+                            <i class="fa-solid fa-user-lock text-xs"></i> Portal Santri & Wali
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300" id="main-navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    
+                    <!-- Brand Identity & Logo -->
+                    <a href="#" class="flex items-center gap-3 group">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-900 flex items-center justify-center text-amber-400 font-bold text-2xl shadow-lg group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-mosque"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-extrabold tracking-tight text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                                PONPES SIT AL FIRDAUS
+                            </span>
+                            <span class="block text-xs font-semibold tracking-wider text-amber-600 uppercase">
+                                Islamic Boarding & Excellent School
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-1 xl:gap-2 font-medium text-sm text-slate-700">
+                        <a href="#beranda" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold text-emerald-700">Beranda</a>
+                        
+                        <!-- Dropdown Profil -->
+                        <div class="relative group">
+                            <button class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors flex items-center gap-1">
+                                Profil <i class="fa-solid fa-chevron-down text-[10px] opacity-70 group-hover:rotate-180 transition-transform"></i>
+                            </button>
+                            <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 hidden group-hover:block animate-fadeIn">
+                                <a href="#sambutan" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700">Sambutan Mudir</a>
+                                <a href="#sejarah" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700">Sejarah & Visi Misi</a>
+                                <a href="#struktur" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700">Dewan Pengajar & Asatidzh</a>
+                            </div>
+                        </div>
+
+                        <!-- Dropdown Program -->
+                        <div class="relative group">
+                            <button class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors flex items-center gap-1">
+                                Program <i class="fa-solid fa-chevron-down text-[10px] opacity-70 group-hover:rotate-180 transition-transform"></i>
+                            </button>
+                            <div class="absolute top-full left-0 w-60 bg-white shadow-xl rounded-xl border border-slate-100 py-2 hidden group-hover:block animate-fadeIn">
+                                <a href="#program" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700"><i class="fa-solid fa-quran text-amber-500 mr-2"></i> Tahfizh 30 Juz</a>
+                                <a href="#program" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700"><i class="fa-solid fa-language text-emerald-600 mr-2"></i> Bilingual (Arabic-English)</a>
+                                <a href="#program" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700"><i class="fa-solid fa-laptop-code text-blue-500 mr-2"></i> STEM & Coding Islami</a>
+                                <a href="#program" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700"><i class="fa-solid fa-book-open text-purple-500 mr-2"></i> Kajian Kitab Turats</a>
+                            </div>
+                        </div>
+
+                        <a href="#jenjang" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Jenjang</a>
+                        <a href="#fasilitas" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Fasilitas</a>
+                        <a href="#jadwal" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Jadwal Harian</a>
+                        <a href="#berita" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Berita</a>
+                        <a href="#kontak" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Kontak</a>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="hidden lg:flex items-center gap-3">
+                        <button onclick="openModal('ppdbModal')" class="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                            <i class="fa-solid fa-paper-plane text-amber-300"></i>
+                            <span>Daftar PPDB Online</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="lg:hidden flex items-center gap-2">
+                        <button id="mobileMenuBtn" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
+                            <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3 shadow-xl">
+                <a href="#beranda" class="block px-3 py-2 rounded-lg font-semibold text-emerald-800 bg-emerald-50">Beranda</a>
+                <a href="#sambutan" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Profil & Sambutan Mudir</a>
+                <a href="#program" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Program Unggulan</a>
+                <a href="#jenjang" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Jenjang Pendidikan</a>
+                <a href="#fasilitas" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Fasilitas Kampus</a>
+                <a href="#jadwal" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Kehidupan Santri</a>
+                <a href="#simulasi" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Simulasi Biaya</a>
+                <a href="#berita" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Berita & Pengumuman</a>
+                <a href="#kontak" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Kontak</a>
+                <div class="pt-2">
+                    <button onclick="openModal('ppdbModal')" class="w-full bg-emerald-700 text-white py-3 rounded-xl font-bold shadow flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-amber-300"></i> Daftar PPDB Online
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SLIDER SECTION WITH PLAY/PAUSE & CONTROLS -->
+    <section id="beranda" class="relative bg-emerald-950 overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
+        <!-- Background Overlay / Pattern -->
+        <div class="absolute inset-0 bg-islamic-pattern opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 to-transparent z-10"></div>
+
+        <!-- Slider Wrapper -->
+        <div id="hero-slider" class="relative w-full h-full z-20">
+            
+            <!-- Slide 1 -->
+            <div class="hero-slide active duration-700 ease-in-out transition-opacity block py-16 lg:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide">
+                            <i class="fa-solid fa-star"></i> Penerimaan Santri Baru Tahun Ajaran 2026/2027 Tlah Dibuka
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                            Mencetak Generasi <span class="text-amber-400 font-kufi">Rabbani</span>, Hafizh Qur'an & Berprestasi Global
+                        </h1>
+                        <p class="text-slate-300 text-sm sm:text-lg max-w-2xl font-light leading-relaxed">
+                            Pondok Pesantren & SIT Al Firdaus memadukan keunggulan Kurikulum Merdeka, Kurikulum Diniyah Pesantren Turats, dan Penguasaan Digital STEM.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                            <button onclick="openModal('ppdbModal')" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-user-plus"></i> Daftar Sekarang
+                            </button>
+                            <a href="#program" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl backdrop-blur-md border border-white/20 transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-book-quran text-amber-400"></i> Kurikulum & Brosur
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative hidden lg:block">
+                        <div class="relative mx-auto max-w-md">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 to-emerald-500 rounded-2xl blur opacity-30"></div>
+                            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800" alt="Santri Belajar Tahfizh" class="relative rounded-2xl shadow-2xl border-2 border-white/10 object-cover h-[420px] w-full">
+                            <div class="absolute -bottom-6 -left-6 bg-emerald-900/90 border border-amber-400/40 p-4 rounded-xl backdrop-blur-md shadow-xl text-white flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-amber-500 text-emerald-950 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-award text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-300">Target Hafalan</div>
+                                    <div class="font-bold text-amber-300">Mutqin 30 Juz & Sanad</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide hidden duration-700 ease-in-out transition-opacity py-16 lg:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide">
+                            <i class="fa-solid fa-globe"></i> Program Unggulan Bilingual
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                            Mahir <span class="text-amber-400">Bahasa Arab & Inggris</span> Sejak Dini
+                        </h1>
+                        <p class="text-slate-300 text-sm sm:text-lg max-w-2xl font-light leading-relaxed">
+                            Lingkungan asrama dan madrasah berbasis *Arabic-English Environment*, membekali santri untuk siap menembus universitas terbaik di Timur Tengah maupun Barat.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                            <a href="#fasilitas" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                                Jelajahi Kampus <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative hidden lg:block">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" alt="Santri Belajar Modern" class="rounded-2xl shadow-2xl border-2 border-white/10 object-cover h-[420px] w-full">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide hidden duration-700 ease-in-out transition-opacity py-16 lg:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-semibold tracking-wide">
+                            <i class="fa-solid fa-microchip"></i> Pesantren Digital & STEM
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                            Menguasai <span class="text-emerald-400">Teknologi & Coding</span> Berakhlak Mulia
+                        </h1>
+                        <p class="text-slate-300 text-sm sm:text-lg max-w-2xl font-light leading-relaxed">
+                            Menyeimbangkan iman, takwa, dan ilmu pengetahuan modern melalui kurikulum Robotik, Coding, & Islamic Artificial Intelligence.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                            <button onclick="openModal('ppdbModal')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                                Konsultasi Pendaftaran <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative hidden lg:block">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800" alt="Kelas Digital" class="rounded-2xl shadow-2xl border-2 border-white/10 object-cover h-[420px] w-full">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Slider Controls: Prev/Next, Dots, Play/Pause -->
+        <div class="absolute bottom-6 inset-x-0 z-30">
+            <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+                
+                <!-- Slide Indicators / Dots -->
+                <div class="flex items-center gap-2" id="slider-dots">
+                    <button class="w-8 h-2.5 rounded-full bg-amber-400 transition-all duration-300" onclick="goToSlide(0)"></button>
+                    <button class="w-3 h-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300" onclick="goToSlide(1)"></button>
+                    <button class="w-3 h-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300" onclick="goToSlide(2)"></button>
+                </div>
+
+                <!-- Slider Controls & Pause/Play Toggle -->
+                <div class="flex items-center gap-2 bg-emerald-900/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full text-white text-sm">
+                    <button id="prevSlideBtn" class="hover:text-amber-400 px-2 py-1 transition-colors" title="Slide Sebelumnya">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    
+                    <button id="pausePlayBtn" class="hover:text-amber-400 px-2 py-1 text-xs font-semibold flex items-center gap-1 border-x border-white/20 transition-colors" title="Pause/Play Autoplay">
+                        <i class="fa-solid fa-pause text-amber-400" id="pausePlayIcon"></i>
+                        <span id="pausePlayText" class="hidden sm:inline">Pause</span>
+                    </button>
+                    
+                    <button id="nextSlideBtn" class="hover:text-amber-400 px-2 py-1 transition-colors" title="Slide Selanjutnya">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STAT CARDS / IDENTITAS UTAMA (Floating) -->
+    <section class="relative z-30 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            
+            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4 hover:-translate-y-1 transition-transform">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl flex-shrink-0">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="1250">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-500">Santri Aktif</div>
+                </div>
+            </div>
+
+            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4 hover:-translate-y-1 transition-transform">
+                <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl flex-shrink-0">
+                    <i class="fa-solid fa-quran"></i>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="380">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-500">Hafizh 30 Juz</div>
+                </div>
+            </div>
+
+            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4 hover:-translate-y-1 transition-transform">
+                <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center text-2xl flex-shrink-0">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="85">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-500">Asatidzh & Ustazdhah</div>
+                </div>
+            </div>
+
+            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4 hover:-translate-y-1 transition-transform">
+                <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center text-2xl flex-shrink-0">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="142">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-500">Prestasi Nasional</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SAMBUTAN MUDIR / PIMPINAN PESANTREN -->
+    <section id="sambutan" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Photo & Quote Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-b from-emerald-800 to-emerald-950 p-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Mudir KH. Ahmad Firdaus, Lc., M.A." class="rounded-2xl object-cover h-[450px] w-full">
+                        <div class="p-4 text-center text-white">
+                            <h3 class="font-bold text-xl text-amber-300">KH. Dr. Ahmad Al-Firdaus, Lc., M.A.</h3>
+                            <p class="text-xs text-emerald-200">Pimpinan / Mudir Ma'had SIT Al Firdaus (Alumnus Universitas Islam Madinah)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-md text-xs uppercase tracking-wider">
+                        Kata Sambutan Mudir
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 leading-tight">
+                        Mendidik dengan Hati, Membimbing dengan Sunnah, Menggapai Prestasi Dunia & Akhirat
+                    </h2>
+                    <p class="font-arabic text-2xl text-emerald-800 leading-relaxed dir-rtl">
+                        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ. الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ وَالصَّلاَةُ وَالسَّلاَمُ عَلَى أَشْرَفِ الأَنْبِيَاءِ وَالْمُرْسَلِينَ
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Assalamu’alaikum Warahmatullahi Wabarakatuh. Selamat datang di portal resmi **Pondok Pesantren & SIT Al Firdaus**. Kami berkomitmen menyediakan ekosistem pendidikan Islam terpadu yang memadukan keautentikan ilmu syar'i, hafalan Al-Qur'an 30 juz ber-sanad, serta kesiapan sains dan teknologi modern.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Santri di Al Firdaus tidak hanya ditempa untuk cerdas secara intelektual, tetapi juga dibina akhlak karimahnya agar menjadi pemimpin masa depan yang bertakwa, mandiri, dan berwawasan global.
+                    </p>
+                    
+                    <div class="pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600 text-xl"></i>
+                            <span class="text-sm font-semibold text-slate-800">Kurikulum Merdeka + Diniyah</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600 text-xl"></i>
+                            <span class="text-sm font-semibold text-slate-800">Sanad Al-Qur'an Bersambung</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600 text-xl"></i>
+                            <span class="text-sm font-semibold text-slate-800">Bilingual Active Daily</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600 text-xl"></i>
+                            <span class="text-sm font-semibold text-slate-800">Beasiswa PTN & Luar Negeri</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM UNGGULAN SECTION -->
+    <section id="program" class="py-20 bg-emerald-950 text-white relative">
+        <div class="absolute inset-0 bg-islamic-pattern opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-amber-500/20 text-amber-300 font-semibold px-4 py-1 rounded-full text-xs uppercase tracking-widest border border-amber-400/30">
+                    Keunggulan Kami
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Program Unggulan Pesantren</h2>
+                <p class="text-slate-300 mt-2">Empat pilar utama pendidikan di SIT Al Firdaus dalam mencetak santri unggul.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-amber-300">Tahfizh Qur'an 30 Juz</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Metode Al-Firdaus Mutqin dengan bimbingan Asatidzh Al-Hafizh ber-sanad. Target kelulusan hafal 30 juz dengan tajwid dan matan.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-300">Bilingual Arabic & English</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Penerapan bahasa Arab dan Inggris secara aktif dalam muhadatsah harian, pidato 3 bahasa, serta kajian literatur.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-300">STEM & Digital Academy</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Pelatihan Coding, Web Development, Robotik, dan Desain Grafis untuk membekali santri menghadapi tantangan era digital.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-300">Turats & Kitab Kuning</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Kajian mendalam Nahwu Sharaf, Fiqih Syafi'i, Hadits Bulughul Maram, dan Aqidah Ahlus Sunnah wal Jama'ah.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JENJANG PENDIDIKAN (Tabs Interaktif) -->
+    <section id="jenjang" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-md">
+                    Formal & Non-Formal
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Jenjang Pendidikan SIT Al Firdaus</h2>
+                <p class="text-slate-600 mt-2">Tersedia pilihan Fullday School dan Pesantren Boarding School.</p>
+            </div>
+
+            <!-- Tab Navigations -->
+            <div class="flex justify-center mb-8 border-b border-slate-300 overflow-x-auto no-scrollbar">
+                <div class="flex gap-2 sm:gap-4 pb-2">
+                    <button onclick="switchTab('tkit')" id="tab-tkit" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all bg-emerald-800 text-white shadow-md">
+                        RA / TKIT
+                    </button>
+                    <button onclick="switchTab('sdit')" id="tab-sdit" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all text-slate-600 hover:bg-emerald-100">
+                        SDIT Al Firdaus
+                    </button>
+                    <button onclick="switchTab('smpit')" id="tab-smpit" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all text-slate-600 hover:bg-emerald-100">
+                        SMPIT Boarding
+                    </button>
+                    <button onclick="switchTab('smait')" id="tab-smait" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all text-slate-600 hover:bg-emerald-100">
+                        SMAIT / MA Boarding
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content Display -->
+            <div id="tab-content" class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
+                <!-- TKIT Content -->
+                <div id="content-tkit" class="jenjang-content grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">Usia 4 - 6 Tahun</span>
+                        <h3 class="text-2xl font-bold text-emerald-950">RA / TKIT Al Firdaus (Usia Dini)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Pendidikan anak usia dini berbasis pembentukan karakter Islami, pengenalan huruf Hijaiyah metode Umi/Iqro, doa harian, serta adab dasar santun.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Target Hafalan Juz 30 (Surah Pendek)</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Sentra Play & Learn Modern</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Native English/Arabic Vocabulary Early Stage</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800" alt="TKIT Al Firdaus" class="rounded-2xl shadow-md h-64 w-full object-cover">
+                    </div>
+                </div>
+
+                <!-- SDIT Content (Hidden by default) -->
+                <div id="content-sdit" class="jenjang-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">Fullday School</span>
+                        <h3 class="text-2xl font-bold text-emerald-950">SDIT Al Firdaus (Sekolah Dasar Terpadu)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Mengintegrasikan Kurikulum Nasional Diknas dengan nilai-nilai Keislaman. Berfokus pada pembiasaan sholat Dhuha & Dzuhur berjamaah, literasi, serta numerasi.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Target Hafalan 3 - 5 Juz</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Ekstrakurikuler Pramuka, Archery, Coding Kids</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Class size maksimal 24 siswa</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800" alt="SDIT Al Firdaus" class="rounded-2xl shadow-md h-64 w-full object-cover">
+                    </div>
+                </div>
+
+                <!-- SMPIT Content -->
+                <div id="content-smpit" class="jenjang-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">Boarding / Asrama</span>
+                        <h3 class="text-2xl font-bold text-emerald-950">SMPIT Al Firdaus (Junior High Boarding)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Program menengah pertama dengan sistem asrama penuh. Fokus pada penguatan hafalan Al-Qur'an, kepemimpinan (Leadership), serta bahasa asing aktif.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Target Hafalan Minimal 10 - 15 Juz</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Penguasaan Nahwu Sharaf dasar</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Mentoring Karakter & Kemandirian Santri</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="SMPIT Boarding" class="rounded-2xl shadow-md h-64 w-full object-cover">
+                    </div>
+                </div>
+
+                <!-- SMAIT Content -->
+                <div id="content-smait" class="jenjang-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-bold">Boarding / Asrama Unggulan</span>
+                        <h3 class="text-2xl font-bold text-emerald-950">SMAIT / MA Al Firdaus (Senior High Boarding)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Mempersiapkan santri menuju universitas favorit dalam dan luar negeri (Al-Azhar Mesir, Madinah, UI, ITB, IPB, UGM). Jurusan IPA, IPS, & Keagamaan.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Target Mutqin 30 Juz & Pengambilan Sanad</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Bimbingan Intensif UTBK / SBMPTN & Muadalah Timur Tengah</li>
+                            <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Program Magang Pengabdian & Research Paper</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" alt="SMAIT Boarding" class="rounded-2xl shadow-md h-64 w-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JADWAL HARIAN SANTRI (KEHIDUPAN PESANTREN) -->
+    <section id="jadwal" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-md text-xs uppercase tracking-wider">
+                    Rutinitas Santri
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Jadwal Harian Santri Boarding</h2>
+                <p class="text-slate-600 mt-2">Disiplin dan pembiasaan ibadah dari sebelum Subuh hingga malam hari.</p>
+            </div>
+
+            <!-- Timeline Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-amber-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold bg-amber-200 text-amber-900 px-2.5 py-1 rounded-md">03.30 - 05.00 WIB</span>
+                        <i class="fa-solid fa-moon text-amber-500 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-emerald-950">Qiyamul Lail & Subuh</h4>
+                    <p class="text-xs text-slate-600 mt-1">Sholat Tahajjud, Sahur Sunnah, Sholat Subuh Berjamaah & Zikir Pagi.</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-emerald-600">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold bg-emerald-200 text-emerald-900 px-2.5 py-1 rounded-md">05.00 - 06.30 WIB</span>
+                        <i class="fa-solid fa-book-quran text-emerald-600 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-emerald-950">Halaqah Tahfizh Pagi</h4>
+                    <p class="text-xs text-slate-600 mt-1">Setor hafalan baru (Ziyadah) kepada Ustadz Halqah masing-masing.</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-blue-600">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold bg-blue-200 text-blue-900 px-2.5 py-1 rounded-md">07.00 - 15.00 WIB</span>
+                        <i class="fa-solid fa-school text-blue-600 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-emerald-950">Sekolah Formal & STEM</h4>
+                    <p class="text-xs text-slate-600 mt-1">KBM Kurikulum Formal, Sholat Dhuha, Dzuhur, dan Makan Siang.</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-purple-600">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold bg-purple-200 text-purple-900 px-2.5 py-1 rounded-md">15.30 - 17.00 WIB</span>
+                        <i class="fa-solid fa-book-open text-purple-600 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-emerald-950">Kajian Kitab & Ekstrakurikuler</h4>
+                    <p class="text-xs text-slate-600 mt-1">Kajian Fiqih, Bahasa Arab, Olahraga Panahan/Berkuda/Pencak Silat.</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-teal-600">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold bg-teal-200 text-teal-900 px-2.5 py-1 rounded-md">18.00 - 20.00 WIB</span>
+                        <i class="fa-solid fa-mosque text-teal-600 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-emerald-950">Maghrib, Muraja'ah & Isya</h4>
+                    <p class="text-xs text-slate-600 mt-1">Mengerjakan Muraja'ah hafalan bersama dan Sholat Isya Berjamaah.</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-slate-700">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold bg-slate-200 text-slate-900 px-2.5 py-1 rounded-md">20.00 - 21.30 WIB</span>
+                        <i class="fa-solid fa-bed text-slate-700 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-emerald-950">Belajar Mandiri & Istirahat</h4>
+                    <p class="text-xs text-slate-600 mt-1">Persiapan tugas sekolah, evaluasi harian, adab tidur sunnah Rasulullah.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI FASILITAS CAMPUS -->
+    <section id="fasilitas" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">
+                    Sarana Berstandar Internasional
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Fasilitas Kampus & Boarding</h2>
+                <p class="text-slate-400 mt-2">Menunjang kenyamanan santri dalam beribadah, belajar, dan beraktivitas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800" alt="Masjid Kampus" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-xl font-bold text-amber-300">Masjid Utama Al Firdaus</h3>
+                        <p class="text-xs text-slate-300 mt-1">Masjid ber-AC kapasitas 2.000 jamaah dengan karpet standar Madinah.</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800" alt="Asrama Santri" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-xl font-bold text-amber-300">Asrama Ber-AC & Kamar Mandi Dalam</h3>
+                        <p class="text-xs text-slate-300 mt-1">Kamar yang bersih, nyaman, ber-AC dengan pendampingan Musyrif 24 jam.</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800" alt="Lab Komputer" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-xl font-bold text-amber-300">Laboratorium STEM & Bahasa</h3>
+                        <p class="text-xs text-slate-300 mt-1">Dilengkapi perangkat komputer modern, internet cepat, dan audio lab.</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800" alt="Perpustakaan Digital" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-xl font-bold text-amber-300">Perpustakaan Turats & Digital</h3>
+                        <p class="text-xs text-slate-300 mt-1">Koleksi ribuan kitab klasik Turats dan e-book referensi internasional.</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800" alt="Lapangan Olahraga" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-xl font-bold text-amber-300">Lapangan Futsal & Arena Panahan</h3>
+                        <p class="text-xs text-slate-300 mt-1">Fasilitas olahraga outdoor & indoor untuk menjaga kebugaran jasmani santri.</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&q=80&w=800" alt="Ruang Makan Modern" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-xl font-bold text-amber-300">Dining Hall & Dapur Higienis</h3>
+                        <p class="text-xs text-slate-300 mt-1">Menu makanan 3x sehari dengan standar gizi seimbang dan halal thayyib.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULASI KALKULATOR BIAYA PPDB INTERAKTIF -->
+    <section id="simulasi" class="py-20 bg-emerald-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-emerald-100">
+                <div class="text-center mb-8">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Transparansi Biaya
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mt-2">Simulasi & Estimasi Biaya PPDB</h2>
+                    <p class="text-slate-600 text-sm mt-1">Hitung estimasi investasi pendidikan putra-putri Anda secara transparan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    
+                    <!-- Form Selection -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Pilih Jenjang Pendidikan</label>
+                            <select id="calc-jenjang" onchange="calculateFee()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                                <option value="sdit">SDIT Fullday</option>
+                                <option value="smpit" selected>SMPIT Boarding</option>
+                                <option value="smait">SMAIT / MA Boarding</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Jalur Pendaftaran</label>
+                            <select id="calc-jalur" onchange="calculateFee()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                                <option value="reguler">Jalur Reguler</option>
+                                <option value="prestasi">Jalur Prestasi / Beasiswa Hafizh (Diskon Uang Pangkal)</option>
+                            </select>
+                        </div>
+
+                        <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-900 space-y-1">
+                            <p class="font-bold"><i class="fa-solid fa-circle-info text-amber-600"></i> Catatan Biaya Termasuk:</p>
+                            <p>• Uang Pangkal Gedung & Sarana (1x Selama Pendidikan)</p>
+                            <p>• SPP Bulanan (Termasuk Asrama & Makan 3x sehari untuk Boarding)</p>
+                            <p>• Seragam Lengkap 5 Stel & Perlengkapan Awal</p>
+                        </div>
+                    </div>
+
+                    <!-- Output Breakdown -->
+                    <div class="bg-gradient-to-br from-emerald-900 to-emerald-950 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl font-arabic">
+                            ﷼
+                        </div>
+
+                        <h4 class="text-amber-400 font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2 mb-4">Rincian Estimasi Biaya</h4>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-slate-300">Uang Pangkal / Infaq:</span>
+                                <span id="res-pangkal" class="font-bold text-white">Rp 12.500.000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-300">SPP Bulanan:</span>
+                                <span id="res-spp" class="font-bold text-white">Rp 1.800.000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-300">Seragam & Buku Paket:</span>
+                                <span id="res-seragam" class="font-bold text-white">Rp 2.200.000</span>
+                            </div>
+                            <div class="border-t border-emerald-800 pt-3 flex justify-between items-center">
+                                <span class="font-bold text-amber-300 text-base">Total Awal Masuk:</span>
+                                <span id="res-total" class="font-extrabold text-2xl text-amber-400">Rp 16.500.000</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <button onclick="openModal('ppdbModal')" class="w-full bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold py-3 rounded-xl transition-all text-center block shadow">
+                                Ambil Form Pendaftaran PPDB
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BERITA & AGENDA TERBARU -->
+    <section id="berita" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-md uppercase">
+                        Kabar Pesantren
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Berita & Pengumuman Terbaru</h2>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 text-emerald-700 font-bold text-sm hover:text-emerald-900 flex items-center gap-1">
+                    Lihat Semua Berita <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card Berita 1 -->
+                <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800" alt="Wisuda Tahfizh" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                            <span><i class="fa-regular fa-calendar text-emerald-600"></i> 12 Oktober 2026</span>
+                            <span>•</span>
+                            <span class="text-emerald-700 font-semibold">Wisuda Tahfizh</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                            Wisuda Khotmil Qur’an Ke-12: 45 Santri Berhasil Raih Sanad Mutqin
+                        </h3>
+                        <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                            Suasana haru dan bangga menyelimuti aula utama Ponpes SIT Al Firdaus saat prosesi wisuda dan penyematan mahkota bagi para hafizh.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card Berita 2 -->
+                <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" alt="Olimpiade STEM" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                            <span><i class="fa-regular fa-calendar text-emerald-600"></i> 05 Oktober 2026</span>
+                            <span>•</span>
+                            <span class="text-emerald-700 font-semibold">Prestasi</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                            Santri SMAIT Al Firdaus Sabet Medali Emas Olimpiade Coding & Robotik Nasional
+                        </h3>
+                        <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                            Tim Robotik Al Firdaus menciptakan inovasi alat pemilah sampah otomatis berbasis AI Islami dalam kejuaraan nasional.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card Berita 3 -->
+                <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800" alt="Kunjungan Syaikh" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                            <span><i class="fa-regular fa-calendar text-emerald-600"></i> 28 September 2026</span>
+                            <span>•</span>
+                            <span class="text-emerald-700 font-semibold">Dauroh Syari'ah</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                            Kunjungan Syaikh Dari Universitas Al-Azhar Kairo dalam Dauroh Tajwid & Qira'at
+                        </h3>
+                        <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                            Kunjungan spesial dosen Al-Azhar memberikan ijazah Sanad Matan Jazariyyah kepada santri dan jajaran asatidzh.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINASI ALUMNI & TESTIMONIAL -->
+    <section class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Badges Destinasi Kampus Alumni -->
+            <div class="text-center mb-16">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-amber-400">Sebaran Alumni SIT Al Firdaus</h3>
+                <h2 class="text-2xl sm:text-3xl font-extrabold mt-2">Diterima Di Perguruan Tinggi Terkemuka</h2>
+                
+                <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-8 opacity-80">
+                    <span class="font-extrabold text-lg sm:text-xl text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-solid fa-building-columns text-amber-400 mr-2"></i> Univ. Islam Madinah</span>
+                    <span class="font-extrabold text-lg sm:text-xl text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-solid fa-mosque text-emerald-400 mr-2"></i> Al-Azhar Cairo</span>
+                    <span class="font-extrabold text-lg sm:text-xl text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-solid fa-graduation-cap text-blue-400 mr-2"></i> Universitas Indonesia</span>
+                    <span class="font-extrabold text-lg sm:text-xl text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-solid fa-atom text-purple-400 mr-2"></i> ITB Bandung</span>
+                    <span class="font-extrabold text-lg sm:text-xl text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-solid fa-book text-amber-300 mr-2"></i> LIPIA Jakarta</span>
+                </div>
+            </div>
+
+            <!-- Testimonial Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="glass-dark p-8 rounded-2xl border border-slate-700">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Wali Santri" class="w-14 h-14 rounded-full object-cover border-2 border-amber-400">
+                        <div>
+                            <h4 class="font-bold text-white">Hj. Siti Rahmah, S.E.</h4>
+                            <p class="text-xs text-amber-300">Wali Santri Ananda Muhammad Rizky (SMAIT)</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "Alhamdulillah, keputusan terbaik memasukkan anak kami ke Ponpes Al Firdaus. Tidak hanya hafalan Qur'annya capai 30 juz, tetapi kemampuan Bahasa Arab dan IT-nya sangat menonjol hingga lolos Beasiswa di Madinah."
+                    </p>
+                </div>
+
+                <div class="glass-dark p-8 rounded-2xl border border-slate-700">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200" alt="Alumni" class="w-14 h-14 rounded-full object-cover border-2 border-emerald-400">
+                        <div>
+                            <h4 class="font-bold text-white">Ustadz Farhan Kamil, Lc.</h4>
+                            <p class="text-xs text-emerald-300">Alumni 2022 - Mahasiswa Al-Azhar Mesir</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "Gemblengan kedisiplinan, bahasa harian, dan mutqin hafalan di Al Firdaus menjadi modal utama saya saat menempuh ujian muadalah ke Kairo tanpa kendala berarti."
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="py-16 bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-800 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Siap Bergabung Bersama Keluarga Besar SIT Al Firdaus?</h2>
+                <p class="text-emerald-100 mt-2 text-sm sm:text-base max-w-2xl">Kuota pendaftaran terbatas untuk setiap jenjang. Segera amalkan investasi terbaik bagi masa depan buah hati Anda.</p>
+            </div>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="openModal('ppdbModal')" class="bg-amber-400 hover:bg-amber-500 text-emerald-950 font-extrabold px-8 py-4 rounded-xl shadow-xl transition-all text-base transform hover:scale-105">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Daftar PPDB Online Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER KOMPREHENSIF -->
+    <footer id="kontak" class="bg-emerald-950 text-slate-300 pt-16 pb-8 border-t border-emerald-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-emerald-900">
+                
+                <!-- Col 1: Brand & Bio -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500 text-emerald-950 flex items-center justify-center font-bold text-xl">
+                            <i class="fa-solid fa-mosque"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white">PONPES SIT AL FIRDAUS</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Lembaga Pendidikan Islam Terpadu & Pesantren Modern yang mencetak generasi Rabbani berakhlak mulia, hafal Al-Qur'an, mahir berbahasa asing, dan menguasai teknologi modern.
+                    </p>
+                    <div class="flex items-center gap-3 text-amber-400 text-lg">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-emerald-900 flex items-center justify-center hover:bg-amber-500 hover:text-emerald-950 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-emerald-900 flex items-center justify-center hover:bg-amber-500 hover:text-emerald-950 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-emerald-900 flex items-center justify-center hover:bg-amber-500 hover:text-emerald-950 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-emerald-900 flex items-center justify-center hover:bg-amber-500 hover:text-emerald-950 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Menu Cepat</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-amber-400 transition-colors">Beranda</a></li>
+                        <li><a href="#sambutan" class="hover:text-amber-400 transition-colors">Profil Mudir</a></li>
+                        <li><a href="#program" class="hover:text-amber-400 transition-colors">Program Unggulan</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">Jenjang Sekolah</a></li>
+                        <li><a href="#fasilitas" class="hover:text-amber-400 transition-colors">Fasilitas Kampus</a></li>
+                        <li><a href="#simulasi" class="hover:text-amber-400 transition-colors">Simulasi Biaya</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Jenjang -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Unit Pendidikan</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">RA / TKIT Al Firdaus</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">SDIT Al Firdaus (Fullday)</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">SMPIT Al Firdaus (Boarding)</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">SMAIT / MA Al Firdaus (Boarding)</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">Madrasah Diniyah & Tahfizh Sanad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Location Map -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Kontak Sekretariat</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-amber-400 mt-0.5"></i>
+                            <span>Jl. Firdaus No. 99, Kawasan Pesantren, Kota Al-Madinah</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-amber-400"></i>
+                            <span>(021) 8765-4321 / +62 812-3456-7890</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-amber-400"></i>
+                            <span>psb@ponpesalfirdaus.sch.id</span>
+                        </li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-xs bg-emerald-900 hover:bg-emerald-800 px-3 py-2 rounded-lg text-amber-300 transition-colors">
+                            <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps Kampus
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+                <p>&copy; 2026 **Pondok Pesantren SIT Al Firdaus**. Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-amber-400">Kebijakan Privasi</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-amber-400">Syarat & Ketentuan</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-amber-400">Deploy via GitHub Pages</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6281234567890?text=Assalamu'alaikum%20Admin%20PPDB%20Ponpes%20SIT%20Al%20Firdaus,%20saya%20ingin%20bertanya%20informasi%20pendaftaran." target="_blank" class="fixed bottom-6 right-6 bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-40 text-2xl transition-transform hover:scale-110 group" title="Chat WhatsApp PPDB">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+            Konsultasi PPDB WhatsApp
+        </span>
+    </a>
+
+    <!-- MODAL POPUP: FORMULIR PPDB ONLINE -->
+    <div id="ppdbModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('ppdbModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl mx-auto mb-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-emerald-950">Pendaftaran PPDB Online</h3>
+                <p class="text-xs text-slate-500">Isi formulir singkat di bawah untuk mendapatkan Nomor Urut Pendaftaran.</p>
+            </div>
+
+            <form onsubmit="handlePpdbSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nama Lengkap Calon Santri *</label>
+                    <input type="text" required placeholder="Contoh: Ahmad Fauzi" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Jenjang Dituju *</label>
+                        <select required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                            <option value="">-- Pilih Jenjang --</option>
+                            <option value="TK">RA / TKIT</option>
+                            <option value="SD">SDIT Fullday</option>
+                            <option value="SMP">SMPIT Boarding</option>
+                            <option value="SMA">SMAIT / MA Boarding</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">No. WhatsApp Orang Tua *</label>
+                        <input type="tel" required placeholder="081234567890" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Kota / Kabupaten Asal *</label>
+                    <input type="text" required placeholder="Contoh: Jakarta Selatan" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition-all text-sm mt-2">
+                    Kirim Pendaftaran & Dapatkan Brosur
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP: PORTAL SANTRI & WALI -->
+    <div id="portalModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeModal('portalModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl mx-auto mb-2">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-emerald-950">Portal Wali Santri</h3>
+                <p class="text-xs text-slate-500">Akses Raport Digital, Tahfizh Tracker & Pembayaran SPP.</p>
+            </div>
+
+            <form onsubmit="handlePortalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">NIS / ID Wali Santri</label>
+                    <input type="text" required placeholder="Masukkan NIS Santri" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Kata Sandi / Passcode</label>
+                    <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold py-3.5 rounded-xl shadow transition-all text-sm">
+                    Masuk Portal SIMAK
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION TOAST CONTAINER -->
+    <div id="toast" class="fixed top-20 right-5 bg-emerald-900 text-white px-5 py-3 rounded-xl shadow-2xl border border-amber-400/50 z-50 hidden flex items-center gap-3 transition-all transform translate-y-2">
+        <i class="fa-solid fa-circle-check text-amber-400 text-xl"></i>
+        <span id="toast-msg" class="text-xs font-semibold">Pesan berhasil dikirim!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        
+        // 1. Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+            }
+        });
+
+        // 3. Hero Slider Logic with Pause / Autoplay Toggle
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dotsContainer = document.getElementById('slider-dots');
+        let isPlaying = true;
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                    slide.classList.add('block');
+                } else {
+                    slide.classList.remove('block');
+                    slide.classList.add('hidden');
+                }
+            });
+
+            // Update dots
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.className = "w-8 h-2.5 rounded-full bg-amber-400 transition-all duration-300";
+                    } else {
+                        dot.className = "w-3 h-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300";
+                    }
+                });
+            }
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            let prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetAutoplay();
+        }
+
+        // Pause / Play Autoplay Toggle
+        const pausePlayBtn = document.getElementById('pausePlayBtn');
+        const pausePlayIcon = document.getElementById('pausePlayIcon');
+        const pausePlayText = document.getElementById('pausePlayText');
+
+        function toggleAutoplay() {
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                isPlaying = false;
+                pausePlayIcon.className = "fa-solid fa-play text-amber-400";
+                pausePlayText.textContent = "Play";
+            } else {
+                slideInterval = setInterval(nextSlide, 5000);
+                isPlaying = true;
+                pausePlayIcon.className = "fa-solid fa-pause text-amber-400";
+                pausePlayText.textContent = "Pause";
+            }
+        }
+
+        function resetAutoplay() {
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        }
+
+        document.getElementById('nextSlideBtn').addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+        document.getElementById('prevSlideBtn').addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+        pausePlayBtn.addEventListener('click', toggleAutoplay);
+
+        // 4. Tab Switcher for Jenjang Pendidikan
+        function switchTab(tabKey) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.jenjang-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Show target content
+            document.getElementById('content-' + tabKey).classList.remove('hidden');
+
+            // Reset tab button styles
+            const tabs = document.querySelectorAll('.jenjang-tab');
+            tabs.forEach(tab => {
+                tab.className = "jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all text-slate-600 hover:bg-emerald-100";
+            });
+
+            // Highlight active tab
+            document.getElementById('tab-' + tabKey).className = "jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all bg-emerald-800 text-white shadow-md";
+        }
+
+        // 5. Stat Counter Animation
+        let counted = false;
+        window.addEventListener('scroll', () => {
+            const counterSection = document.querySelector('.counter');
+            if (!counterSection) return;
+            const oTop = counterSection.offsetTop - window.innerHeight;
+            if (counted === false && window.pageYOffset > oTop) {
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const speed = 200;
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target.toLocaleString('id-ID');
+                        }
+                    };
+                    updateCount();
+                });
+                counted = true;
+            }
+        });
+
+        // 6. Interactive PPDB Fee Calculator
+        function calculateFee() {
+            const jenjang = document.getElementById('calc-jenjang').value;
+            const jalur = document.getElementById('calc-jalur').value;
+
+            let pangkal = 0;
+            let spp = 0;
+            let seragam = 0;
+
+            if (jenjang === 'sdit') {
+                pangkal = 8500000;
+                spp = 850000;
+                seragam = 1800000;
+            } else if (jenjang === 'smpit') {
+                pangkal = 12500000;
+                spp = 1800000;
+                seragam = 2200000;
+            } else if (jenjang === 'smait') {
+                pangkal = 14500000;
+                spp = 2100000;
+                seragam = 2400000;
+            }
+
+            // Diskon Jalur Prestasi
+            if (jalur === 'prestasi') {
+                pangkal = pangkal * 0.75; // Diskon 25%
+            }
+
+            const total = pangkal + spp + seragam;
+
+            // Format Currency IDR
+            document.getElementById('res-pangkal').textContent = 'Rp ' + pangkal.toLocaleString('id-ID');
+            document.getElementById('res-spp').textContent = 'Rp ' + spp.toLocaleString('id-ID');
+            document.getElementById('res-seragam').textContent = 'Rp ' + seragam.toLocaleString('id-ID');
+            document.getElementById('res-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
+        }
+
+        // 7. Modal Handlers
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // Form Submit Handlers
+        function handlePpdbSubmit(e) {
+            e.preventDefault();
+            closeModal('ppdbModal');
+            showToast("Pendaftaran Berhasil! Tim PPDB akan mengontak WhatsApp Anda.");
+        }
+
+        function handlePortalSubmit(e) {
+            e.preventDefault();
+            closeModal('portalModal');
+            showToast("Verifikasi Portal Berhasil. Mengarahkan ke Dashboard...");
+        }
+    </script>
+</body>
+</html>
