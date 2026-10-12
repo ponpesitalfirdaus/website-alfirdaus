@@ -1,4 +1,36 @@
 {
+  "auth": {
+    "username": "admin",
+    "password": "admin123"
+  },
+  "site_info": {
+    "brand_name": "PONPES SIT AL FIRDAUS",
+    "tagline": "Islamic Boarding & Excellent School",
+    "address": "Jl. Firdaus No. 99, Kawasan Pesantren, Kota Al-Madinah",
+    "phone": "(021) 8765-4321 / +62 812-3456-7890",
+    "email": "info@ponpesalfirdaus.sch.id",
+    "wa_number": "6281234567890"
+  },
+  "hero_slides": [
+    {
+      "badge": "Penerimaan Santri Baru T.A. 2026/2027 Telah Dibuka",
+      "title": "Mencetak Generasi Rabbani, Hafizh Qur'an & Berprestasi Global",
+      "desc": "Pondok Pesantren & SIT Al Firdaus memadukan keunggulan Kurikulum Merdeka, Diniyah Pesantren, dan STEM Digital.",
+      "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "badge": "Program Unggulan Bilingual",
+      "title": "Mahir Bahasa Arab & Inggris Sejak Dini",
+      "desc": "Lingkungan asrama dan madrasah berbasis Arabic-English Environment.",
+      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
+    }
+  ],
+  "stats": {
+    "santri": "1250",
+    "hafizh": "380",
+    "asatidzh": "85",
+    "prestasi": "142"
+  },
   "sections": {
     "hero": true,
     "sambutan": true,
@@ -16,7 +48,7 @@
       "judul": "Wisuda Khotmil Qur’an Ke-12: 45 Santri Berhasil Raih Sanad Mutqin",
       "label": "Wisuda Tahfizh",
       "tanggal": "2026-10-12",
-      "ringkasan": "Suasana haru dan bangga menyelimuti aula utama Ponpes SIT Al Firdaus saat prosesi wisuda dan penyematan mahkota.",
+      "ringkasan": "Suasana haru dan bangga menyelimuti aula utama Ponpes SIT Al Firdaus.",
       "gambar": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
     }
   ]
