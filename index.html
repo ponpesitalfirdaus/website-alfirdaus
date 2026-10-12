@@ -1396,5 +1396,108 @@
             showToast("Verifikasi Portal Berhasil. Mengarahkan ke Dashboard...");
         }
     </script>
+    // Membaca data.json untuk mengatur seksi & berita di website publik
+async function applyDynamicConfig() {
+    try {
+        const res = await fetch('data.json?t=' + new Date().getTime());
+        if (!res.ok) return;
+        const data = await res.json();
+
+        // 1. Atur Tampilan Seksi (Sembunyikan/Tampilkan)
+        if (data.sections) {
+            Object.keys(data.sections).forEach(sectionId => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    if (data.sections[sectionId] === false) {
+                        element.classList.add('hidden');
+                    } else {
+                        element.classList.remove('hidden');
+                    }
+                }
+            });
+        }
+
+        // 2. Render Berita Dinamis (jika container berita ada)
+        if (data.posts && data.posts.length > 0) {
+            const beritaContainer = document.querySelector('#berita .grid');
+            if (beritaContainer) {
+                beritaContainer.innerHTML = data.posts.map(post => `
+                    <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <img src="${post.gambar}" alt="${post.judul}" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                                <span><i class="fa-regular fa-calendar text-emerald-600"></i> ${post.tanggal}</span>
+                                <span>•</span>
+                                <span class="text-emerald-700 font-semibold">${post.label}</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                                ${post.judul}
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                                ${post.ringkasan}
+                            </p>
+                        </div>
+                    </article>
+                `).join('');
+            }
+        }
+    } catch (e) {
+        console.log("Menggunakan tampilan default index.html");
+    }
+}
+
+document.addEventListener('DOMContentLoaded', applyDynamicConfig);
+    <script>
+    async function applyDynamicConfig() {
+        try {
+            const res = await fetch('data.json?t=' + new Date().getTime());
+            if (!res.ok) return;
+            const data = await res.json();
+
+            // 1. Sembunyikan atau Tampilkan Seksi
+            if (data.sections) {
+                Object.keys(data.sections).forEach(sectionId => {
+                    const el = document.getElementById(sectionId);
+                    if (el) {
+                        if (data.sections[sectionId] === false) {
+                            el.style.display = 'none';
+                        } else {
+                            el.style.display = 'block';
+                        }
+                    }
+                });
+            }
+
+            // 2. Tampilkan Daftar Berita Baru
+            if (data.posts && data.posts.length > 0) {
+                const beritaGrid = document.querySelector('#berita .grid');
+                if (beritaGrid) {
+                    beritaGrid.innerHTML = data.posts.map(post => `
+                        <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                            <img src="${post.gambar}" alt="${post.judul}" class="h-48 w-full object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                                    <span><i class="fa-regular fa-calendar text-emerald-600"></i> ${post.tanggal}</span>
+                                    <span>•</span>
+                                    <span class="text-emerald-700 font-semibold">${post.label}</span>
+                                </div>
+                                <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                                    ${post.judul}
+                                </h3>
+                                <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                                    ${post.ringkasan}
+                                </p>
+                            </div>
+                        </article>
+                    `).join('');
+                }
+            }
+        } catch (e) {
+            console.log("Memuat tampilan default index.html");
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', applyDynamicConfig);
+</script>
 </body>
 </html>
