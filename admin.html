@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Ponpes SIT Al Firdaus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 p-6">
+
+    <div class="max-w-4xl mx-auto space-y-6">
+        <!-- Header Dashboard -->
+        <div class="bg-emerald-900 text-white p-6 rounded-2xl shadow-lg flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold">Dashboard Admin Web</h1>
+                <p class="text-emerald-200 text-sm">Pengaturan Tampilan & Postingan (GitHub Integration)</p>
+            </div>
+            <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold px-5 py-2.5 rounded-xl transition shadow flex items-center gap-2">
+                <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+            </button>
+        </div>
+
+        <!-- Pengaturan GitHub Token -->
+        <div class="bg-white p-6 rounded-2xl shadow border border-slate-200">
+            <h2 class="font-bold text-lg text-emerald-950 mb-3"><i class="fa-solid fa-key text-amber-500 mr-2"></i> Konfigurasi Repositori GitHub</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div>
+                    <label class="block font-semibold mb-1">Username GitHub</label>
+                    <input type="text" id="gh-user" placeholder="contoh: username" class="w-full border rounded-lg p-2 bg-slate-50">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Nama Repositori</label>
+                    <input type="text" id="gh-repo" placeholder="contoh: website-alfirdaus" class="w-full border rounded-lg p-2 bg-slate-50">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">GitHub Personal Token (PAT)</label>
+                    <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxx" class="w-full border rounded-lg p-2 bg-slate-50">
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">*Token ini disimpan di browser Anda untuk keperluan commit data ke GitHub.</p>
+        </div>
+
+        <!-- Pengaturan Aktif/Nonaktif Seksi Tampilan -->
+        <div class="bg-white p-6 rounded-2xl shadow border border-slate-200">
+            <h2 class="font-bold text-lg text-emerald-950 mb-4"><i class="fa-solid fa-eye text-emerald-600 mr-2"></i> Kontrol Tampilan Seksi Website</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="section-toggles">
+                <!-- Toggle item diisi lewat JS -->
+            </div>
+        </div>
+
+        <!-- Manajemen Berita / Postingan -->
+        <div class="bg-white p-6 rounded-2xl shadow border border-slate-200 space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="font-bold text-lg text-emerald-950"><i class="fa-solid fa-newspaper text-blue-600 mr-2"></i> Kelola Berita & Pengumuman</h2>
+                <button onclick="tambahPostingan()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-lg hover:bg-emerald-800">
+                    + Tambah Berita Baru
+                </button>
+            </div>
+
+            <div id="posts-container" class="space-y-4">
+                <!-- List berita diisi lewat JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let siteData = { sections: {}, posts: [] };
+        let fileSha = ""; // Diperlukan GitHub API untuk update file
+
+        const sectionNames = {
+            hero: "Header / Hero Banner",
+            sambutan: "Kata Sambutan Mudir",
+            program: "Program Unggulan",
+            jenjang: "Jenjang Pendidikan",
+            jadwal: "Jadwal Harian Santri",
+            fasilitas: "Fasilitas Kampus",
+            simulasi: "Kalkulator Simulasi Biaya",
+            berita: "Berita & Pengumuman",
+            kontak: "Footer & Kontak"
+        };
+
+        // Muat Konfigurasi GitHub dari LocalStorage
+        document.getElementById('gh-user').value = localStorage.getItem('gh_user') || '';
+        document.getElementById('gh-repo').value = localStorage.getItem('gh_repo') || '';
+        document.getElementById('gh-token').value = localStorage.getItem('gh_token') || '';
+
+        // Load Data dari GitHub API atau data.json
+        async function loadData() {
+            const user = document.getElementById('gh-user').value;
+            const repo = document.getElementById('gh-repo').value;
+
+            try {
+                let url = `data.json?t=${new Date().getTime()}`;
+                if(user && repo) {
+                    url = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
+                }
+
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Gagal mengambil data.json");
+
+                const json = await res.json();
+                if (json.content) {
+                    fileSha = json.sha;
+                    const decoded = decodeURIComponent(escape(atob(json.content)));
+                    siteData = JSON.parse(decoded);
+                } else {
+                    siteData = json;
+                }
+
+                renderToggles();
+                renderPosts();
+            } catch (e) {
+                alert("Gagal memuat data.json. Pastikan pengaturan GitHub sudah benar.");
+            }
+        }
+
+        function renderToggles() {
+            const container = document.getElementById('section-toggles');
+            container.innerHTML = '';
+            Object.keys(sectionNames).forEach(key => {
+                const isChecked = siteData.sections[key] !== false;
+                container.innerHTML += `
+                    <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer justify-between">
+                        <span class="text-sm font-semibold">${sectionNames[key]}</span>
+                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleSection('${key}', this.checked)" class="w-5 h-5 accent-emerald-600">
+                    </label>
+                `;
+            });
+        }
+
+        function toggleSection(key, value) {
+            siteData.sections[key] = value;
+        }
+
+        function renderPosts() {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '';
+            siteData.posts.forEach((post, index) => {
+                container.innerHTML += `
+                    <div class="border rounded-xl p-4 bg-slate-50 space-y-3 relative">
+                        <button onclick="hapusPost(${index})" class="absolute top-3 right-3 text-red-500 hover:text-red-700 text-xs font-bold">
+                            <i class="fa-solid fa-trash"></i> Hapus
+                        </button>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <label class="font-bold">Judul Berita</label>
+                                <input type="text" value="${post.judul}" onchange="updatePost(${index}, 'judul', this.value)" class="w-full border p-2 rounded mt-1">
+                            </div>
+                            <div>
+                                <label class="font-bold">Label / Kategori</label>
+                                <input type="text" value="${post.label}" onchange="updatePost(${index}, 'label', this.value)" class="w-full border p-2 rounded mt-1" placeholder="Contoh: Tahfizh, Prestasi">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <label class="font-bold">URL Gambar</label>
+                                <input type="text" value="${post.gambar}" onchange="updatePost(${index}, 'gambar', this.value)" class="w-full border p-2 rounded mt-1">
+                            </div>
+                            <div>
+                                <label class="font-bold">Tanggal</label>
+                                <input type="date" value="${post.tanggal}" onchange="updatePost(${index}, 'tanggal', this.value)" class="w-full border p-2 rounded mt-1">
+                            </div>
+                        </div>
+                        <div class="text-xs">
+                            <label class="font-bold">Ringkasan / Isi Singkat</label>
+                            <textarea onchange="updatePost(${index}, 'ringkasan', this.value)" class="w-full border p-2 rounded mt-1">${post.ringkasan}</textarea>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function tambahPostingan() {
+            siteData.posts.unshift({
+                id: Date.now().toString(),
+                judul: "Judul Berita Baru",
+                label: "Pengumuman",
+                tanggal: new Date().toISOString().split('T')[0],
+                ringkasan: "Isi ringkasan berita baru...",
+                gambar: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
+            });
+            renderPosts();
+        }
+
+        function updatePost(index, field, value) {
+            siteData.posts[index][field] = value;
+        }
+
+        function hapusPost(index) {
+            if (confirm("Hapus berita ini?")) {
+                siteData.posts.splice(index, 1);
+                renderPosts();
+            }
+        }
+
+        // Fungsi Commit Data ke Repositori GitHub
+        async function simpanKeGithub() {
+            const user = document.getElementById('gh-user').value.trim();
+            const repo = document.getElementById('gh-repo').value.trim();
+            const token = document.getElementById('gh-token').value.trim();
+
+            if (!user || !repo || !token) {
+                alert("Harap isi Username, Nama Repositori, dan Personal Access Token GitHub!");
+                return;
+            }
+
+            // Simpan credential secara lokal
+            localStorage.setItem('gh_user', user);
+            localStorage.setItem('gh_repo', repo);
+            localStorage.setItem('gh_token', token);
+
+            const jsonString = JSON.stringify(siteData, null, 2);
+            const encodedContent = btoa(unescape(encodeURIComponent(jsonString)));
+
+            const url = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
+
+            const bodyData = {
+                message: "Update data website via Admin Dashboard",
+                content: encodedContent,
+                sha: fileSha
+            };
+
+            try {
+                const res = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bodyData)
+                });
+
+                if (res.ok) {
+                    const result = await res.json();
+                    fileSha = result.content.sha;
+                    alert("Berhasil disimpan ke GitHub! Tampilan website akan terbarui otomatis dalam 1-2 menit.");
+                } else {
+                    const err = await res.json();
+                    alert("Gagal menyimpan: " + (err.message || "Periksa token/repositori Anda."));
+                }
+            } catch (e) {
+                alert("Terjadi kesalahan koneksi ke GitHub API.");
+            }
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>
