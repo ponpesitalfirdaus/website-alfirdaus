@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard Collapsible - SIT Al Firdaus</title>
+    <title>Super Admin Dashboard - Ponpes SIT Al Firdaus</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -20,8 +20,8 @@
                 <div class="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3">
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-900">Login Administrator</h2>
-                <p class="text-xs text-slate-500 mt-1">Masukkan Username & Password Admin</p>
+                <h2 class="text-2xl font-bold text-slate-900">Login Admin Portal</h2>
+                <p class="text-xs text-slate-500 mt-1">Masukkan Username & Password Akun Pengelola</p>
             </div>
             <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
@@ -40,65 +40,56 @@
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD WITH SIDEBAR -->
+    <!-- MAIN DASHBOARD LAYOUT -->
     <div id="admin-dashboard" class="hidden min-h-screen flex flex-col md:flex-row">
 
-        <!-- SIDEBAR KIRI -->
-        <aside id="sidebar" class="w-64 bg-emerald-950 text-slate-300 transition-all duration-300 flex flex-col flex-shrink-0 min-h-screen">
-            <!-- Sidebar Header & Toggle Hamburger Button -->
+        <!-- COLLAPSIBLE SIDEBAR KIRI -->
+        <aside id="sidebar" class="w-64 bg-emerald-950 text-slate-300 transition-all duration-300 flex flex-col flex-shrink-0 min-h-screen border-r border-emerald-900">
             <div class="p-4 border-b border-emerald-900 flex justify-between items-center">
                 <div class="flex items-center gap-3 sidebar-label">
-                    <div class="w-9 h-9 bg-amber-500 text-emerald-950 font-bold rounded-xl flex items-center justify-center">
+                    <div class="w-9 h-9 bg-amber-500 text-emerald-950 font-bold rounded-xl flex items-center justify-center text-lg">
                         <i class="fa-solid fa-mosque"></i>
                     </div>
-                    <span class="font-bold text-white text-sm tracking-wider">ADMIN PANEL</span>
+                    <span class="font-extrabold text-white text-sm tracking-wider">PANEL ADMIN</span>
                 </div>
-                <button id="sidebar-toggle" onclick="toggleSidebar()" class="p-2 text-amber-400 hover:bg-emerald-900 rounded-xl transition">
-                    <i id="sidebar-toggle-icon" class="fa-solid fa-xmark text-xl"></i>
+                <button id="sidebar-toggle" onclick="toggleSidebar()" class="p-2 text-amber-400 hover:bg-emerald-900 rounded-xl transition" title="Ciutkan / Perlebar Menu">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
 
-            <!-- Sidebar Navigation Menu -->
+            <!-- Navigation Links -->
             <nav class="p-3 space-y-1 text-xs font-semibold overflow-y-auto no-scrollbar flex-1">
-                <button onclick="switchTab('topbar')" id="btn-tab-topbar" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl bg-emerald-800 text-white">
-                    <i class="fa-solid fa-[#1] fa-bars-staggered w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Top Bar & Sosmed</span>
+                <button onclick="switchTab('header')" id="btn-tab-header" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl bg-emerald-800 text-white">
+                    <i class="fa-solid fa-heading w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Header & Brand</span>
                 </button>
-                <button onclick="switchTab('nav')" id="btn-tab-nav" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
-                    <i class="fa-solid fa-compass w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Menu & Submenu</span>
+                <button onclick="switchTab('hero')" id="btn-tab-hero" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-images w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Hero Slider</span>
                 </button>
-                <button onclick="switchTab('sambutan')" id="btn-tab-sambutan" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
-                    <i class="fa-solid fa-user-tie w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Sambutan Mudir</span>
+                <button onclick="switchTab('stats')" id="btn-tab-stats" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-chart-line w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Stat Cards</span>
                 </button>
-                <button onclick="switchTab('program')" id="btn-tab-program" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                <button onclick="switchTab('jenjang')" id="btn-tab-jenjang" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-graduation-cap w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Jenjang Education</span>
-                </button>
-                <button onclick="switchTab('jadwal')" id="btn-tab-jadwal" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
-                    <i class="fa-solid fa-clock-rotate-left w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Jadwal & Fasilitas</span>
+                    <span class="sidebar-label">Jenjang Pendidikan</span>
                 </button>
                 <button onclick="switchTab('simulasi')" id="btn-tab-simulasi" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-calculator w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Transparansi Biaya</span>
                 </button>
-                <button onclick="switchTab('alumni')" id="btn-tab-alumni" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
-                    <i class="fa-solid fa-trophy w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Alumni & Testimoni</span>
-                </button>
                 <button onclick="switchTab('footer')" id="btn-tab-footer" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-shoe-prints w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Pengaturan Footer</span>
+                    <span class="sidebar-label">Footer & CTA Banner</span>
+                </button>
+                <button onclick="switchTab('users')" id="btn-tab-users" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-users-gear w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Multiuser & Role</span>
                 </button>
                 <button onclick="switchTab('seksi')" id="btn-tab-seksi" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-eye w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Aktifkan Seksi</span>
-                </button>
-                <button onclick="switchTab('auth')" id="btn-tab-auth" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
-                    <i class="fa-solid fa-lock w-5 text-center text-amber-400"></i>
-                    <span class="sidebar-label">Keamanan Admin</span>
                 </button>
             </nav>
 
@@ -110,158 +101,106 @@
             </div>
         </aside>
 
-        <!-- AREA KONTEN UTAMA -->
+        <!-- AREA KONTEN UTAMA DASHBOARD -->
         <main class="flex-1 p-6 space-y-6 overflow-y-auto">
 
-            <!-- Header Top Bar Dashboard -->
+            <!-- Top Header Action -->
             <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
-                    <h1 class="text-xl font-extrabold text-emerald-950">Panel Kelola Konten Situs</h1>
-                    <p class="text-xs text-slate-500">Edit seluruh informasi website dan simpan ke repositori GitHub</p>
+                    <h1 class="text-xl font-extrabold text-emerald-950">Dashboard Pengelolaan Website</h1>
+                    <p class="text-xs text-slate-500">Kelola Hero Slider, Stat Cards, Jenjang, Biaya & Multiuser</p>
                 </div>
                 <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-6 py-3 rounded-2xl shadow transition flex items-center gap-2 text-xs">
                     <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan ke GitHub
                 </button>
             </div>
 
-            <!-- Token GitHub -->
+            <!-- GitHub Access Config -->
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
-                <h3 class="font-bold text-xs text-slate-800 mb-2">Konfigurasi Repositori GitHub</h3>
+                <h3 class="font-bold text-xs text-slate-800 mb-2">Konfigurasi GitHub Repositori</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                     <input type="text" id="gh-user" placeholder="Username GitHub" class="border p-2.5 rounded-xl bg-slate-50">
                     <input type="text" id="gh-repo" placeholder="Nama Repositori" class="border p-2.5 rounded-xl bg-slate-50">
-                    <input type="password" id="gh-token" placeholder="GitHub Access Token (ghp_...)" class="border p-2.5 rounded-xl bg-slate-50">
+                    <input type="password" id="gh-token" placeholder="GitHub Personal Access Token (ghp_...)" class="border p-2.5 rounded-xl bg-slate-50">
                 </div>
             </div>
 
-            <!-- TAB 1: TOP BAR -->
-            <div id="tab-topbar" class="tab-content bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Top Bar Kiri & Kanan</h3>
+            <!-- TAB 1: HEADER & BRAND -->
+            <div id="tab-header" class="tab-content bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Header & Identitas Website</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div><label class="font-bold block mb-1">Alamat Kampus</label><input type="text" id="tb-address" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">Telepon</label><input type="text" id="tb-phone" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">Email</label><input type="email" id="tb-email" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">Facebook URL</label><input type="text" id="tb-fb" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">Instagram URL</label><input type="text" id="tb-ig" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">YouTube URL</label><input type="text" id="tb-yt" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Nama Brand / Pesantren</label><input type="text" id="hdr-brand" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Tagline / Sub-judul</label><input type="text" id="hdr-tagline" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Alamat Al-Madinah</label><input type="text" id="tb-address" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Telepon Hotline</label><input type="text" id="tb-phone" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Email Resmi</label><input type="email" id="tb-email" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
                 </div>
             </div>
 
-            <!-- TAB 2: NAV & SUBMENU -->
-            <div id="tab-nav" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <!-- TAB 2: HERO SLIDER MANAGER -->
+            <div id="tab-hero" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <div class="flex justify-between items-center">
-                    <h3 class="font-bold text-lg text-emerald-950">Menu Navigasi & Submenu</h3>
-                    <button onclick="tambahMenuUtama()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Menu</button>
+                    <h3 class="font-bold text-lg text-emerald-950">Kelola Banner Hero Slider Modern</h3>
+                    <button onclick="tambahHeroSlide()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Slide</button>
                 </div>
-                <div id="nav-items-container" class="space-y-4"></div>
+                <div id="hero-items-container" class="space-y-4"></div>
             </div>
 
-            <!-- TAB 3: SAMBUTAN MUDIR -->
-            <div id="tab-sambutan" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Sambutan Mudir</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div><label class="font-bold block mb-1">Badge</label><input type="text" id="sam-badge" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">Nama Mudir</label><input type="text" id="sam-name" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div class="md:col-span-2"><label class="font-bold block mb-1">Judul Sambutan</label><input type="text" id="sam-title" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div class="md:col-span-2"><label class="font-bold block mb-1">Bahasa Arab</label><input type="text" id="sam-arabic" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div class="md:col-span-2"><label class="font-bold block mb-1">Paragraf 1</label><textarea id="sam-p1" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
-                    <div class="md:col-span-2"><label class="font-bold block mb-1">Paragraf 2</label><textarea id="sam-p2" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
-                    <div><label class="font-bold block mb-1">Jabatan</label><input type="text" id="sam-position" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">URL Foto</label><input type="text" id="sam-photo" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                </div>
+            <!-- TAB 3: STAT CARDS MANAGER -->
+            <div id="tab-stats" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Kelola Stat Cards Counter</h3>
+                <div id="stats-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
             </div>
 
-            <!-- TAB 4: JENJANG PENDIDIKAN (SMPIT & SMAIT INCLUDED) -->
-            <div id="tab-program" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Jenjang Pendidikan (RA, SDIT, SMPIT Boarding, SMAIT Boarding)</h3>
+            <!-- TAB 4: JENJANG PENDIDIKAN (TOGGLE SUB-JENJANG) -->
+            <div id="tab-jenjang" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Kelola & Aktifkan / Nonaktifkan Unit Jenjang</h3>
                 <div id="jenjang-items-container" class="space-y-4"></div>
             </div>
 
-            <!-- TAB 5: JADWAL & FASILITAS -->
-            <div id="tab-jadwal" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="font-bold text-lg text-emerald-950">Jadwal Harian Santri</h3>
-                        <button onclick="tambahJadwal()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Jadwal</button>
-                    </div>
-                    <div id="jadwal-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                </div>
-                <hr>
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="font-bold text-lg text-emerald-950">Fasilitas Kampus</h3>
-                        <button onclick="tambahFasilitas()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Fasilitas</button>
-                    </div>
-                    <div id="fasilitas-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                </div>
-            </div>
-
-            <!-- TAB 6: TRANSPARANSI BIAYA (SIMULASI) -->
+            <!-- TAB 5: TRANSPARANSI BIAYA (DINAMIS ITEM & JENJANG) -->
             <div id="tab-simulasi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Transparansi Biaya & Kalkulator PPDB</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                    <!-- SDIT -->
-                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2">
-                        <h4 class="font-bold text-emerald-800">SDIT Fullday</h4>
-                        <div><label class="block font-semibold">Uang Pangkal</label><input type="number" id="sim-sdit-pangkal" class="w-full border p-2 rounded-xl"></div>
-                        <div><label class="block font-semibold">SPP Bulanan</label><input type="number" id="sim-sdit-spp" class="w-full border p-2 rounded-xl"></div>
-                        <div><label class="block font-semibold">Seragam & Buku</label><input type="number" id="sim-sdit-seragam" class="w-full border p-2 rounded-xl"></div>
-                    </div>
-                    <!-- SMPIT -->
-                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2">
-                        <h4 class="font-bold text-emerald-800">SMPIT Boarding</h4>
-                        <div><label class="block font-semibold">Uang Pangkal</label><input type="number" id="sim-smpit-pangkal" class="w-full border p-2 rounded-xl"></div>
-                        <div><label class="block font-semibold">SPP Bulanan</label><input type="number" id="sim-smpit-spp" class="w-full border p-2 rounded-xl"></div>
-                        <div><label class="block font-semibold">Seragam & Buku</label><input type="number" id="sim-smpit-seragam" class="w-full border p-2 rounded-xl"></div>
-                    </div>
-                    <!-- SMAIT -->
-                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2">
-                        <h4 class="font-bold text-emerald-800">SMAIT Boarding</h4>
-                        <div><label class="block font-semibold">Uang Pangkal</label><input type="number" id="sim-smait-pangkal" class="w-full border p-2 rounded-xl"></div>
-                        <div><label class="block font-semibold">SPP Bulanan</label><input type="number" id="sim-smait-spp" class="w-full border p-2 rounded-xl"></div>
-                        <div><label class="block font-semibold">Seragam & Buku</label><input type="number" id="sim-smait-seragam" class="w-full border p-2 rounded-xl"></div>
-                    </div>
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Transparansi Biaya & Item Calculator</h3>
+                    <button onclick="tambahJenjangBiaya()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Jenjang Biaya</button>
                 </div>
+                <div id="simulasi-levels-container" class="space-y-6"></div>
             </div>
 
-            <!-- TAB 7: ALUMNI & TESTIMONI -->
-            <div id="tab-alumni" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
+            <!-- TAB 6: FOOTER & CTA BANNER -->
+            <div id="tab-footer" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
                 <div>
-                    <h3 class="font-bold text-lg text-emerald-950 mb-2">Daftar Kampus Sebaran Alumni</h3>
-                    <textarea id="alumni-campuses" class="w-full border p-3 rounded-2xl text-xs h-20" placeholder="Pisahkan nama kampus dengan koma. Contoh: Univ. Islam Madinah, Al-Azhar Cairo, UI, ITB"></textarea>
+                    <h3 class="font-bold text-lg text-emerald-950 mb-3">CTA Banner Ajakan Pendaftaran</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div><label class="font-bold block mb-1">Judul Banner CTA</label><input type="text" id="cta-title" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                        <div><label class="font-bold block mb-1">Teks Tombol CTA</label><input type="text" id="cta-btn" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                        <div class="md:col-span-2"><label class="font-bold block mb-1">Sub-judul Banner</label><textarea id="cta-sub" class="w-full border p-2.5 rounded-xl bg-slate-50 h-16"></textarea></div>
+                    </div>
                 </div>
                 <hr>
                 <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h3 class="font-bold text-lg text-emerald-950">Testimoni Alumni & Wali Santri</h3>
-                        <button onclick="tambahTestimoni()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Testimoni</button>
+                    <h3 class="font-bold text-lg text-emerald-950 mb-3">Footer & Tautan Google Maps</h3>
+                    <div class="space-y-3 text-xs">
+                        <div><label class="font-bold block mb-1">Teks Profil Bio Footer</label><textarea id="ft-bio" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
+                        <div><label class="font-bold block mb-1">URL Google Maps Kampus</label><input type="text" id="ft-maps" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                        <div><label class="font-bold block mb-1">Teks Hak Cipta / Copyright</label><input type="text" id="ft-copy" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
                     </div>
-                    <div id="testimoni-items-container" class="space-y-4"></div>
                 </div>
             </div>
 
-            <!-- TAB 8: FOOTER -->
-            <div id="tab-footer" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Pengaturan Footer Website</h3>
-                <div class="space-y-3 text-xs">
-                    <div><label class="font-bold block mb-1">Teks Bio Footer</label><textarea id="ft-bio" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
-                    <div><label class="font-bold block mb-1">Teks Hak Cipta / Copyright</label><input type="text" id="ft-copy" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+            <!-- TAB 7: MULTIUSER & ROLE MANAGER -->
+            <div id="tab-users" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Manajemen Pengguna (Multiuser & Roles)</h3>
+                    <button onclick="tambahUser()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah User Pengelola</button>
                 </div>
+                <div id="users-items-container" class="space-y-3"></div>
             </div>
 
-            <!-- TAB 9: SEKSI -->
+            <!-- TAB 8: AKTIFKAN SEKSI -->
             <div id="tab-seksi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Aktifkan / Sembunyikan Seksi Tampilan</h3>
+                <h3 class="font-bold text-lg text-emerald-950">Kontrol Visibilitas Seksi Website</h3>
                 <div id="seksi-toggles" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
-            </div>
-
-            <!-- TAB 10: AUTH -->
-            <div id="tab-auth" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Keamanan Admin</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div><label class="font-bold block mb-1">Username Baru</label><input type="text" id="auth-user" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                    <div><label class="font-bold block mb-1">Password Baru</label><input type="text" id="auth-pass" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
-                </div>
             </div>
 
         </main>
@@ -273,16 +212,18 @@
         let isExpanded = true;
 
         const sectionLabels = {
-            hero: "Header & Hero Banner",
+            hero: "Hero Slider Modern",
+            stats: "Stat Cards Counter",
             sambutan: "Kata Sambutan Mudir",
             program: "Program Unggulan",
             jenjang: "Jenjang Pendidikan",
             jadwal: "Jadwal Harian Santri",
             fasilitas: "Fasilitas Kampus",
-            simulasi: "Kalkulator Biaya",
+            simulasi: "Transparansi Biaya",
             alumni: "Sebaran Alumni & Testimoni",
             berita: "Berita & Pengumuman",
-            kontak: "Footer & Kontak"
+            cta: "CTA Banner Pendaftaran",
+            kontak: "Footer & Maps Kontak"
         };
 
         // Sidebar Collapsible Toggle
@@ -296,12 +237,12 @@
             if (isExpanded) {
                 sidebar.classList.remove('w-20');
                 sidebar.classList.add('w-64');
-                toggleIcon.className = "fa-solid fa-xmark text-xl";
+                toggleIcon.className = "fa-solid fa-bars text-xl";
                 labels.forEach(el => el.classList.remove('hidden'));
             } else {
                 sidebar.classList.remove('w-64');
                 sidebar.classList.add('w-20');
-                toggleIcon.className = "fa-solid fa-bars text-xl";
+                toggleIcon.className = "fa-solid fa-xmark text-xl";
                 labels.forEach(el => el.classList.add('hidden'));
             }
         }
@@ -335,7 +276,11 @@
             e.preventDefault();
             const u = document.getElementById('login-user').value;
             const p = document.getElementById('login-pass').value;
-            if (u === (siteData.auth?.username || 'admin') && p === (siteData.auth?.password || 'admin123')) {
+
+            const usersList = siteData.users || [{ username: 'admin', password: 'admin123' }];
+            const foundUser = usersList.find(usr => usr.username === u && usr.password === p);
+
+            if (foundUser) {
                 document.getElementById('login-modal').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
                 populateFields();
@@ -347,151 +292,158 @@
         function logout() { location.reload(); }
 
         function populateFields() {
-            // Topbar
+            // Header
+            document.getElementById('hdr-brand').value = siteData.header?.brand_name || '';
+            document.getElementById('hdr-tagline').value = siteData.header?.tagline || '';
             document.getElementById('tb-address').value = siteData.topbar?.address || '';
             document.getElementById('tb-phone').value = siteData.topbar?.phone || '';
             document.getElementById('tb-email').value = siteData.topbar?.email || '';
-            document.getElementById('tb-fb').value = siteData.topbar?.facebook || '#';
-            document.getElementById('tb-ig').value = siteData.topbar?.instagram || '#';
-            document.getElementById('tb-yt').value = siteData.topbar?.youtube || '#';
 
-            // Sambutan
-            document.getElementById('sam-badge').value = siteData.sambutan?.badge || '';
-            document.getElementById('sam-title').value = siteData.sambutan?.title || '';
-            document.getElementById('sam-arabic').value = siteData.sambutan?.arabic || '';
-            document.getElementById('sam-p1').value = siteData.sambutan?.p1 || '';
-            document.getElementById('sam-p2').value = siteData.sambutan?.p2 || '';
-            document.getElementById('sam-name').value = siteData.sambutan?.name || '';
-            document.getElementById('sam-position').value = siteData.sambutan?.position || '';
-            document.getElementById('sam-photo').value = siteData.sambutan?.photo || '';
-
-            // Simulasi Biaya
-            if (siteData.simulasi_section?.pricing) {
-                const pr = siteData.simulasi_section.pricing;
-                document.getElementById('sim-sdit-pangkal').value = pr.sdit?.pangkal || 0;
-                document.getElementById('sim-sdit-spp').value = pr.sdit?.spp || 0;
-                document.getElementById('sim-sdit-seragam').value = pr.sdit?.seragam || 0;
-
-                document.getElementById('sim-smpit-pangkal').value = pr.smpit?.pangkal || 0;
-                document.getElementById('sim-smpit-spp').value = pr.smpit?.spp || 0;
-                document.getElementById('sim-smpit-seragam').value = pr.smpit?.seragam || 0;
-
-                document.getElementById('sim-smait-pangkal').value = pr.smait?.pangkal || 0;
-                document.getElementById('sim-smait-spp').value = pr.smait?.spp || 0;
-                document.getElementById('sim-smait-seragam').value = pr.smait?.seragam || 0;
-            }
-
-            // Alumni
-            document.getElementById('alumni-campuses').value = (siteData.alumni_section?.campuses || []).join(', ');
-
-            // Footer
+            // CTA Banner & Footer
+            document.getElementById('cta-title').value = siteData.cta_banner?.title || '';
+            document.getElementById('cta-sub').value = siteData.cta_banner?.subtitle || '';
+            document.getElementById('cta-btn').value = siteData.cta_banner?.btn_text || '';
             document.getElementById('ft-bio').value = siteData.footer?.bio_text || '';
+            document.getElementById('ft-maps').value = siteData.footer?.maps_url || '';
             document.getElementById('ft-copy').value = siteData.footer?.copyright || '';
 
-            // Auth
-            document.getElementById('auth-user').value = siteData.auth?.username || 'admin';
-            document.getElementById('auth-pass').value = siteData.auth?.password || 'admin123';
-
-            renderNavItems();
+            renderHeroItems();
+            renderStatsItems();
             renderJenjangItems();
-            renderJadwalItems();
-            renderFasilitasItems();
-            renderTestimoniItems();
+            renderSimulasiLevels();
+            renderUsersItems();
             renderSeksiToggles();
         }
 
-        // Render Functions
-        function renderNavItems() {
-            const container = document.getElementById('nav-items-container');
+        // Render Hero Slides
+        function renderHeroItems() {
+            const container = document.getElementById('hero-items-container');
             container.innerHTML = '';
-            (siteData.navigation || []).forEach((nav, idx) => {
+            (siteData.hero_slides || []).forEach((slide, idx) => {
                 container.innerHTML += `
-                    <div class="border p-3 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <div class="flex justify-between font-bold"><span>Menu #${idx + 1}</span><button onclick="siteData.navigation.splice(${idx},1); renderNavItems();" class="text-red-600">Hapus</button></div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" value="${nav.label}" onchange="siteData.navigation[${idx}].label=this.value" class="border p-2 rounded-xl">
-                            <input type="text" value="${nav.url}" onchange="siteData.navigation[${idx}].url=this.value" class="border p-2 rounded-xl">
-                        </div>
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.hero_slides.splice(${idx},1); renderHeroItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="font-bold text-emerald-950">Slide #${idx + 1}</div>
+                        <div><label class="font-bold block">Badge Top</label><input type="text" value="${slide.badge}" onchange="siteData.hero_slides[${idx}].badge=this.value" class="w-full border p-2 rounded-xl mt-1"></div>
+                        <div><label class="font-bold block">Judul Utama</label><input type="text" value="${slide.title}" onchange="siteData.hero_slides[${idx}].title=this.value" class="w-full border p-2 rounded-xl mt-1"></div>
+                        <div><label class="font-bold block">Deskripsi</label><textarea onchange="siteData.hero_slides[${idx}].desc=this.value" class="w-full border p-2 rounded-xl mt-1">${slide.desc}</textarea></div>
+                        <div><label class="font-bold block">URL Gambar</label><input type="text" value="${slide.image}" onchange="siteData.hero_slides[${idx}].image=this.value" class="w-full border p-2 rounded-xl mt-1"></div>
                     </div>
                 `;
             });
         }
-        function tambahMenuUtama() { siteData.navigation.push({ label: "Menu Baru", url: "#", dropdown: [] }); renderNavItems(); }
+        function tambahHeroSlide() {
+            if (!siteData.hero_slides) siteData.hero_slides = [];
+            siteData.hero_slides.push({ badge: "Info Baru", title: "Judul Slide Baru", desc: "Deskripsi singkat slide...", image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800" });
+            renderHeroItems();
+        }
 
+        // Render Stat Cards
+        function renderStatsItems() {
+            const container = document.getElementById('stats-items-container');
+            container.innerHTML = '';
+            (siteData.stats || []).forEach((st, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2">
+                        <div class="font-bold text-emerald-800">Stat Card #${idx + 1}</div>
+                        <div><label class="font-bold block">Label Stat</label><input type="text" value="${st.label}" onchange="siteData.stats[${idx}].label=this.value" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="font-bold block">Jumlah Count</label><input type="number" value="${st.count}" onchange="siteData.stats[${idx}].count=+this.value" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="font-bold block">Ikon FontAwesome</label><input type="text" value="${st.icon}" onchange="siteData.stats[${idx}].icon=this.value" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                `;
+            });
+        }
+
+        // Render Jenjang (Including Individual Enable/Disable)
         function renderJenjangItems() {
             const container = document.getElementById('jenjang-items-container');
             container.innerHTML = '';
             (siteData.jenjang_section?.items || []).forEach((jn, idx) => {
                 container.innerHTML += `
-                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2">
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-3">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-emerald-950">${jn.label}</span>
+                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1 rounded-xl border">
+                                <span>Aktifkan</span>
+                                <input type="checkbox" ${jn.enabled !== false ? 'checked' : ''} onchange="siteData.jenjang_section.items[${idx}].enabled=this.checked" class="w-4 h-4 accent-emerald-600">
+                            </label>
+                        </div>
                         <div class="grid grid-cols-2 gap-2">
-                            <input type="text" value="${jn.title}" onchange="siteData.jenjang_section.items[${idx}].title=this.value" class="border p-2 rounded-xl font-bold">
+                            <input type="text" value="${jn.title}" onchange="siteData.jenjang_section.items[${idx}].title=this.value" class="border p-2 rounded-xl">
                             <input type="text" value="${jn.badge}" onchange="siteData.jenjang_section.items[${idx}].badge=this.value" class="border p-2 rounded-xl">
                         </div>
                         <textarea onchange="siteData.jenjang_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl">${jn.desc}</textarea>
-                        <input type="text" value="${jn.image}" onchange="siteData.jenjang_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl" placeholder="URL Gambar">
+                        <input type="text" value="${jn.image}" onchange="siteData.jenjang_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl">
                     </div>
                 `;
             });
         }
 
-        function renderJadwalItems() {
-            const container = document.getElementById('jadwal-items-container');
+        // Render Dynamic Biaya Levels & Itemized Costs
+        function renderSimulasiLevels() {
+            const container = document.getElementById('simulasi-levels-container');
             container.innerHTML = '';
-            (siteData.jadwal_section?.items || []).forEach((jd, idx) => {
-                container.innerHTML += `
-                    <div class="border p-3 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <div class="flex justify-between items-center">
-                            <input type="text" value="${jd.time}" onchange="siteData.jadwal_section.items[${idx}].time=this.value" class="border p-2 rounded-xl font-bold">
-                            <button onclick="siteData.jadwal_section.items.splice(${idx},1); renderJadwalItems();" class="text-red-600">Hapus</button>
-                        </div>
-                        <input type="text" value="${jd.title}" onchange="siteData.jadwal_section.items[${idx}].title=this.value" class="w-full border p-2 rounded-xl">
-                        <textarea onchange="siteData.jadwal_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl">${jd.desc}</textarea>
+            (siteData.simulasi_section?.levels || []).forEach((lvl, lIdx) => {
+                let itemsHtml = (lvl.items || []).map((itm, iIdx) => `
+                    <div class="flex gap-2 items-center text-xs">
+                        <input type="text" value="${itm.name}" onchange="siteData.simulasi_section.levels[${lIdx}].items[${iIdx}].name=this.value" class="border p-2 rounded-xl w-1/2">
+                        <input type="number" value="${itm.cost}" onchange="siteData.simulasi_section.levels[${lIdx}].items[${iIdx}].cost=+this.value" class="border p-2 rounded-xl w-1/3">
+                        <button onclick="siteData.simulasi_section.levels[${lIdx}].items.splice(${iIdx},1); renderSimulasiLevels();" class="text-red-600 font-bold px-2">X</button>
                     </div>
-                `;
-            });
-        }
-        function tambahJadwal() { siteData.jadwal_section.items.push({ time: "00.00 - 00.00 WIB", title: "Kegiatan Baru", desc: "Deskripsi..." }); renderJadwalItems(); }
+                `).join('');
 
-        function renderFasilitasItems() {
-            const container = document.getElementById('fasilitas-items-container');
-            container.innerHTML = '';
-            (siteData.fasilitas_section?.items || []).forEach((fs, idx) => {
                 container.innerHTML += `
-                    <div class="border p-3 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <div class="flex justify-between items-center">
-                            <input type="text" value="${fs.title}" onchange="siteData.fasilitas_section.items[${idx}].title=this.value" class="border p-2 rounded-xl font-bold w-3/4">
-                            <button onclick="siteData.fasilitas_section.items.splice(${idx},1); renderFasilitasItems();" class="text-red-600">Hapus</button>
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-3">
+                        <div class="flex justify-between items-center font-bold text-emerald-950">
+                            <input type="text" value="${lvl.name}" onchange="siteData.simulasi_section.levels[${lIdx}].name=this.value" class="border p-2 rounded-xl w-1/2 font-bold">
+                            <button onclick="siteData.simulasi_section.levels.splice(${lIdx},1); renderSimulasiLevels();" class="text-red-600">Hapus Jenjang</button>
                         </div>
-                        <textarea onchange="siteData.fasilitas_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl">${fs.desc}</textarea>
-                        <input type="text" value="${fs.image}" onchange="siteData.fasilitas_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl">
+                        <div class="space-y-2">
+                            <div class="flex justify-between font-bold text-slate-600"><span>Rincian Item Biaya</span><button onclick="tambahItemBiaya(${lIdx})" class="text-emerald-700">+ Tambah Item Biaya</button></div>
+                            ${itemsHtml}
+                        </div>
                     </div>
                 `;
             });
         }
-        function tambahFasilitas() { siteData.fasilitas_section.items.push({ title: "Fasilitas Baru", desc: "Deskripsi...", image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800" }); renderFasilitasItems(); }
 
-        function renderTestimoniItems() {
-            const container = document.getElementById('testimoni-items-container');
+        function tambahJenjangBiaya() {
+            if (!siteData.simulasi_section) siteData.simulasi_section = { levels: [] };
+            siteData.simulasi_section.levels.push({ id: "jenjang_" + Date.now(), name: "Jenjang Baru", items: [{ name: "Uang Pangkal", cost: 5000000 }] });
+            renderSimulasiLevels();
+        }
+
+        function tambahItemBiaya(lIdx) {
+            siteData.simulasi_section.levels[lIdx].items.push({ name: "Biaya Baru", cost: 1000000 });
+            renderSimulasiLevels();
+        }
+
+        // Render Multi-Users Management
+        function renderUsersItems() {
+            const container = document.getElementById('users-items-container');
             container.innerHTML = '';
-            (siteData.alumni_section?.testimonials || []).forEach((tm, idx) => {
+            (siteData.users || []).forEach((usr, uIdx) => {
                 container.innerHTML += `
-                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <div class="flex justify-between font-bold"><span>Testimoni #${idx + 1}</span><button onclick="siteData.alumni_section.testimonials.splice(${idx},1); renderTestimoniItems();" class="text-red-600">Hapus</button></div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" value="${tm.name}" onchange="siteData.alumni_section.testimonials[${idx}].name=this.value" placeholder="Nama" class="border p-2 rounded-xl">
-                            <input type="text" value="${tm.role}" onchange="siteData.alumni_section.testimonials[${idx}].role=this.value" placeholder="Peran/Status" class="border p-2 rounded-xl">
+                    <div class="border p-3 rounded-2xl bg-slate-50 text-xs grid grid-cols-1 sm:grid-cols-4 gap-2 items-center">
+                        <input type="text" value="${usr.name}" onchange="siteData.users[${uIdx}].name=this.value" placeholder="Nama Lengkap" class="border p-2 rounded-xl">
+                        <input type="text" value="${usr.username}" onchange="siteData.users[${uIdx}].username=this.value" placeholder="Username" class="border p-2 rounded-xl">
+                        <input type="text" value="${usr.password}" onchange="siteData.users[${uIdx}].password=this.value" placeholder="Password" class="border p-2 rounded-xl">
+                        <div class="flex gap-2">
+                            <select onchange="siteData.users[${uIdx}].role=this.value" class="border p-2 rounded-xl w-full">
+                                <option value="Super Admin" ${usr.role === 'Super Admin' ? 'selected' : ''}>Super Admin</option>
+                                <option value="Editor Konten" ${usr.role === 'Editor Konten' ? 'selected' : ''}>Editor Konten</option>
+                            </select>
+                            <button onclick="siteData.users.splice(${uIdx},1); renderUsersItems();" class="text-red-600 font-bold px-2">X</button>
                         </div>
-                        <textarea onchange="siteData.alumni_section.testimonials[${idx}].quote=this.value" class="w-full border p-2 rounded-xl" placeholder="Kutipan Testimoni">${tm.quote}</textarea>
-                        <input type="text" value="${tm.photo}" onchange="siteData.alumni_section.testimonials[${idx}].photo=this.value" class="w-full border p-2 rounded-xl" placeholder="URL Foto">
                     </div>
                 `;
             });
         }
-        function tambahTestimoni() {
-            if (!siteData.alumni_section) siteData.alumni_section = { testimonials: [] };
-            siteData.alumni_section.testimonials.push({ name: "Nama Tokoh", role: "Alumni 2024", quote: "Pesan testimoni...", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" });
-            renderTestimoniItems();
+
+        function tambahUser() {
+            if (!siteData.users) siteData.users = [];
+            siteData.users.push({ name: "Pengelola Baru", username: "user" + Date.now(), password: "pass" + Date.now(), role: "Editor Konten" });
+            renderUsersItems();
         }
 
         function renderSeksiToggles() {
@@ -516,44 +468,19 @@
         }
 
         async function simpanKeGithub() {
-            // Update Topbar
+            siteData.header.brand_name = document.getElementById('hdr-brand').value;
+            siteData.header.tagline = document.getElementById('hdr-tagline').value;
             siteData.topbar.address = document.getElementById('tb-address').value;
             siteData.topbar.phone = document.getElementById('tb-phone').value;
             siteData.topbar.email = document.getElementById('tb-email').value;
-            siteData.topbar.facebook = document.getElementById('tb-fb').value;
-            siteData.topbar.instagram = document.getElementById('tb-ig').value;
-            siteData.topbar.youtube = document.getElementById('tb-yt').value;
 
-            // Update Sambutan
-            siteData.sambutan.badge = document.getElementById('sam-badge').value;
-            siteData.sambutan.title = document.getElementById('sam-title').value;
-            siteData.sambutan.arabic = document.getElementById('sam-arabic').value;
-            siteData.sambutan.p1 = document.getElementById('sam-p1').value;
-            siteData.sambutan.p2 = document.getElementById('sam-p2').value;
-            siteData.sambutan.name = document.getElementById('sam-name').value;
-            siteData.sambutan.position = document.getElementById('sam-position').value;
-            siteData.sambutan.photo = document.getElementById('sam-photo').value;
+            siteData.cta_banner.title = document.getElementById('cta-title').value;
+            siteData.cta_banner.subtitle = document.getElementById('cta-sub').value;
+            siteData.cta_banner.btn_text = document.getElementById('cta-btn').value;
 
-            // Update Simulasi
-            if (!siteData.simulasi_section) siteData.simulasi_section = { pricing: {} };
-            siteData.simulasi_section.pricing = {
-                sdit: { pangkal: +document.getElementById('sim-sdit-pangkal').value, spp: +document.getElementById('sim-sdit-spp').value, seragam: +document.getElementById('sim-sdit-seragam').value },
-                smpit: { pangkal: +document.getElementById('sim-smpit-pangkal').value, spp: +document.getElementById('sim-smpit-spp').value, seragam: +document.getElementById('sim-smpit-seragam').value },
-                smait: { pangkal: +document.getElementById('sim-smait-pangkal').value, spp: +document.getElementById('sim-smait-spp').value, seragam: +document.getElementById('sim-smait-seragam').value }
-            };
-
-            // Update Alumni
-            if (!siteData.alumni_section) siteData.alumni_section = {};
-            siteData.alumni_section.campuses = document.getElementById('alumni-campuses').value.split(',').map(s => s.trim());
-
-            // Update Footer
-            if (!siteData.footer) siteData.footer = {};
             siteData.footer.bio_text = document.getElementById('ft-bio').value;
+            siteData.footer.maps_url = document.getElementById('ft-maps').value;
             siteData.footer.copyright = document.getElementById('ft-copy').value;
-
-            // Update Auth
-            siteData.auth.username = document.getElementById('auth-user').value;
-            siteData.auth.password = document.getElementById('auth-pass').value;
 
             const u = document.getElementById('gh-user').value.trim();
             const r = document.getElementById('gh-repo').value.trim();
@@ -572,7 +499,7 @@
                 const res = await fetch(`https://api.github.com/repos/${u}/${r}/contents/data.json`, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${t}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: "Update website content via admin panel", content: encoded, sha: fileSha })
+                    body: JSON.stringify({ message: "Multiuser update website data", content: encoded, sha: fileSha })
                 });
 
                 if (res.ok) {
