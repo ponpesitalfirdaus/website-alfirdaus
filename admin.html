@@ -3,232 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Ponpes SIT Al Firdaus</title>
+    <title>Dashboard Admin - SIT Al Firdaus</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 p-6">
+<body class="bg-slate-100 font-sans text-slate-800 antialiased min-h-screen">
 
-    <div class="max-w-4xl mx-auto space-y-6">
-        <!-- Header Dashboard -->
-        <div class="bg-emerald-900 text-white p-6 rounded-2xl shadow-lg flex justify-between items-center">
-            <div>
-                <h1 class="text-2xl font-bold">Dashboard Admin Web</h1>
-                <p class="text-emerald-200 text-sm">Pengaturan Tampilan & Postingan (GitHub Integration)</p>
+    <!-- MODAL LOGIN ADMIN -->
+    <div id="login-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border border-slate-200">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900">Login Administrator</h2>
+                <p class="text-xs text-slate-500 mt-1">Masukkan Username & Password untuk mengelola website</p>
             </div>
-            <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold px-5 py-2.5 rounded-xl transition shadow flex items-center gap-2">
-                <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
-            </button>
-        </div>
-
-        <!-- Pengaturan GitHub Token -->
-        <div class="bg-white p-6 rounded-2xl shadow border border-slate-200">
-            <h2 class="font-bold text-lg text-emerald-950 mb-3"><i class="fa-solid fa-key text-amber-500 mr-2"></i> Konfigurasi Repositori GitHub</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block font-semibold mb-1">Username GitHub</label>
-                    <input type="text" id="gh-user" placeholder="contoh: username" class="w-full border rounded-lg p-2 bg-slate-50">
+                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Username</label>
+                    <input type="text" id="login-user" required placeholder="admin" class="w-full border rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
                 </div>
                 <div>
-                    <label class="block font-semibold mb-1">Nama Repositori</label>
-                    <input type="text" id="gh-repo" placeholder="contoh: website-alfirdaus" class="w-full border rounded-lg p-2 bg-slate-50">
+                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Password</label>
+                    <input type="password" id="login-pass" required placeholder="••••••••" class="w-full border rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-600 outline-none">
                 </div>
-                <div>
-                    <label class="block font-semibold mb-1">GitHub Personal Token (PAT)</label>
-                    <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxx" class="w-full border rounded-lg p-2 bg-slate-50">
-                </div>
-            </div>
-            <p class="text-xs text-slate-500 mt-2">*Token ini disimpan di browser Anda untuk keperluan commit data ke GitHub.</p>
-        </div>
-
-        <!-- Pengaturan Aktif/Nonaktif Seksi Tampilan -->
-        <div class="bg-white p-6 rounded-2xl shadow border border-slate-200">
-            <h2 class="font-bold text-lg text-emerald-950 mb-4"><i class="fa-solid fa-eye text-emerald-600 mr-2"></i> Kontrol Tampilan Seksi Website</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="section-toggles">
-                <!-- Toggle item diisi lewat JS -->
-            </div>
-        </div>
-
-        <!-- Manajemen Berita / Postingan -->
-        <div class="bg-white p-6 rounded-2xl shadow border border-slate-200 space-y-4">
-            <div class="flex justify-between items-center">
-                <h2 class="font-bold text-lg text-emerald-950"><i class="fa-solid fa-newspaper text-blue-600 mr-2"></i> Kelola Berita & Pengumuman</h2>
-                <button onclick="tambahPostingan()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-lg hover:bg-emerald-800">
-                    + Tambah Berita Baru
+                <p id="login-err" class="text-red-500 text-xs hidden text-center font-bold">Username atau Password salah!</p>
+                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl transition shadow-lg">
+                    Masuk ke Dashboard
                 </button>
-            </div>
-
-            <div id="posts-container" class="space-y-4">
-                <!-- List berita diisi lewat JS -->
-            </div>
+            </form>
         </div>
     </div>
 
-    <script>
-        let siteData = { sections: {}, posts: [] };
-        let fileSha = ""; // Diperlukan GitHub API untuk update file
+    <!-- MAIN DASHBOARD CONTENT (Tersembunyi sebelum login) -->
+    <div id="admin-dashboard" class="hidden p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
 
-        const sectionNames = {
-            hero: "Header / Hero Banner",
+        <!-- Top Header Bar -->
+        <div class="bg-emerald-950 text-white p-6 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-extrabold flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-amber-400"></i> Panel Kontrol Website
+                </h1>
+                <p class="text-xs text-emerald-300 mt-1">Edit seluruh tampilan, slider, berita, dan pengaturan website</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-6 py-3 rounded-2xl transition shadow-lg flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+                </button>
+                <button onclick="logout()" class="bg-red-600/80 hover:bg-red-700 text-white p-3 rounded-2xl transition text-sm" title="Keluar">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Konfigurasi Token GitHub API -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+                <i class="fa-brands fa-github text-emerald-700"></i> Akses Repositori GitHub
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                <input type="text" id="gh-user" placeholder="Username GitHub" class="border p-2.5 rounded-xl bg-slate-50">
+                <input type="text" id="gh-repo" placeholder="Nama Repositori" class="border p-2.5 rounded-xl bg-slate-50">
+                <input type="password" id="gh-token" placeholder="Personal Access Token (ghp_...)" class="border p-2.5 rounded-xl bg-slate-50">
+            </div>
+        </div>
+
+        <!-- Tab Navigation Menu -->
+        <div class="flex gap-2 overflow-x-auto pb-2 border-b border-slate-300 text-sm font-bold">
+            <button onclick="switchTab('info')" id="btn-tab-info" class="tab-btn bg-emerald-800 text-white px-5 py-2.5 rounded-xl shadow">Info Sekolah</button>
+            <button onclick="switchTab('hero')" id="btn-tab-hero" class="tab-btn text-slate-600 hover:bg-emerald-100 px-5 py-2.5 rounded-xl">Hero Slider</button>
+            <button onclick="switchTab('stats')" id="btn-tab-stats" class="tab-btn text-slate-600 hover:bg-emerald-100 px-5 py-2.5 rounded-xl">Statistik</button>
+            <button onclick="switchTab('seksi')" id="btn-tab-seksi" class="tab-btn text-slate-600 hover:bg-emerald-100 px-5 py-2.5 rounded-xl">Seksi Tampilan</button>
+            <button onclick="switchTab('berita')" id="btn-tab-berita" class="tab-btn text-slate-600 hover:bg-emerald-100 px-5 py-2.5 rounded-xl">Berita & Label</button>
+            <button onclick="switchTab('auth')" id="btn-tab-auth" class="tab-btn text-slate-600 hover:bg-emerald-100 px-5 py-2.5 rounded-xl">Keamanan</button>
+        </div>
+
+        <!-- TAB 1: INFO SEKOLAH & KONTAK -->
+        <div id="tab-info" class="tab-content bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <h3 class="font-bold text-lg text-emerald-950">Informasi Umum & Kontak</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <label class="font-bold block mb-1">Nama Instansi / Brand</label>
+                    <input type="text" id="info-brand" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Sub-judul / Tagline</label>
+                    <input type="text" id="info-tagline" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Nomor Telepon / Hotline</label>
+                    <input type="text" id="info-phone" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Email Resmi</label>
+                    <input type="email" id="info-email" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Nomor WhatsApp Konsultasi (Format 62...)</label>
+                    <input type="text" id="info-wa" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Alamat Lengkap</label>
+                    <input type="text" id="info-address" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: HERO SLIDER EDITOR -->
+        <div id="tab-hero" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-lg text-emerald-950">Pengaturan Slide Hero (Banner Utama)</h3>
+                <button onclick="tambahSlideHero()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl hover:bg-emerald-800">+ Tambah Slide</button>
+            </div>
+            <div id="hero-slides-container" class="space-y-4"></div>
+        </div>
+
+        <!-- TAB 3: STATISTIK COUNTER -->
+        <div id="tab-stats" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <h3 class="font-bold text-lg text-emerald-950">Pengaturan Angka Counter Statistik</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+                <div>
+                    <label class="font-bold block mb-1">Santri Aktif</label>
+                    <input type="number" id="stat-santri" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Hafizh 30 Juz</label>
+                    <input type="number" id="stat-hafizh" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Asatidzh & Pengajar</label>
+                    <input type="number" id="stat-asatidzh" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Prestasi Nasional</label>
+                    <input type="number" id="stat-prestasi" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: KONTROL SEKSI TAMPILAN -->
+        <div id="tab-seksi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <h3 class="font-bold text-lg text-emerald-950">Aktifkan / Nonaktifkan Seksi Tampilan</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="seksi-toggles"></div>
+        </div>
+
+        <!-- TAB 5: BERITA & LABEL -->
+        <div id="tab-berita" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-lg text-emerald-950">Kelola Berita & Label</h3>
+                <button onclick="tambahBerita()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl hover:bg-emerald-800">+ Tambah Berita Baru</button>
+            </div>
+            <div id="berita-list-container" class="space-y-4"></div>
+        </div>
+
+        <!-- TAB 6: KEAMANAN LOGIN -->
+        <div id="tab-auth" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+            <h3 class="font-bold text-lg text-emerald-950">Ubah Username & Password Admin</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <label class="font-bold block mb-1">Username Admin Baru</label>
+                    <input type="text" id="auth-user" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+                <div>
+                    <label class="font-bold block mb-1">Password Admin Baru</label>
+                    <input type="text" id="auth-pass" class="w-full border p-3 rounded-xl bg-slate-50">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let siteData = {};
+        let fileSha = "";
+
+        const sectionLabels = {
+            hero: "Header & Banner Hero",
             sambutan: "Kata Sambutan Mudir",
             program: "Program Unggulan",
             jenjang: "Jenjang Pendidikan",
             jadwal: "Jadwal Harian Santri",
             fasilitas: "Fasilitas Kampus",
-            simulasi: "Kalkulator Simulasi Biaya",
+            simulasi: "Kalkulator Biaya",
             berita: "Berita & Pengumuman",
-            kontak: "Footer & Kontak"
+            kontak: "Footer & Kontak Sekretariat"
         };
 
-        // Muat Konfigurasi GitHub dari LocalStorage
-        document.getElementById('gh-user').value = localStorage.getItem('gh_user') || '';
-        document.getElementById('gh-repo').value = localStorage.getItem('gh_repo') || '';
-        document.getElementById('gh-token').value = localStorage.getItem('gh_token') || '';
+        // Memuat Data Pertama Kali
+        async function initData() {
+            const user = localStorage.getItem('gh_user') || '';
+            const repo = localStorage.getItem('gh_repo') || '';
+            const token = localStorage.getItem('gh_token') || '';
 
-        // Load Data dari GitHub API atau data.json
-        async function loadData() {
-            const user = document.getElementById('gh-user').value;
-            const repo = document.getElementById('gh-repo').value;
+            document.getElementById('gh-user').value = user;
+            document.getElementById('gh-repo').value = repo;
+            document.getElementById('gh-token').value = token;
 
             try {
                 let url = `data.json?t=${new Date().getTime()}`;
-                if(user && repo) {
+                if (user && repo) {
                     url = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
                 }
-
                 const res = await fetch(url);
-                if (!res.ok) throw new Error("Gagal mengambil data.json");
-
                 const json = await res.json();
+
                 if (json.content) {
                     fileSha = json.sha;
-                    const decoded = decodeURIComponent(escape(atob(json.content)));
-                    siteData = JSON.parse(decoded);
+                    siteData = JSON.parse(decodeURIComponent(escape(atob(json.content))));
                 } else {
                     siteData = json;
                 }
-
-                renderToggles();
-                renderPosts();
             } catch (e) {
-                alert("Gagal memuat data.json. Pastikan pengaturan GitHub sudah benar.");
+                console.log("Error loading data.json:", e);
             }
         }
 
-        function renderToggles() {
-            const container = document.getElementById('section-toggles');
-            container.innerHTML = '';
-            Object.keys(sectionNames).forEach(key => {
-                const isChecked = siteData.sections[key] !== false;
-                container.innerHTML += `
-                    <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer justify-between">
-                        <span class="text-sm font-semibold">${sectionNames[key]}</span>
-                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleSection('${key}', this.checked)" class="w-5 h-5 accent-emerald-600">
-                    </label>
-                `;
-            });
+        // Handle Login
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('login-user').value;
+            const p = document.getElementById('login-pass').value;
+
+            const validUser = siteData.auth ? siteData.auth.username : 'admin';
+            const validPass = siteData.auth ? siteData.auth.password : 'admin123';
+
+            if (u === validUser && p === validPass) {
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                populateFormFields();
+            } else {
+                document.getElementById('login-err').classList.remove('hidden');
+            }
         }
 
-        function toggleSection(key, value) {
-            siteData.sections[key] = value;
+        function logout() {
+            location.reload();
         }
 
-        function renderPosts() {
-            const container = document.getElementById('posts-container');
+        // Pindahkan data JSON ke Form Input
+        function populateFormFields() {
+            // Info Sekolah
+            document.getElementById('info-brand').value = siteData.site_info.brand_name || '';
+            document.getElementById('info-tagline').value = siteData.site_info.tagline || '';
+            document.getElementById('info-phone').value = siteData.site_info.phone || '';
+            document.getElementById('info-email').value = siteData.site_info.email || '';
+            document.getElementById('info-wa').value = siteData.site_info.wa_number || '';
+            document.getElementById('info-address').value = siteData.site_info.address || '';
+
+            // Stats
+            document.getElementById('stat-santri').value = siteData.stats.santri || 0;
+            document.getElementById('stat-hafizh').value = siteData.stats.hafizh || 0;
+            document.getElementById('stat-asatidzh').value = siteData.stats.asatidzh || 0;
+            document.getElementById('stat-prestasi').value = siteData.stats.prestasi || 0;
+
+            // Auth
+            document.getElementById('auth-user').value = siteData.auth.username || 'admin';
+            document.getElementById('auth-pass').value = siteData.auth.password || 'admin123';
+
+            renderHeroSlides();
+            renderSeksiToggles();
+            renderBeritaList();
+        }
+
+        // Render Slide Hero
+        function renderHeroSlides() {
+            const container = document.getElementById('hero-slides-container');
             container.innerHTML = '';
-            siteData.posts.forEach((post, index) => {
+            (siteData.hero_slides || []).forEach((slide, idx) => {
                 container.innerHTML += `
-                    <div class="border rounded-xl p-4 bg-slate-50 space-y-3 relative">
-                        <button onclick="hapusPost(${index})" class="absolute top-3 right-3 text-red-500 hover:text-red-700 text-xs font-bold">
-                            <i class="fa-solid fa-trash"></i> Hapus
-                        </button>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                            <div>
-                                <label class="font-bold">Judul Berita</label>
-                                <input type="text" value="${post.judul}" onchange="updatePost(${index}, 'judul', this.value)" class="w-full border p-2 rounded mt-1">
-                            </div>
-                            <div>
-                                <label class="font-bold">Label / Kategori</label>
-                                <input type="text" value="${post.label}" onchange="updatePost(${index}, 'label', this.value)" class="w-full border p-2 rounded mt-1" placeholder="Contoh: Tahfizh, Prestasi">
-                            </div>
+                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2 relative text-xs">
+                        <button onclick="hapusSlideHero(${idx})" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="font-bold text-emerald-800">Slide #${idx + 1}</div>
+                        <div>
+                            <label class="font-semibold">Badge / Label Atas</label>
+                            <input type="text" value="${slide.badge}" onchange="siteData.hero_slides[${idx}].badge=this.value" class="w-full border p-2 rounded-xl mt-1">
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                            <div>
-                                <label class="font-bold">URL Gambar</label>
-                                <input type="text" value="${post.gambar}" onchange="updatePost(${index}, 'gambar', this.value)" class="w-full border p-2 rounded mt-1">
-                            </div>
-                            <div>
-                                <label class="font-bold">Tanggal</label>
-                                <input type="date" value="${post.tanggal}" onchange="updatePost(${index}, 'tanggal', this.value)" class="w-full border p-2 rounded mt-1">
-                            </div>
+                        <div>
+                            <label class="font-semibold">Judul Utama Slide</label>
+                            <input type="text" value="${slide.title}" onchange="siteData.hero_slides[${idx}].title=this.value" class="w-full border p-2 rounded-xl mt-1">
                         </div>
-                        <div class="text-xs">
-                            <label class="font-bold">Ringkasan / Isi Singkat</label>
-                            <textarea onchange="updatePost(${index}, 'ringkasan', this.value)" class="w-full border p-2 rounded mt-1">${post.ringkasan}</textarea>
+                        <div>
+                            <label class="font-semibold">Deskripsi Singkat</label>
+                            <textarea onchange="siteData.hero_slides[${idx}].desc=this.value" class="w-full border p-2 rounded-xl mt-1">${slide.desc}</textarea>
+                        </div>
+                        <div>
+                            <label class="font-semibold">URL Gambar Slide</label>
+                            <input type="text" value="${slide.image}" onchange="siteData.hero_slides[${idx}].image=this.value" class="w-full border p-2 rounded-xl mt-1">
                         </div>
                     </div>
                 `;
             });
         }
 
-        function tambahPostingan() {
+        function tambahSlideHero() {
+            siteData.hero_slides.push({
+                badge: "Informasi Baru",
+                title: "Judul Slide Baru",
+                desc: "Deskripsi singkat mengenai slide baru ini.",
+                image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800"
+            });
+            renderHeroSlides();
+        }
+
+        function hapusSlideHero(idx) {
+            siteData.hero_slides.splice(idx, 1);
+            renderHeroSlides();
+        }
+
+        // Render Seksi Toggles
+        function renderSeksiToggles() {
+            const container = document.getElementById('seksi-toggles');
+            container.innerHTML = '';
+            Object.keys(sectionLabels).forEach(key => {
+                const checked = siteData.sections[key] !== false;
+                container.innerHTML += `
+                    <label class="flex justify-between items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer text-xs font-bold">
+                        <span>${sectionLabels[key]}</span>
+                        <input type="checkbox" ${checked ? 'checked' : ''} onchange="siteData.sections['${key}']=this.checked" class="w-5 h-5 accent-emerald-600">
+                    </label>
+                `;
+            });
+        }
+
+        // Render Berita List
+        function renderBeritaList() {
+            const container = document.getElementById('berita-list-container');
+            container.innerHTML = '';
+            (siteData.posts || []).forEach((post, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2 relative text-xs">
+                        <button onclick="hapusBerita(${idx})" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="font-bold">Judul Berita</label>
+                                <input type="text" value="${post.judul}" onchange="siteData.posts[${idx}].judul=this.value" class="w-full border p-2 rounded-xl mt-1">
+                            </div>
+                            <div>
+                                <label class="font-bold">Label / Kategori</label>
+                                <input type="text" value="${post.label}" onchange="siteData.posts[${idx}].label=this.value" class="w-full border p-2 rounded-xl mt-1">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="font-bold">Tanggal</label>
+                                <input type="date" value="${post.tanggal}" onchange="siteData.posts[${idx}].tanggal=this.value" class="w-full border p-2 rounded-xl mt-1">
+                            </div>
+                            <div>
+                                <label class="font-bold">URL Gambar Berita</label>
+                                <input type="text" value="${post.gambar}" onchange="siteData.posts[${idx}].gambar=this.value" class="w-full border p-2 rounded-xl mt-1">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="font-bold">Ringkasan Berita</label>
+                            <textarea onchange="siteData.posts[${idx}].ringkasan=this.value" class="w-full border p-2 rounded-xl mt-1">${post.ringkasan}</textarea>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function tambahBerita() {
             siteData.posts.unshift({
                 id: Date.now().toString(),
                 judul: "Judul Berita Baru",
-                label: "Pengumuman",
+                label: "Kegiatan Santri",
                 tanggal: new Date().toISOString().split('T')[0],
-                ringkasan: "Isi ringkasan berita baru...",
+                ringkasan: "Isi ringkasan berita baru yang menarik.",
                 gambar: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
             });
-            renderPosts();
+            renderBeritaList();
         }
 
-        function updatePost(index, field, value) {
-            siteData.posts[index][field] = value;
+        function hapusBerita(idx) {
+            siteData.posts.splice(idx, 1);
+            renderBeritaList();
         }
 
-        function hapusPost(index) {
-            if (confirm("Hapus berita ini?")) {
-                siteData.posts.splice(index, 1);
-                renderPosts();
-            }
+        // Switch Tab
+        function switchTab(tabKey) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.className = 'tab-btn text-slate-600 hover:bg-emerald-100 px-5 py-2.5 rounded-xl');
+            document.getElementById('tab-' + tabKey).classList.remove('hidden');
+            document.getElementById('btn-tab-' + tabKey).className = 'tab-btn bg-emerald-800 text-white px-5 py-2.5 rounded-xl shadow';
         }
 
-        // Fungsi Commit Data ke Repositori GitHub
+        // Collect Form Updates & Save to GitHub
         async function simpanKeGithub() {
-            const user = document.getElementById('gh-user').value.trim();
-            const repo = document.getElementById('gh-repo').value.trim();
-            const token = document.getElementById('gh-token').value.trim();
+            // Update Info
+            siteData.site_info.brand_name = document.getElementById('info-brand').value;
+            siteData.site_info.tagline = document.getElementById('info-tagline').value;
+            siteData.site_info.phone = document.getElementById('info-phone').value;
+            siteData.site_info.email = document.getElementById('info-email').value;
+            siteData.site_info.wa_number = document.getElementById('info-wa').value;
+            siteData.site_info.address = document.getElementById('info-address').value;
 
-            if (!user || !repo || !token) {
-                alert("Harap isi Username, Nama Repositori, dan Personal Access Token GitHub!");
+            // Update Stats
+            siteData.stats.santri = document.getElementById('stat-santri').value;
+            siteData.stats.hafizh = document.getElementById('stat-hafizh').value;
+            siteData.stats.asatidzh = document.getElementById('stat-asatidzh').value;
+            siteData.stats.prestasi = document.getElementById('stat-prestasi').value;
+
+            // Update Auth
+            siteData.auth.username = document.getElementById('auth-user').value;
+            siteData.auth.password = document.getElementById('auth-pass').value;
+
+            const u = document.getElementById('gh-user').value.trim();
+            const r = document.getElementById('gh-repo').value.trim();
+            const t = document.getElementById('gh-token').value.trim();
+
+            if (!u || !r || !t) {
+                alert("Mohon isi Username, Nama Repositori, dan Token Akses GitHub!");
                 return;
             }
 
-            // Simpan credential secara lokal
-            localStorage.setItem('gh_user', user);
-            localStorage.setItem('gh_repo', repo);
-            localStorage.setItem('gh_token', token);
+            localStorage.setItem('gh_user', u);
+            localStorage.setItem('gh_repo', r);
+            localStorage.setItem('gh_token', t);
 
-            const jsonString = JSON.stringify(siteData, null, 2);
-            const encodedContent = btoa(unescape(encodeURIComponent(jsonString)));
-
-            const url = `https://api.github.com/repos/${user}/${repo}/contents/data.json`;
-
-            const bodyData = {
-                message: "Update data website via Admin Dashboard",
-                content: encodedContent,
-                sha: fileSha
-            };
+            const contentString = JSON.stringify(siteData, null, 2);
+            const encoded = btoa(unescape(encodeURIComponent(contentString)));
 
             try {
-                const res = await fetch(url, {
+                const res = await fetch(`https://api.github.com/repos/${u}/${r}/contents/data.json`, {
                     method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${token}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(bodyData)
+                    headers: { 'Authorization': `token ${t}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: "Update website content via Admin Panel",
+                        content: encoded,
+                        sha: fileSha
+                    })
                 });
 
                 if (res.ok) {
@@ -236,15 +440,14 @@
                     fileSha = result.content.sha;
                     alert("Berhasil disimpan ke GitHub! Tampilan website akan terbarui otomatis dalam 1-2 menit.");
                 } else {
-                    const err = await res.json();
-                    alert("Gagal menyimpan: " + (err.message || "Periksa token/repositori Anda."));
+                    alert("Gagal menyimpan. Pastikan Personal Access Token valid!");
                 }
             } catch (e) {
-                alert("Terjadi kesalahan koneksi ke GitHub API.");
+                alert("Terjadi kesalahan koneksi GitHub API.");
             }
         }
 
-        window.onload = loadData;
+        window.onload = initData;
     </script>
 </body>
 </html>
