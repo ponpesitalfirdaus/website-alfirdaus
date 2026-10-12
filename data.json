@@ -19,12 +19,12 @@
       "url": "#",
       "dropdown": [
         { "label": "Sambutan Mudir", "url": "#sambutan" },
-        { "label": "Sejarah & Visi Misi", "url": "#sejarah" }
+        { "label": "Sejarah & Visi Misi", "url": "#page-sejarah" }
       ]
     },
     {
       "label": "Program",
-      "url": "#",
+      "url": "#program",
       "dropdown": [
         { "label": "Tahfizh 30 Juz", "url": "#program" },
         { "label": "Bilingual", "url": "#program" }
@@ -40,7 +40,7 @@
     {
       "slug": "sejarah",
       "title": "Sejarah & Visi Misi Pesantren",
-      "content": "Pondok Pesantren SIT Al Firdaus didirikan dengan cita-cita mencetak generasi Qur'ani..."
+      "content": "<p>Pondok Pesantren SIT Al Firdaus didirikan dengan cita-cita mencetak generasi Rabbani yang menguasai Al-Qur'an dan teknologi modern.</p>"
     }
   ],
   "sambutan": {
@@ -64,26 +64,10 @@
     "title": "Program Unggulan Pesantren",
     "subtitle": "Empat pilar utama pendidikan di SIT Al Firdaus dalam mencetak santri unggul.",
     "items": [
-      {
-        "icon": "fa-book-quran",
-        "title": "Tahfizh Qur'an 30 Juz",
-        "desc": "Metode Al-Firdaus Mutqin dengan bimbingan Asatidzh Al-Hafizh ber-sanad."
-      },
-      {
-        "icon": "fa-comments",
-        "title": "Bilingual Arabic & English",
-        "desc": "Penerapan bahasa Arab dan Inggris secara aktif dalam muhadatsah harian."
-      },
-      {
-        "icon": "fa-code",
-        "title": "STEM & Digital Academy",
-        "desc": "Pelatihan Coding, Web Development, Robotik, dan Desain Grafis."
-      },
-      {
-        "icon": "fa-scroll",
-        "title": "Turats & Kitab Kuning",
-        "desc": "Kajian mendalam Nahwu Sharaf, Fiqih Syafi'i, dan Hadits."
-      }
+      { "icon": "fa-book-quran", "title": "Tahfizh Qur'an 30 Juz", "desc": "Metode Al-Firdaus Mutqin dengan bimbingan Asatidzh Al-Hafizh ber-sanad." },
+      { "icon": "fa-comments", "title": "Bilingual Arabic & English", "desc": "Penerapan bahasa Arab dan Inggris secara aktif dalam muhadatsah harian." },
+      { "icon": "fa-code", "title": "STEM & Digital Academy", "desc": "Pelatihan Coding, Web Development, Robotik, dan Desain Grafis." },
+      { "icon": "fa-scroll", "title": "Turats & Kitab Kuning", "desc": "Kajian mendalam Nahwu Sharaf, Fiqih Syafi'i, dan Hadits." }
     ]
   },
   "jenjang_section": {
@@ -98,7 +82,7 @@
         "title": "RA / TKIT Al Firdaus (Usia Dini)",
         "desc": "Pendidikan anak usia dini berbasis pembentukan karakter Islami dan pengenalan Hijaiyah.",
         "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800",
-        "checks": ["Target Hafalan Juz 30", "Sentra Play & Learn Modern", "Native English/Arabic Basic"]
+        "checks": ["Target Hafalan Juz 30", "Sentra Play & Learn Modern", "Native Vocabulary Early Stage"]
       },
       {
         "id": "sdit",
@@ -108,6 +92,24 @@
         "desc": "Mengintegrasikan Kurikulum Nasional Diknas dengan nilai-nilai Keislaman.",
         "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800",
         "checks": ["Target Hafalan 3 - 5 Juz", "Ekstrakurikuler Archery & Coding", "Class size maksimal 24 siswa"]
+      },
+      {
+        "id": "smpit",
+        "label": "SMPIT Boarding",
+        "badge": "Boarding / Asrama",
+        "title": "SMPIT Al Firdaus (Junior High Boarding)",
+        "desc": "Program menengah pertama dengan sistem asrama penuh. Fokus pada penguatan hafalan Al-Qur'an dan kepemimpinan.",
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
+        "checks": ["Target Hafalan 10 - 15 Juz", "Penguasaan Nahwu Sharaf Dasar", "Mentoring Karakter Santri"]
+      },
+      {
+        "id": "smait",
+        "label": "SMAIT / MA Boarding",
+        "badge": "Boarding / Asrama Unggulan",
+        "title": "SMAIT / MA Al Firdaus (Senior High Boarding)",
+        "desc": "Mempersiapkan santri menuju universitas favorit dalam dan luar negeri (Al-Azhar Mesir, Madinah, UI, ITB).",
+        "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+        "checks": ["Target Mutqin 30 Juz & Sanad", "Bimbingan UTBK & Muadalah Timur Tengah", "Program Research Paper"]
       }
     ]
   },
@@ -116,18 +118,10 @@
     "title": "Jadwal Harian Santri Boarding",
     "subtitle": "Disiplin dan pembiasaan ibadah dari sebelum Subuh hingga malam hari.",
     "items": [
-      {
-        "time": "03.30 - 05.00 WIB",
-        "icon": "fa-moon",
-        "title": "Qiyamul Lail & Subuh",
-        "desc": "Sholat Tahajjud, Sahur Sunnah, Sholat Subuh Berjamaah & Zikir Pagi."
-      },
-      {
-        "time": "05.00 - 06.30 WIB",
-        "icon": "fa-book-quran",
-        "title": "Halaqah Tahfizh Pagi",
-        "desc": "Setor hafalan baru (Ziyadah) kepada Ustadz Halqah masing-masing."
-      }
+      { "time": "03.30 - 05.00 WIB", "title": "Qiyamul Lail & Subuh", "desc": "Sholat Tahajjud, Sahur Sunnah, Sholat Subuh Berjamaah & Zikir Pagi." },
+      { "time": "05.00 - 06.30 WIB", "title": "Halaqah Tahfizh Pagi", "desc": "Setor hafalan baru (Ziyadah) kepada Ustadz Halqah masing-masing." },
+      { "time": "07.00 - 15.00 WIB", "title": "Sekolah Formal & STEM", "desc": "KBM Kurikulum Formal, Sholat Dhuha, Dzuhur, dan Makan Siang." },
+      { "time": "15.30 - 17.00 WIB", "title": "Kajian Kitab & Ekstrakurikuler", "desc": "Kajian Fiqih, Bahasa Arab, Olahraga Panahan/Berkuda." }
     ]
   },
   "fasilitas_section": {
@@ -135,25 +129,53 @@
     "title": "Fasilitas Kampus & Boarding",
     "subtitle": "Menunjang kenyamanan santri dalam beribadah, belajar, dan beraktivitas.",
     "items": [
+      { "title": "Masjid Utama Al Firdaus", "desc": "Masjid ber-AC kapasitas 2.000 jamaah dengan karpet standar Madinah.", "image": "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800" },
+      { "title": "Asrama Ber-AC", "desc": "Kamar yang bersih, nyaman, ber-AC dengan pendampingan Musyrif 24 jam.", "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800" },
+      { "title": "Laboratorium STEM & Bahasa", "desc": "Dilengkapi perangkat komputer modern dan audio lab.", "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800" }
+    ]
+  },
+  "simulasi_section": {
+    "badge": "Transparansi Biaya",
+    "title": "Simulasi & Estimasi Biaya PPDB",
+    "subtitle": "Hitung estimasi investasi pendidikan putra-putri Anda secara transparan.",
+    "discount_prestasi_percent": 25,
+    "pricing": {
+      "sdit": { "pangkal": 8500000, "spp": 850000, "seragam": 1800000 },
+      "smpit": { "pangkal": 12500000, "spp": 1800000, "seragam": 2200000 },
+      "smait": { "pangkal": 14500000, "spp": 2100000, "seragam": 2400000 }
+    }
+  },
+  "alumni_section": {
+    "badge": "Sebaran Alumni SIT Al Firdaus",
+    "title": "Diterima Di Perguruan Tinggi Terkemuka",
+    "subtitle": "Alumni Al Firdaus tersebar di berbagai universitas terbaik dalam dan luar negeri.",
+    "campuses": [
+      "Univ. Islam Madinah", "Al-Azhar Cairo", "Universitas Indonesia", "ITB Bandung", "LIPIA Jakarta"
+    ],
+    "testimonials": [
       {
-        "title": "Masjid Utama Al Firdaus",
-        "desc": "Masjid ber-AC kapasitas 2.000 jamaah dengan karpet standar Madinah.",
-        "image": "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800"
+        "name": "Hj. Siti Rahmah, S.E.",
+        "role": "Wali Santri Ananda Muhammad Rizky (SMAIT)",
+        "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+        "quote": "Alhamdulillah, keputusan terbaik memasukkan anak kami ke Ponpes Al Firdaus. Hafalan Qur'annya capai 30 juz dan lolos Beasiswa Madinah."
       },
       {
-        "title": "Asrama Ber-AC",
-        "desc": "Kamar yang bersih, nyaman, ber-AC dengan pendampingan Musyrif 24 jam.",
-        "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800"
+        "name": "Ustadz Farhan Kamil, Lc.",
+        "role": "Alumni 2022 - Mahasiswa Al-Azhar Mesir",
+        "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
+        "quote": "Gemblengan kedisiplinan dan mutqin hafalan di Al Firdaus menjadi modal utama saya menempuh ujian ke Kairo."
       }
     ]
   },
+  "footer": {
+    "bio_text": "Lembaga Pendidikan Islam Terpadu & Pesantren Modern yang mencetak generasi Rabbani berakhlak mulia, hafal Al-Qur'an, dan menguasai teknologi modern.",
+    "copyright": "© 2026 Pondok Pesantren SIT Al Firdaus. Hak Cipta Dilindungi Undang-Undang.",
+    "privacy_link": "#",
+    "terms_link": "#"
+  },
   "site_info": {
     "brand_name": "PONPES SIT AL FIRDAUS",
-    "tagline": "Islamic Boarding & Excellent School",
-    "address": "Jl. Firdaus No. 99, Kawasan Pesantren, Kota Al-Madinah",
-    "phone": "(021) 8765-4321 / +62 812-3456-7890",
-    "email": "info@ponpesalfirdaus.sch.id",
-    "wa_number": "6281234567890"
+    "tagline": "Islamic Boarding & Excellent School"
   },
   "hero_slides": [
     {
@@ -177,6 +199,7 @@
     "jadwal": true,
     "fasilitas": true,
     "simulasi": true,
+    "alumni": true,
     "berita": true,
     "kontak": true
   },
