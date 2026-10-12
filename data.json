@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "hero": true,
+    "sambutan": true,
+    "program": true,
+    "jenjang": true,
+    "jadwal": true,
+    "fasilitas": true,
+    "simulasi": true,
+    "berita": true,
+    "kontak": true
+  },
+  "posts": [
+    {
+      "id": "1",
+      "judul": "Wisuda Khotmil Qur’an Ke-12: 45 Santri Berhasil Raih Sanad Mutqin",
+      "label": "Wisuda Tahfizh",
+      "tanggal": "2026-10-12",
+      "ringkasan": "Suasana haru dan bangga menyelimuti aula utama Ponpes SIT Al Firdaus saat prosesi wisuda dan penyematan mahkota.",
+      "gambar": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
+    }
+  ]
+}
