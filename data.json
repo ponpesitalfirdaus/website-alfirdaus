@@ -3,6 +3,150 @@
     "username": "admin",
     "password": "admin123"
   },
+  "topbar": {
+    "address": "Jl. Firdaus No. 99, Kawasan Pesantren, Kota Al-Madinah",
+    "phone": "(021) 8765-4321 / +62 812-3456-7890",
+    "email": "info@ponpesalfirdaus.sch.id",
+    "facebook": "#",
+    "instagram": "#",
+    "youtube": "#",
+    "tiktok": "#"
+  },
+  "navigation": [
+    { "label": "Beranda", "url": "#beranda", "dropdown": [] },
+    {
+      "label": "Profil",
+      "url": "#",
+      "dropdown": [
+        { "label": "Sambutan Mudir", "url": "#sambutan" },
+        { "label": "Sejarah & Visi Misi", "url": "#sejarah" }
+      ]
+    },
+    {
+      "label": "Program",
+      "url": "#",
+      "dropdown": [
+        { "label": "Tahfizh 30 Juz", "url": "#program" },
+        { "label": "Bilingual", "url": "#program" }
+      ]
+    },
+    { "label": "Jenjang", "url": "#jenjang", "dropdown": [] },
+    { "label": "Fasilitas", "url": "#fasilitas", "dropdown": [] },
+    { "label": "Jadwal Harian", "url": "#jadwal", "dropdown": [] },
+    { "label": "Berita", "url": "#berita", "dropdown": [] },
+    { "label": "Kontak", "url": "#kontak", "dropdown": [] }
+  ],
+  "custom_pages": [
+    {
+      "slug": "sejarah",
+      "title": "Sejarah & Visi Misi Pesantren",
+      "content": "Pondok Pesantren SIT Al Firdaus didirikan dengan cita-cita mencetak generasi Qur'ani..."
+    }
+  ],
+  "sambutan": {
+    "badge": "Kata Sambutan Mudir",
+    "title": "Mendidik dengan Hati, Membimbing dengan Sunnah, Menggapai Prestasi Dunia & Akhirat",
+    "arabic": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ. الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ وَالصَّلاَةُ وَالسَّلاَمُ عَلَى أَشْرَفِ الأَنْبِيَاءِ وَالْمُرْسَلِينَ",
+    "p1": "Assalamu’alaikum Warahmatullahi Wabarakatuh. Selamat datang di portal resmi **Pondok Pesantren & SIT Al Firdaus**.",
+    "p2": "Santri di Al Firdaus tidak hanya ditempa untuk cerdas secara intelektual, tetapi juga dibina akhlak karimahnya.",
+    "name": "KH. Dr. Ahmad Al-Firdaus, Lc., M.A.",
+    "position": "Pimpinan / Mudir Ma'had SIT Al Firdaus",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+    "checks": [
+      "Kurikulum Merdeka + Diniyah",
+      "Sanad Al-Qur'an Bersambung",
+      "Bilingual Active Daily",
+      "Beasiswa PTN & Luar Negeri"
+    ]
+  },
+  "program_section": {
+    "badge": "Keunggulan Kami",
+    "title": "Program Unggulan Pesantren",
+    "subtitle": "Empat pilar utama pendidikan di SIT Al Firdaus dalam mencetak santri unggul.",
+    "items": [
+      {
+        "icon": "fa-book-quran",
+        "title": "Tahfizh Qur'an 30 Juz",
+        "desc": "Metode Al-Firdaus Mutqin dengan bimbingan Asatidzh Al-Hafizh ber-sanad."
+      },
+      {
+        "icon": "fa-comments",
+        "title": "Bilingual Arabic & English",
+        "desc": "Penerapan bahasa Arab dan Inggris secara aktif dalam muhadatsah harian."
+      },
+      {
+        "icon": "fa-code",
+        "title": "STEM & Digital Academy",
+        "desc": "Pelatihan Coding, Web Development, Robotik, dan Desain Grafis."
+      },
+      {
+        "icon": "fa-scroll",
+        "title": "Turats & Kitab Kuning",
+        "desc": "Kajian mendalam Nahwu Sharaf, Fiqih Syafi'i, dan Hadits."
+      }
+    ]
+  },
+  "jenjang_section": {
+    "badge": "Formal & Non-Formal",
+    "title": "Jenjang Pendidikan SIT Al Firdaus",
+    "subtitle": "Tersedia pilihan Fullday School dan Pesantren Boarding School.",
+    "items": [
+      {
+        "id": "tkit",
+        "label": "RA / TKIT",
+        "badge": "Usia 4 - 6 Tahun",
+        "title": "RA / TKIT Al Firdaus (Usia Dini)",
+        "desc": "Pendidikan anak usia dini berbasis pembentukan karakter Islami dan pengenalan Hijaiyah.",
+        "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800",
+        "checks": ["Target Hafalan Juz 30", "Sentra Play & Learn Modern", "Native English/Arabic Basic"]
+      },
+      {
+        "id": "sdit",
+        "label": "SDIT Al Firdaus",
+        "badge": "Fullday School",
+        "title": "SDIT Al Firdaus (Sekolah Dasar Terpadu)",
+        "desc": "Mengintegrasikan Kurikulum Nasional Diknas dengan nilai-nilai Keislaman.",
+        "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800",
+        "checks": ["Target Hafalan 3 - 5 Juz", "Ekstrakurikuler Archery & Coding", "Class size maksimal 24 siswa"]
+      }
+    ]
+  },
+  "jadwal_section": {
+    "badge": "Rutinitas Santri",
+    "title": "Jadwal Harian Santri Boarding",
+    "subtitle": "Disiplin dan pembiasaan ibadah dari sebelum Subuh hingga malam hari.",
+    "items": [
+      {
+        "time": "03.30 - 05.00 WIB",
+        "icon": "fa-moon",
+        "title": "Qiyamul Lail & Subuh",
+        "desc": "Sholat Tahajjud, Sahur Sunnah, Sholat Subuh Berjamaah & Zikir Pagi."
+      },
+      {
+        "time": "05.00 - 06.30 WIB",
+        "icon": "fa-book-quran",
+        "title": "Halaqah Tahfizh Pagi",
+        "desc": "Setor hafalan baru (Ziyadah) kepada Ustadz Halqah masing-masing."
+      }
+    ]
+  },
+  "fasilitas_section": {
+    "badge": "Sarana Berstandar Internasional",
+    "title": "Fasilitas Kampus & Boarding",
+    "subtitle": "Menunjang kenyamanan santri dalam beribadah, belajar, dan beraktivitas.",
+    "items": [
+      {
+        "title": "Masjid Utama Al Firdaus",
+        "desc": "Masjid ber-AC kapasitas 2.000 jamaah dengan karpet standar Madinah.",
+        "image": "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "title": "Asrama Ber-AC",
+        "desc": "Kamar yang bersih, nyaman, ber-AC dengan pendampingan Musyrif 24 jam.",
+        "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
   "site_info": {
     "brand_name": "PONPES SIT AL FIRDAUS",
     "tagline": "Islamic Boarding & Excellent School",
@@ -17,12 +161,6 @@
       "title": "Mencetak Generasi Rabbani, Hafizh Qur'an & Berprestasi Global",
       "desc": "Pondok Pesantren & SIT Al Firdaus memadukan keunggulan Kurikulum Merdeka, Diniyah Pesantren, dan STEM Digital.",
       "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      "badge": "Program Unggulan Bilingual",
-      "title": "Mahir Bahasa Arab & Inggris Sejak Dini",
-      "desc": "Lingkungan asrama dan madrasah berbasis Arabic-English Environment.",
-      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
     }
   ],
   "stats": {
@@ -42,14 +180,5 @@
     "berita": true,
     "kontak": true
   },
-  "posts": [
-    {
-      "id": "1",
-      "judul": "Wisuda Khotmil Qur’an Ke-12: 45 Santri Berhasil Raih Sanad Mutqin",
-      "label": "Wisuda Tahfizh",
-      "tanggal": "2026-10-12",
-      "ringkasan": "Suasana haru dan bangga menyelimuti aula utama Ponpes SIT Al Firdaus.",
-      "gambar": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
-    }
-  ]
+  "posts": []
 }
