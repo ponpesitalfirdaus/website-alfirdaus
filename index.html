@@ -1499,5 +1499,110 @@ document.addEventListener('DOMContentLoaded', applyDynamicConfig);
 
     document.addEventListener('DOMContentLoaded', applyDynamicConfig);
 </script>
+    <script>
+    async function applyDynamicSiteData() {
+        try {
+            const res = await fetch('data.json?t=' + new Date().getTime());
+            if (!res.ok) return;
+            const data = await res.json();
+
+            // 1. Update Info Sekolah & Kontak
+            if (data.site_info) {
+                const info = data.site_info;
+                // Update elemen teks alamat, HP, email jika tersedia di halaman
+                document.querySelectorAll('.info-brand').forEach(el => el.textContent = info.brand_name);
+                document.querySelectorAll('.info-address').forEach(el => el.textContent = info.address);
+                document.querySelectorAll('.info-phone').forEach(el => el.textContent = info.phone);
+                document.querySelectorAll('.info-email').forEach(el => el.textContent = info.email);
+            }
+
+            // 2. Update Angka Counter Statistik
+            if (data.stats) {
+                const santriEl = document.querySelector('[data-target="1250"]');
+                if (santriEl) santriEl.setAttribute('data-target', data.stats.santri);
+
+                const hafizhEl = document.querySelector('[data-target="380"]');
+                if (hafizhEl) hafizhEl.setAttribute('data-target', data.stats.hafizh);
+
+                const asatidzhEl = document.querySelector('[data-target="85"]');
+                if (asatidzhEl) asatidzhEl.setAttribute('data-target', data.stats.asatidzh);
+
+                const prestasiEl = document.querySelector('[data-target="142"]');
+                if (prestasiEl) prestasiEl.setAttribute('data-target', data.stats.prestasi);
+            }
+
+            // 3. Render Hero Slider Dinamis
+            if (data.hero_slides && data.hero_slides.length > 0) {
+                const sliderContainer = document.getElementById('hero-slider');
+                if (sliderContainer) {
+                    sliderContainer.innerHTML = data.hero_slides.map((slide, i) => `
+                        <div class="hero-slide ${i === 0 ? 'block' : 'hidden'} duration-700 ease-in-out transition-opacity py-16 lg:py-24">
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                                <div class="lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+                                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold">
+                                        <i class="fa-solid fa-star"></i> ${slide.badge}
+                                    </div>
+                                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                                        ${slide.title}
+                                    </h1>
+                                    <p class="text-slate-300 text-sm sm:text-lg max-w-2xl font-light leading-relaxed">
+                                        ${slide.desc}
+                                    </p>
+                                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                                        <button onclick="openModal('ppdbModal')" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                                            <i class="fa-solid fa-user-plus"></i> Daftar Sekarang
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-5 relative hidden lg:block">
+                                    <img src="${slide.image}" class="rounded-2xl shadow-2xl border-2 border-white/10 object-cover h-[420px] w-full">
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // 4. Kontrol On/Off Seksi
+            if (data.sections) {
+                Object.keys(data.sections).forEach(key => {
+                    const el = document.getElementById(key);
+                    if (el) {
+                        el.style.display = data.sections[key] === false ? 'none' : 'block';
+                    }
+                });
+            }
+
+            // 5. Render Berita Dinamis
+            if (data.posts && data.posts.length > 0) {
+                const beritaGrid = document.querySelector('#berita .grid');
+                if (beritaGrid) {
+                    beritaGrid.innerHTML = data.posts.map(post => `
+                        <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                            <img src="${post.gambar}" alt="${post.judul}" class="h-48 w-full object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                                    <span><i class="fa-regular fa-calendar text-emerald-600"></i> ${post.tanggal}</span>
+                                    <span>•</span>
+                                    <span class="text-emerald-700 font-semibold">${post.label}</span>
+                                </div>
+                                <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                                    ${post.judul}
+                                </h3>
+                                <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                                    ${post.ringkasan}
+                                </p>
+                            </div>
+                        </article>
+                    `).join('');
+                }
+            }
+        } catch (e) {
+            console.log("Memicu tampilan bawaan index.html");
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', applyDynamicSiteData);
+</script>
 </body>
 </html>
