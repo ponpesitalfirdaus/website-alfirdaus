@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pondok Pesantren & SIT Al Firdaus | Islami, Modern & Berprestasi</title>
-    <meta name="description" content="Website Resmi Pondok Pesantren & Sekolah Islam Terpadu Al Firdaus. Mencetak Generasi Rabbani, Hafizh Qur'an, Berbahasa Internasional, dan Menguasai Teknologi.">
+    <meta name="description" content="Website Resmi Pondok Pesantren & Sekolah Islam Terpadu Al Firdaus.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,31 +22,20 @@
                 extend: {
                     colors: {
                         emerald: {
-                            50: '#ecfdf5',
-                            100: '#d1fae5',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
-                            950: '#022c22',
+                            50: '#ecfdf5', 100: '#d1fae5', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b', 950: '#022c22'
                         },
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        }
+                        gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         arabic: ['Amiri', 'serif'],
-                        kufi: ['Reem Kufi', 'sans-serif'],
+                        kufi: ['Reem Kufi', 'sans-serif']
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom CSS Pattern & Glass Effect -->
     <style>
         .bg-islamic-pattern {
             background-color: #064e3b;
@@ -58,7 +47,6 @@
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .glass-dark {
@@ -72,7 +60,7 @@
 </head>
 <body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-emerald-600 selection:text-white">
 
-    <!-- Top Progress Bar -->
+    <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-400 via-emerald-500 to-teal-300 z-50 transition-all duration-150 w-0"></div>
 
     <!-- HEADER / TOP BAR -->
@@ -80,7 +68,6 @@
         <!-- Top Bar Upper -->
         <div class="bg-emerald-950 text-slate-200 text-xs py-2 px-4 border-b border-emerald-800/50">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-                <!-- Top Bar Kiri -->
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
                     <span class="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
                         <i class="fa-solid fa-location-dot text-amber-400"></i>
@@ -95,8 +82,6 @@
                         <span class="topbar-email">info@ponpesalfirdaus.sch.id</span>
                     </span>
                 </div>
-
-                <!-- Top Bar Kanan -->
                 <div class="flex items-center gap-4">
                     <div class="flex items-center gap-3 border-r border-emerald-800 pr-4">
                         <a href="#" id="tb-link-fb" class="hover:text-amber-400 transition-colors" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -108,7 +93,7 @@
                             <i class="fa-solid fa-calculator text-xs"></i> Cek Biaya
                         </a>
                         <a href="#" onclick="openModal('portalModal')" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold px-2.5 py-1 rounded-md transition-colors text-[11px] flex items-center gap-1">
-                            <i class="fa-solid fa-user-lock text-xs"></i> Portal Wali
+                            <i class="fa-solid fa-user-lock text-xs"></i> Portal Santri & Wali
                         </a>
                     </div>
                 </div>
@@ -119,35 +104,31 @@
         <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300" id="main-navbar">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
-                    
-                    <!-- Brand Identity -->
                     <a href="#" class="flex items-center gap-3 group">
                         <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-900 flex items-center justify-center text-amber-400 font-bold text-2xl shadow-lg group-hover:scale-105 transition-transform">
                             <i class="fa-solid fa-mosque"></i>
                         </div>
                         <div>
-                            <span class="block text-xl font-extrabold tracking-tight text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                            <span class="block text-xl font-extrabold tracking-tight text-emerald-950 group-hover:text-emerald-700 transition-colors header-brand">
                                 PONPES SIT AL FIRDAUS
                             </span>
-                            <span class="block text-xs font-semibold tracking-wider text-amber-600 uppercase">
+                            <span class="block text-xs font-semibold tracking-wider text-amber-600 uppercase header-tagline">
                                 Islamic Boarding & Excellent School
                             </span>
                         </div>
                     </a>
 
-                    <!-- Desktop Menu Navigasi Dinamis -->
-                    <div class="hidden lg:flex items-center gap-1 xl:gap-2 font-medium text-sm text-slate-700" id="desktop-nav-menu">
+                    <div class="hidden lg:flex items-center gap-1 xl:gap-2 font-medium text-sm text-slate-700">
                         <a href="#beranda" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold text-emerald-700">Beranda</a>
-                        <a href="#sambutan" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Profil</a>
-                        <a href="#program" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Program</a>
-                        <a href="#jenjang" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Jenjang</a>
-                        <a href="#fasilitas" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Fasilitas</a>
-                        <a href="#jadwal" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Jadwal</a>
-                        <a href="#berita" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Berita</a>
-                        <a href="#kontak" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">Kontak</a>
+                        <a href="#sambutan" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Profil</a>
+                        <a href="#program" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Program</a>
+                        <a href="#jenjang" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Jenjang</a>
+                        <a href="#fasilitas" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Fasilitas</a>
+                        <a href="#jadwal" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Jadwal Harian</a>
+                        <a href="#berita" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Berita</a>
+                        <a href="#kontak" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Kontak</a>
                     </div>
 
-                    <!-- CTA Buttons -->
                     <div class="hidden lg:flex items-center gap-3">
                         <button onclick="openModal('ppdbModal')" class="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
                             <i class="fa-solid fa-paper-plane text-amber-300"></i>
@@ -155,84 +136,42 @@
                         </button>
                     </div>
 
-                    <!-- Mobile Menu Button -->
                     <div class="lg:hidden flex items-center gap-2">
                         <button id="mobileMenuBtn" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
                             <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
                         </button>
                     </div>
-
                 </div>
-            </div>
-
-            <!-- Mobile Navigation Drawer -->
-            <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3 shadow-xl">
-                <a href="#beranda" class="block px-3 py-2 rounded-lg font-semibold text-emerald-800 bg-emerald-50">Beranda</a>
-                <a href="#sambutan" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Sambutan Mudir</a>
-                <a href="#program" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Program Unggulan</a>
-                <a href="#jenjang" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Jenjang Pendidikan</a>
-                <a href="#fasilitas" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Fasilitas Kampus</a>
-                <a href="#jadwal" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Jadwal Santri</a>
-                <a href="#simulasi" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Simulasi Biaya</a>
-                <a href="#berita" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Berita & Pengumuman</a>
-                <a href="#kontak" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Kontak</a>
             </div>
         </nav>
     </header>
 
-    <!-- HERO SLIDER SECTION -->
+    <!-- HERO SLIDER SECTION WITH CONTROLS, DOTS & AUTOPLAY -->
     <section id="hero" class="relative bg-emerald-950 overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
         <div class="absolute inset-0 bg-islamic-pattern opacity-30"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 to-transparent z-10"></div>
 
-        <div id="hero-slider" class="relative w-full h-full z-20">
-            <!-- Slide default -->
-            <div class="hero-slide block duration-700 ease-in-out transition-opacity py-16 lg:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-7 space-y-6 text-white text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide">
-                            <i class="fa-solid fa-star"></i> Penerimaan Santri Baru T.A. 2026/2027 Telah Dibuka
-                        </div>
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-                            Mencetak Generasi <span class="text-amber-400 font-kufi">Rabbani</span>, Hafizh Qur'an & Berprestasi Global
-                        </h1>
-                        <p class="text-slate-300 text-sm sm:text-lg max-w-2xl font-light leading-relaxed">
-                            Pondok Pesantren & SIT Al Firdaus memadukan keunggulan Kurikulum Merdeka, Kurikulum Diniyah Pesantren Turats, dan Penguasaan Digital STEM.
-                        </p>
-                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
-                            <button onclick="openModal('ppdbModal')" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
-                                <i class="fa-solid fa-user-plus"></i> Daftar Sekarang
-                            </button>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 relative hidden lg:block">
-                        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800" alt="Santri" class="rounded-2xl shadow-2xl border-2 border-white/10 object-cover h-[420px] w-full">
-                    </div>
+        <div id="hero-slider" class="relative w-full h-full z-20"></div>
+
+        <!-- Slider Controls Bar -->
+        <div class="absolute bottom-6 inset-x-0 z-30">
+            <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+                <div class="flex items-center gap-2" id="slider-dots"></div>
+                <div class="flex items-center gap-2 bg-emerald-900/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full text-white text-sm">
+                    <button id="prevSlideBtn" class="hover:text-amber-400 px-2 py-1 transition-colors" title="Slide Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="pausePlayBtn" class="hover:text-amber-400 px-2 py-1 text-xs font-semibold flex items-center gap-1 border-x border-white/20 transition-colors" title="Pause/Play Autoplay">
+                        <i class="fa-solid fa-pause text-amber-400" id="pausePlayIcon"></i>
+                        <span id="pausePlayText" class="hidden sm:inline">Pause</span>
+                    </button>
+                    <button id="nextSlideBtn" class="hover:text-amber-400 px-2 py-1 transition-colors" title="Slide Selanjutnya"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STAT COUNTER CARDS -->
+    <!-- STAT CARDS COUNTER -->
     <section id="stats" class="relative z-30 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid fa-user-graduate"></i></div>
-                <div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="1250">1250</div><div class="text-xs sm:text-sm font-medium text-slate-500">Santri Aktif</div></div>
-            </div>
-            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid fa-quran"></i></div>
-                <div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="380">380</div><div class="text-xs sm:text-sm font-medium text-slate-500">Hafizh 30 Juz</div></div>
-            </div>
-            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid fa-chalkboard-user"></i></div>
-                <div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="85">85</div><div class="text-xs sm:text-sm font-medium text-slate-500">Asatidzh</div></div>
-            </div>
-            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid fa-trophy"></i></div>
-                <div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-950 counter" data-target="142">142</div><div class="text-xs sm:text-sm font-medium text-slate-500">Prestasi</div></div>
-            </div>
-        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6" id="stats-grid-container"></div>
     </section>
 
     <!-- SAMBUTAN MUDIR -->
@@ -241,7 +180,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-b from-emerald-800 to-emerald-950 p-3">
-                        <img id="sam-photo-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Mudir" class="rounded-2xl object-cover h-[450px] w-full">
+                        <img id="sam-photo-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" class="rounded-2xl object-cover h-[450px] w-full">
                         <div class="p-4 text-center text-white">
                             <h3 id="sam-name-text" class="font-bold text-xl text-amber-300">KH. Dr. Ahmad Al-Firdaus, Lc., M.A.</h3>
                             <p id="sam-pos-text" class="text-xs text-emerald-200">Pimpinan / Mudir Ma'had SIT Al Firdaus</p>
@@ -249,21 +188,11 @@
                     </div>
                 </div>
                 <div class="lg:col-span-7 space-y-6">
-                    <div id="sam-badge-text" class="inline-block bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-md text-xs uppercase tracking-wider">
-                        Kata Sambutan Mudir
-                    </div>
-                    <h2 id="sam-title-text" class="text-3xl sm:text-4xl font-extrabold text-emerald-950 leading-tight">
-                        Mendidik dengan Hati, Membimbing dengan Sunnah, Menggapai Prestasi Dunia & Akhirat
-                    </h2>
-                    <p id="sam-arabic-text" class="font-arabic text-2xl text-emerald-800 leading-relaxed">
-                        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ. الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ وَالصَّلاَةُ وَالسَّلاَمُ عَلَى أَشْرَفِ الأَنْبِيَاءِ وَالْمُرْسَلِينَ
-                    </p>
-                    <p id="sam-p1-text" class="text-slate-600 leading-relaxed">
-                        Assalamu’alaikum Warahmatullahi Wabarakatuh. Selamat datang di portal resmi **Pondok Pesantren & SIT Al Firdaus**.
-                    </p>
-                    <p id="sam-p2-text" class="text-slate-600 leading-relaxed">
-                        Santri di Al Firdaus tidak hanya ditempa untuk cerdas secara intelektual, tetapi juga dibina akhlak karimahnya agar menjadi pemimpin masa depan yang bertakwakal.
-                    </p>
+                    <div id="sam-badge-text" class="inline-block bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-md text-xs uppercase tracking-wider">Kata Sambutan Mudir</div>
+                    <h2 id="sam-title-text" class="text-3xl sm:text-4xl font-extrabold text-emerald-950 leading-tight">Mendidik dengan Hati, Membimbing dengan Sunnah</h2>
+                    <p id="sam-arabic-text" class="font-arabic text-2xl text-emerald-800 leading-relaxed">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                    <p id="sam-p1-text" class="text-slate-600 leading-relaxed"></p>
+                    <p id="sam-p2-text" class="text-slate-600 leading-relaxed"></p>
                 </div>
             </div>
         </div>
@@ -273,70 +202,24 @@
     <section id="program" class="py-20 bg-emerald-950 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="bg-amber-500/20 text-amber-300 font-semibold px-4 py-1 rounded-full text-xs uppercase tracking-widest border border-amber-400/30">Keunggulan Kami</span>
+                <span class="bg-amber-500/20 text-amber-300 font-semibold px-4 py-1 rounded-full text-xs uppercase border border-amber-400/30">Keunggulan Kami</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Program Unggulan Pesantren</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
         </div>
     </section>
 
-    <!-- JENJANG PENDIDIKAN (RA, SDIT, SMPIT Boarding, SMAIT Boarding) -->
+    <!-- JENJANG PENDIDIKAN -->
     <section id="jenjang" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-md">Formal & Non-Formal</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Jenjang Pendidikan SIT Al Firdaus</h2>
             </div>
-
-            <!-- Tab Buttons -->
             <div class="flex justify-center mb-8 border-b border-slate-300 overflow-x-auto no-scrollbar">
-                <div class="flex gap-2 sm:gap-4 pb-2">
-                    <button onclick="switchTab('tkit')" id="tab-tkit" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm bg-emerald-800 text-white shadow-md">RA / TKIT</button>
-                    <button onclick="switchTab('sdit')" id="tab-sdit" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm text-slate-600 hover:bg-emerald-100">SDIT Al Firdaus</button>
-                    <button onclick="switchTab('smpit')" id="tab-smpit" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm text-slate-600 hover:bg-emerald-100">SMPIT Boarding</button>
-                    <button onclick="switchTab('smait')" id="tab-smait" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm text-slate-600 hover:bg-emerald-100">SMAIT / MA Boarding</button>
-                </div>
+                <div class="flex gap-2 sm:gap-4 pb-2" id="jenjang-tabs-header"></div>
             </div>
-
-            <!-- Tab Contents -->
-            <div id="tab-content" class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
-                <!-- TKIT -->
-                <div id="content-tkit" class="jenjang-content grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-6 space-y-4">
-                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">Usia 4 - 6 Tahun</span>
-                        <h3 class="text-2xl font-bold text-emerald-950">RA / TKIT Al Firdaus (Usia Dini)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Pendidikan anak usia dini berbasis karakter Islami, Hijaiyah, dan doa harian.</p>
-                    </div>
-                    <div class="lg:col-span-6"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800" class="rounded-2xl h-64 w-full object-cover"></div>
-                </div>
-                <!-- SDIT -->
-                <div id="content-sdit" class="jenjang-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-6 space-y-4">
-                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">Fullday School</span>
-                        <h3 class="text-2xl font-bold text-emerald-950">SDIT Al Firdaus (Sekolah Dasar Terpadu)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Mengintegrasikan Kurikulum Nasional Diknas dengan nilai-nilai Keislaman.</p>
-                    </div>
-                    <div class="lg:col-span-6"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800" class="rounded-2xl h-64 w-full object-cover"></div>
-                </div>
-                <!-- SMPIT -->
-                <div id="content-smpit" class="jenjang-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-6 space-y-4">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">Boarding / Asrama</span>
-                        <h3 class="text-2xl font-bold text-emerald-950">SMPIT Al Firdaus (Junior High Boarding)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Program menengah pertama dengan sistem asrama penuh. Fokus tahfizh dan kepemimpinan.</p>
-                    </div>
-                    <div class="lg:col-span-6"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" class="rounded-2xl h-64 w-full object-cover"></div>
-                </div>
-                <!-- SMAIT -->
-                <div id="content-smait" class="jenjang-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-6 space-y-4">
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-bold">Boarding / Asrama Unggulan</span>
-                        <h3 class="text-2xl font-bold text-emerald-950">SMAIT / MA Al Firdaus (Senior High Boarding)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Mempersiapkan santri menuju universitas favorit dalam dan luar negeri.</p>
-                    </div>
-                    <div class="lg:col-span-6"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" class="rounded-2xl h-64 w-full object-cover"></div>
-                </div>
-            </div>
+            <div id="tab-content" class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200"></div>
         </div>
     </section>
 
@@ -362,7 +245,7 @@
         </div>
     </section>
 
-    <!-- SIMULASI KALKULATOR BIAYA -->
+    <!-- SIMULASI KALKULATOR BIAYA DINAMIS -->
     <section id="simulasi" class="py-20 bg-emerald-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-emerald-100">
@@ -373,26 +256,24 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Pilih Jenjang</label>
-                            <select id="calc-jenjang" onchange="calculateFee()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:outline-none">
-                                <option value="sdit">SDIT Fullday</option>
-                                <option value="smpit" selected>SMPIT Boarding</option>
-                                <option value="smait">SMAIT / MA Boarding</option>
-                            </select>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Pilih Jenjang Pendidikan</label>
+                            <select id="calc-jenjang" onchange="calculateFee()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:outline-none"></select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Jalur Pendaftaran</label>
                             <select id="calc-jalur" onchange="calculateFee()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:outline-none">
                                 <option value="reguler">Jalur Reguler</option>
-                                <option value="prestasi">Jalur Prestasi / Beasiswa Hafizh</option>
+                                <option value="prestasi">Jalur Prestasi / Beasiswa Hafizh (Diskon Uang Pangkal 25%)</option>
                             </select>
                         </div>
                     </div>
                     <div class="bg-emerald-950 text-white p-6 rounded-2xl shadow-lg space-y-3 text-sm">
-                        <div class="flex justify-between"><span class="text-slate-300">Uang Pangkal:</span><span id="res-pangkal" class="font-bold">Rp 12.500.000</span></div>
-                        <div class="flex justify-between"><span class="text-slate-300">SPP Bulanan:</span><span id="res-spp" class="font-bold">Rp 1.800.000</span></div>
-                        <div class="flex justify-between"><span class="text-slate-300">Seragam & Buku:</span><span id="res-seragam" class="font-bold">Rp 2.200.000</span></div>
-                        <div class="border-t border-emerald-800 pt-3 flex justify-between items-center"><span class="font-bold text-amber-300">Total Awal:</span><span id="res-total" class="font-extrabold text-2xl text-amber-400">Rp 16.500.000</span></div>
+                        <h4 class="text-amber-400 font-bold uppercase border-b border-emerald-800 pb-2">Rincian Estimasi Biaya</h4>
+                        <div id="simulasi-breakdown-container" class="space-y-2"></div>
+                        <div class="border-t border-emerald-800 pt-3 flex justify-between items-center">
+                            <span class="font-bold text-amber-300">Total Awal Masuk:</span>
+                            <span id="res-total" class="font-extrabold text-2xl text-amber-400">Rp 0</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -407,39 +288,77 @@
         </div>
     </section>
 
-    <!-- SEBARAN ALUMNI & TESTIMONIAL SLIDER -->
-    <section id="alumni" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-amber-400">Sebaran Alumni SIT Al Firdaus</h3>
-                <h2 class="text-2xl sm:text-3xl font-extrabold mt-2">Diterima Di Perguruan Tinggi Terkemuka</h2>
-                <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-8 opacity-80"></div>
+    <!-- CALL TO ACTION BANNER -->
+    <section id="cta" class="py-16 bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-800 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div>
+                <h2 id="cta-title-text" class="text-3xl sm:text-4xl font-extrabold leading-tight">Siap Bergabung Bersama Keluarga Besar SIT Al Firdaus?</h2>
+                <p id="cta-sub-text" class="text-emerald-100 mt-2 text-sm sm:text-base max-w-2xl">Kuota pendaftaran terbatas untuk setiap jenjang.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+            <div>
+                <button onclick="openModal('ppdbModal')" class="bg-amber-400 hover:bg-amber-500 text-emerald-950 font-extrabold px-8 py-4 rounded-xl shadow-xl transition-all text-base transform hover:scale-105 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> <span id="cta-btn-text">Daftar PPDB Online Now</span>
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER KOMPREHENSIF DENGAN GOOGLE MAPS LINK -->
     <footer id="kontak" class="bg-emerald-950 text-slate-300 pt-16 pb-8 border-t border-emerald-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-emerald-900 pb-12">
-                <div class="md:col-span-4 space-y-3">
-                    <span class="text-xl font-extrabold text-white">PONPES SIT AL FIRDAUS</span>
-                    <p class="text-xs text-slate-400 leading-relaxed footer-bio">Lembaga Pendidikan Islam Terpadu & Pesantren Modern.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-emerald-900">
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500 text-emerald-950 flex items-center justify-center font-bold text-xl"><i class="fa-solid fa-mosque"></i></div>
+                        <span class="text-xl font-extrabold text-white header-brand">PONPES SIT AL FIRDAUS</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed footer-bio-text"></p>
                 </div>
-                <div class="md:col-span-8 text-xs space-y-2">
-                    <p><i class="fa-solid fa-location-dot text-amber-400 mr-2"></i><span class="topbar-address">Jl. Firdaus No. 99, Kota Al-Madinah</span></p>
-                    <p><i class="fa-solid fa-phone text-amber-400 mr-2"></i><span class="topbar-phone">(021) 8765-4321</span></p>
-                    <p><i class="fa-solid fa-envelope text-amber-400 mr-2"></i><span class="topbar-email">info@ponpesalfirdaus.sch.id</span></p>
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Menu Cepat</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-amber-400 transition-colors">Beranda</a></li>
+                        <li><a href="#sambutan" class="hover:text-amber-400 transition-colors">Profil Mudir</a></li>
+                        <li><a href="#program" class="hover:text-amber-400 transition-colors">Program Unggulan</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">Jenjang Sekolah</a></li>
+                        <li><a href="#simulasi" class="hover:text-amber-400 transition-colors">Simulasi Biaya</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Unit Pendidikan</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">RA / TKIT Al Firdaus</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">SDIT Al Firdaus (Fullday)</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">SMPIT Al Firdaus (Boarding)</a></li>
+                        <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">SMAIT / MA Al Firdaus (Boarding)</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Kontak Sekretariat</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot text-amber-400 mt-0.5"></i><span class="topbar-address"></span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-amber-400"></i><span class="topbar-phone"></span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-amber-400"></i><span class="topbar-email"></span></li>
+                    </ul>
+                    <div class="pt-2">
+                        <a id="ft-maps-link" href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-xs bg-emerald-900 hover:bg-emerald-800 px-3 py-2 rounded-lg text-amber-300 transition-colors">
+                            <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps Kampus
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="text-center text-xs text-slate-400 footer-copy">
-                &copy; 2026 Pondok Pesantren SIT Al Firdaus. Hak Cipta Dilindungi Undang-Undang.
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+                <p id="ft-copy-text">&copy; 2026 Pondok Pesantren SIT Al Firdaus.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-amber-400">Kebijakan Privasi</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-amber-400">Syarat & Ketentuan</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL POPUP: FORMULIR PPDB ONLINE -->
+    <!-- MODALS -->
     <div id="ppdbModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl relative">
             <button onclick="closeModal('ppdbModal')" class="absolute top-4 right-4 text-slate-400 text-xl w-8 h-8 rounded-full hover:bg-slate-100">X</button>
@@ -452,59 +371,59 @@
         </div>
     </div>
 
-    <!-- MODAL POPUP: PORTAL WALI -->
-    <div id="portalModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
-            <button onclick="closeModal('portalModal')" class="absolute top-4 right-4 text-slate-400 text-xl w-8 h-8 rounded-full hover:bg-slate-100">X</button>
-            <h3 class="text-2xl font-extrabold text-emerald-950 text-center mb-4">Portal SIMAK Wali Santri</h3>
-            <form onsubmit="event.preventDefault(); closeModal('portalModal'); alert('Login Portal Berhasil!');" class="space-y-3 text-xs">
-                <input type="text" placeholder="NIS Santri" required class="w-full border p-3 rounded-xl bg-slate-50">
-                <input type="password" placeholder="Passcode" required class="w-full border p-3 rounded-xl bg-slate-50">
-                <button type="submit" class="w-full bg-amber-500 text-emerald-950 font-bold py-3 rounded-xl shadow">Masuk Portal</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- SCRIPT UTAMA PERBAIKAN BUG & INTEGRASI DYNAMIC DATA -->
+    <!-- SCRIPT LOGIC MAIN SITE -->
     <script>
-        let currentTestiSlide = 0;
-        let testimoniList = [];
+        let currentSlide = 0;
+        let slideInterval = null;
+        let isPlaying = true;
+        let heroSlidesData = [];
+        let simulasiLevelsData = [];
 
-        // Tab Switcher Jenjang
-        function switchTab(tabKey) {
-            document.querySelectorAll('.jenjang-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.jenjang-tab').forEach(el => el.className = "jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm text-slate-600 hover:bg-emerald-100");
-            
-            const targetContent = document.getElementById('content-' + tabKey);
-            if (targetContent) targetContent.classList.remove('hidden');
-            
-            const targetBtn = document.getElementById('tab-' + tabKey);
-            if (targetBtn) targetBtn.className = "jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm bg-emerald-800 text-white shadow-md";
-        }
-
-        // Modal Handlers
         function openModal(id) { document.getElementById(id)?.classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id)?.classList.add('hidden'); }
 
-        // Memuat data.json secara otomatis
         async function applyDynamicSiteData() {
             try {
                 const res = await fetch('data.json?t=' + new Date().getTime());
                 if (!res.ok) return;
                 const data = await res.json();
 
-                // 1. Top Bar
+                // Topbar & Header
+                if (data.header) {
+                    document.querySelectorAll('.header-brand').forEach(el => el.textContent = data.header.brand_name);
+                    document.querySelectorAll('.header-tagline').forEach(el => el.textContent = data.header.tagline);
+                }
                 if (data.topbar) {
-                    const tb = data.topbar;
-                    document.querySelectorAll('.topbar-address').forEach(el => el.textContent = tb.address);
-                    document.querySelectorAll('.topbar-phone').forEach(el => el.textContent = tb.phone);
-                    document.querySelectorAll('.topbar-email').forEach(el => el.textContent = tb.email);
-                    if (document.getElementById('tb-link-fb')) document.getElementById('tb-link-fb').href = tb.facebook || '#';
-                    if (document.getElementById('tb-link-ig')) document.getElementById('tb-link-ig').href = tb.instagram || '#';
-                    if (document.getElementById('tb-link-yt')) document.getElementById('tb-link-yt').href = tb.youtube || '#';
+                    document.querySelectorAll('.topbar-address').forEach(el => el.textContent = data.topbar.address);
+                    document.querySelectorAll('.topbar-phone').forEach(el => el.textContent = data.topbar.phone);
+                    document.querySelectorAll('.topbar-email').forEach(el => el.textContent = data.topbar.email);
                 }
 
-                // 2. Sambutan Mudir
+                // Hero Slider
+                if (data.hero_slides && data.hero_slides.length > 0) {
+                    heroSlidesData = data.hero_slides;
+                    renderHeroSlider();
+                }
+
+                // Stat Cards
+                if (data.stats) {
+                    const statsBox = document.getElementById('stats-grid-container');
+                    if (statsBox) {
+                        statsBox.innerHTML = data.stats.map(s => `
+                            <div class="glass-card bg-white p-6 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl flex-shrink-0">
+                                    <i class="fa-solid ${s.icon || 'fa-star'}"></i>
+                                </div>
+                                <div>
+                                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-950">${s.count}</div>
+                                    <div class="text-xs sm:text-sm font-medium text-slate-500">${s.label}</div>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Sambutan
                 if (data.sambutan) {
                     const s = data.sambutan;
                     if (document.getElementById('sam-photo-img')) document.getElementById('sam-photo-img').src = s.photo;
@@ -517,98 +436,58 @@
                     if (document.getElementById('sam-p2-text')) document.getElementById('sam-p2-text').textContent = s.p2;
                 }
 
-                // 3. Program Unggulan
-                if (data.program_section && data.program_section.items) {
-                    const progGrid = document.querySelector('#program .grid');
-                    if (progGrid) {
-                        progGrid.innerHTML = data.program_section.items.map(p => `
-                            <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
-                                <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-3xl mb-6">
-                                    <i class="fa-solid ${p.icon || 'fa-star'}"></i>
-                                </div>
-                                <h3 class="text-xl font-bold mb-3 text-amber-300">${p.title}</h3>
-                                <p class="text-slate-300 text-sm leading-relaxed">${p.desc}</p>
-                            </div>
-                        `).join('');
-                    }
-                }
-
-                // 4. Jenjang Pendidikan
+                // Jenjang (With Individual Enable/Disable Filter)
                 if (data.jenjang_section && data.jenjang_section.items) {
-                    data.jenjang_section.items.forEach(item => {
-                        const contentEl = document.getElementById('content-' + item.id);
-                        if (contentEl) {
-                            const title = contentEl.querySelector('h3');
-                            if (title) title.textContent = item.title;
-                            const desc = contentEl.querySelector('p');
-                            if (desc) desc.textContent = item.desc;
-                            const img = contentEl.querySelector('img');
-                            if (img) img.src = item.image;
-                        }
-                    });
-                }
+                    const enabledItems = data.jenjang_section.items.filter(i => i.enabled !== false);
+                    const tabsHeader = document.getElementById('jenjang-tabs-header');
+                    const tabContentBox = document.getElementById('tab-content');
 
-                // 5. Jadwal Harian
-                if (data.jadwal_section && data.jadwal_section.items) {
-                    const jGrid = document.querySelector('#jadwal .grid');
-                    if (jGrid) {
-                        jGrid.innerHTML = data.jadwal_section.items.map(j => `
-                            <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-emerald-600">
-                                <span class="text-xs font-bold bg-emerald-200 text-emerald-900 px-2.5 py-1 rounded-md">${j.time}</span>
-                                <h4 class="font-bold text-lg text-emerald-950 mt-3">${j.title}</h4>
-                                <p class="text-xs text-slate-600 mt-1">${j.desc}</p>
-                            </div>
+                    if (tabsHeader && tabContentBox) {
+                        tabsHeader.innerHTML = enabledItems.map((item, idx) => `
+                            <button onclick="switchJenjangTab('${item.id}')" id="tab-${item.id}" class="jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm transition-all ${idx === 0 ? 'bg-emerald-800 text-white shadow-md' : 'text-slate-600 hover:bg-emerald-100'}">
+                                ${item.label}
+                            </button>
                         `).join('');
-                    }
-                }
 
-                // 6. Fasilitas
-                if (data.fasilitas_section && data.fasilitas_section.items) {
-                    const fGrid = document.querySelector('#fasilitas .grid');
-                    if (fGrid) {
-                        fGrid.innerHTML = data.fasilitas_section.items.map(f => `
-                            <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
-                                <img src="${f.image}" alt="${f.title}" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
-                                    <h3 class="text-xl font-bold text-amber-300">${f.title}</h3>
-                                    <p class="text-xs text-slate-300 mt-1">${f.desc}</p>
+                        tabContentBox.innerHTML = enabledItems.map((item, idx) => `
+                            <div id="content-${item.id}" class="jenjang-content ${idx === 0 ? '' : 'hidden'} grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                                <div class="lg:col-span-6 space-y-4">
+                                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">${item.badge}</span>
+                                    <h3 class="text-2xl font-bold text-emerald-950">${item.title}</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed">${item.desc}</p>
+                                </div>
+                                <div class="lg:col-span-6">
+                                    <img src="${item.image}" class="rounded-2xl shadow-md h-64 w-full object-cover">
                                 </div>
                             </div>
                         `).join('');
                     }
                 }
 
-                // 7. Pricing
-                if (data.simulasi_section && data.simulasi_section.pricing) {
-                    window.sitePricingData = data.simulasi_section.pricing;
-                    calculateFee();
-                }
-
-                // 8. Alumni & Testimonial Slider
-                if (data.alumni_section) {
-                    const campBox = document.querySelector('#alumni .flex-wrap');
-                    if (campBox && data.alumni_section.campuses) {
-                        campBox.innerHTML = data.alumni_section.campuses.map(c => `
-                            <span class="font-extrabold text-lg sm:text-xl text-slate-300 hover:text-amber-400 transition-colors">
-                                <i class="fa-solid fa-graduation-cap text-amber-400 mr-2"></i> ${c}
-                            </span>
-                        `).join('');
-                    }
-                    if (data.alumni_section.testimonials) {
-                        testimoniList = data.alumni_section.testimonials;
-                        renderTestiSlider();
+                // Dynamic Fee Calculator Setup
+                if (data.simulasi_section && data.simulasi_section.levels) {
+                    simulasiLevelsData = data.simulasi_section.levels;
+                    const selectEl = document.getElementById('calc-jenjang');
+                    if (selectEl) {
+                        selectEl.innerHTML = simulasiLevelsData.map(lvl => `<option value="${lvl.id}">${lvl.name}</option>`).join('');
+                        calculateFee();
                     }
                 }
 
-                // 9. Footer
+                // CTA Banner & Footer
+                if (data.cta_banner) {
+                    if (document.getElementById('cta-title-text')) document.getElementById('cta-title-text').textContent = data.cta_banner.title;
+                    if (document.getElementById('cta-sub-text')) document.getElementById('cta-sub-text').textContent = data.cta_banner.subtitle;
+                    if (document.getElementById('cta-btn-text')) document.getElementById('cta-btn-text').textContent = data.cta_banner.btn_text;
+                }
+
                 if (data.footer) {
-                    const ftBio = document.querySelector('.footer-bio');
-                    if (ftBio) ftBio.textContent = data.footer.bio_text;
-                    const ftCopy = document.querySelector('.footer-copy');
-                    if (ftCopy) ftCopy.textContent = data.footer.copyright;
+                    document.querySelectorAll('.footer-bio-text').forEach(el => el.textContent = data.footer.bio_text);
+                    if (document.getElementById('ft-maps-link')) document.getElementById('ft-maps-link').href = data.footer.maps_url || '#';
+                    if (document.getElementById('ft-copy-text')) document.getElementById('ft-copy-text').textContent = data.footer.copyright;
                 }
 
-                // 10. Seksi Tampilan
+                // Section Visibility
                 if (data.sections) {
                     Object.keys(data.sections).forEach(key => {
                         const el = document.getElementById(key);
@@ -619,47 +498,122 @@
             } catch (e) { console.log(e); }
         }
 
-        function renderTestiSlider() {
-            const testiBox = document.querySelector('#alumni .grid.grid-cols-1.md\\:grid-cols-2');
-            if (!testiBox || testimoniList.length === 0) return;
-            const t = testimoniList[currentTestiSlide];
-            testiBox.innerHTML = `
-                <div class="glass-dark p-8 rounded-2xl border border-slate-700 md:col-span-2 max-w-2xl mx-auto text-center">
-                    <img src="${t.photo}" class="w-20 h-20 rounded-full object-cover border-2 border-amber-400 mx-auto mb-4">
-                    <h4 class="font-bold text-white text-lg">${t.name}</h4>
-                    <p class="text-xs text-amber-300 mb-4">${t.role}</p>
-                    <p class="text-slate-300 text-sm italic leading-relaxed">"${t.quote}"</p>
+        // Hero Slider Dynamic Functions
+        function renderHeroSlider() {
+            const container = document.getElementById('hero-slider');
+            const dotsContainer = document.getElementById('slider-dots');
+            if (!container) return;
+
+            container.innerHTML = heroSlidesData.map((s, i) => `
+                <div class="hero-slide ${i === 0 ? 'block' : 'hidden'} duration-700 ease-in-out transition-opacity py-16 lg:py-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold">
+                                <i class="fa-solid fa-star"></i> ${s.badge}
+                            </div>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">${s.title}</h1>
+                            <p class="text-slate-300 text-sm sm:text-lg max-w-2xl font-light leading-relaxed">${s.desc}</p>
+                            <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                                <button onclick="openModal('ppdbModal')" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-user-plus"></i> Daftar Sekarang
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 relative hidden lg:block">
+                            <img src="${s.image}" class="rounded-2xl shadow-2xl border-2 border-white/10 object-cover h-[420px] w-full">
+                        </div>
+                    </div>
                 </div>
-                <div class="md:col-span-2 flex justify-center gap-2 mt-4">
-                    ${testimoniList.map((_, i) => `
-                        <button onclick="goToTesti(${i})" class="${i === currentTestiSlide ? 'w-8 bg-amber-400' : 'w-3 bg-white/30'} h-2.5 rounded-full transition-all duration-300"></button>
-                    `).join('')}
-                </div>
-            `;
-        }
+            `).join('');
 
-        function goToTesti(idx) { currentTestiSlide = idx; renderTestiSlider(); }
-
-        function calculateFee() {
-            const jenjang = document.getElementById('calc-jenjang')?.value || 'smpit';
-            const jalur = document.getElementById('calc-jalur')?.value || 'reguler';
-
-            let pangkal = 12500000, spp = 1800000, seragam = 2200000;
-
-            if (window.sitePricingData && window.sitePricingData[jenjang]) {
-                const p = window.sitePricingData[jenjang];
-                pangkal = p.pangkal;
-                spp = p.spp;
-                seragam = p.seragam;
+            if (dotsContainer) {
+                dotsContainer.innerHTML = heroSlidesData.map((_, i) => `
+                    <button onclick="goToSlide(${i})" class="${i === 0 ? 'w-8 bg-amber-400' : 'w-3 bg-white/40'} h-2.5 rounded-full transition-all duration-300"></button>
+                `).join('');
             }
 
-            if (jalur === 'prestasi') pangkal = pangkal * 0.75;
-            const total = pangkal + spp + seragam;
+            slideInterval = setInterval(nextSlide, 5000);
+        }
 
-            if (document.getElementById('res-pangkal')) document.getElementById('res-pangkal').textContent = 'Rp ' + pangkal.toLocaleString('id-ID');
-            if (document.getElementById('res-spp')) document.getElementById('res-spp').textContent = 'Rp ' + spp.toLocaleString('id-ID');
-            if (document.getElementById('res-seragam')) document.getElementById('res-seragam').textContent = 'Rp ' + seragam.toLocaleString('id-ID');
-            if (document.getElementById('res-total')) document.getElementById('res-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
+        function showSlide(idx) {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('#slider-dots button');
+
+            slides.forEach((s, i) => {
+                s.classList.toggle('block', i === idx);
+                s.classList.toggle('hidden', i !== idx);
+            });
+
+            dots.forEach((d, i) => {
+                d.className = i === idx ? 'w-8 bg-amber-400 h-2.5 rounded-full transition-all duration-300' : 'w-3 bg-white/40 h-2.5 rounded-full transition-all duration-300';
+            });
+
+            currentSlide = idx;
+        }
+
+        function nextSlide() { showSlide((currentSlide + 1) % heroSlidesData.length); }
+        function prevSlide() { showSlide((currentSlide - 1 + heroSlidesData.length) % heroSlidesData.length); }
+        function goToSlide(idx) { showSlide(idx); resetAutoplay(); }
+
+        function toggleAutoplay() {
+            const icon = document.getElementById('pausePlayIcon');
+            const txt = document.getElementById('pausePlayText');
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                isPlaying = false;
+                if (icon) icon.className = "fa-solid fa-play text-amber-400";
+                if (txt) txt.textContent = "Play";
+            } else {
+                slideInterval = setInterval(nextSlide, 5000);
+                isPlaying = true;
+                if (icon) icon.className = "fa-solid fa-pause text-amber-400";
+                if (txt) txt.textContent = "Pause";
+            }
+        }
+
+        function resetAutoplay() {
+            if (isPlaying) { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 5000); }
+        }
+
+        document.getElementById('nextSlideBtn')?.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+        document.getElementById('prevSlideBtn')?.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+        document.getElementById('pausePlayBtn')?.addEventListener('click', toggleAutoplay);
+
+        // Switch Jenjang Tab
+        function switchJenjangTab(tabId) {
+            document.querySelectorAll('.jenjang-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.jenjang-tab').forEach(el => el.className = "jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm text-slate-600 hover:bg-emerald-100");
+
+            const content = document.getElementById('content-' + tabId);
+            if (content) content.classList.remove('hidden');
+
+            const tab = document.getElementById('tab-' + tabId);
+            if (tab) tab.className = "jenjang-tab font-bold px-5 py-2.5 rounded-xl text-sm bg-emerald-800 text-white shadow-md";
+        }
+
+        // Dynamic Fee Calculator
+        function calculateFee() {
+            const selectedLvlId = document.getElementById('calc-jenjang')?.value;
+            const isPrestasi = document.getElementById('calc-jalur')?.value === 'prestasi';
+            const container = document.getElementById('simulasi-breakdown-container');
+
+            const selectedLvl = simulasiLevelsData.find(l => l.id === selectedLvlId) || simulasiLevelsData[0];
+            if (!selectedLvl || !container) return;
+
+            let total = 0;
+            container.innerHTML = selectedLvl.items.map((item, idx) => {
+                let cost = item.cost;
+                if (isPrestasi && idx === 0) cost = cost * 0.75; // Diskon 25% Uang Pangkal
+                total += cost;
+                return `
+                    <div class="flex justify-between">
+                        <span class="text-slate-300">${item.name}:</span>
+                        <span class="font-bold text-white">Rp ${cost.toLocaleString('id-ID')}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('res-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
         }
 
         document.addEventListener('DOMContentLoaded', applyDynamicSiteData);
