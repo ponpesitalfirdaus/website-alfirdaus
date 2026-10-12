@@ -1604,5 +1604,126 @@ document.addEventListener('DOMContentLoaded', applyDynamicConfig);
 
     document.addEventListener('DOMContentLoaded', applyDynamicSiteData);
 </script>
+    <!-- MODAL POPUP UNTUK HALAMAN CUSTOM -->
+<div id="customPageModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+        <button onclick="closeModal('customPageModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 id="customPageTitle" class="text-2xl font-bold text-emerald-950 mb-4 border-b pb-2"></h2>
+        <div id="customPageContent" class="text-slate-600 text-sm leading-relaxed space-y-3"></div>
+    </div>
+</div>
+    <script>
+    let globalCustomPages = [];
+
+    async function applyDynamicSiteData() {
+        try {
+            const res = await fetch('data.json?t=' + new Date().getTime());
+            if (!res.ok) return;
+            const data = await res.json();
+
+            // 1. Render Top Bar Kiri & Kanan
+            if (data.topbar) {
+                const tb = data.topbar;
+                const locEl = document.querySelector('header .fa-location-dot');
+                if (locEl && locEl.nextElementSibling) locEl.nextElementSibling.textContent = tb.address;
+
+                const phoneEl = document.querySelector('header .fa-phone');
+                if (phoneEl && phoneEl.nextElementSibling) phoneEl.nextElementSibling.textContent = tb.phone;
+
+                const emailEl = document.querySelector('header .fa-envelope');
+                if (emailEl && emailEl.nextElementSibling) emailEl.nextElementSibling.textContent = tb.email;
+            }
+
+            // 2. Render Menu Utama & Submenu Dropdown
+            if (data.navigation && data.navigation.length > 0) {
+                const navContainer = document.querySelector('#main-navbar .hidden.lg\\:flex');
+                if (navContainer) {
+                    navContainer.innerHTML = data.navigation.map(nav => {
+                        if (nav.dropdown && nav.dropdown.length > 0) {
+                            return `
+                                <div class="relative group">
+                                    <button class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors flex items-center gap-1 font-semibold">
+                                        ${nav.label} <i class="fa-solid fa-chevron-down text-[10px] opacity-70 group-hover:rotate-180 transition-transform"></i>
+                                    </button>
+                                    <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 hidden group-hover:block animate-fadeIn">
+                                        ${nav.dropdown.map(sub => `<a href="${sub.url}" onclick="handleNavClick(event, '${sub.url}')" class="block px-4 py-2 hover:bg-emerald-50 hover:text-emerald-700">${sub.label}</a>`).join('')}
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        return `<a href="${nav.url}" onclick="handleNavClick(event, '${nav.url}')" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold">${nav.label}</a>`;
+                    }).join('');
+                }
+            }
+
+            // 3. Simpan Data Halaman Custom
+            if (data.custom_pages) globalCustomPages = data.custom_pages;
+
+            // 4. Render Sambutan Mudir
+            if (data.sambutan) {
+                const s = data.sambutan;
+                const sambutanSec = document.getElementById('sambutan');
+                if (sambutanSec) {
+                    const titleEl = sambutanSec.querySelector('h2');
+                    if (titleEl) titleEl.textContent = s.title;
+
+                    const arabicEl = sambutanSec.querySelector('.font-arabic');
+                    if (arabicEl) arabicEl.textContent = s.arabic;
+
+                    const nameEl = sambutanSec.querySelector('h3');
+                    if (nameEl) nameEl.textContent = s.name;
+
+                    const photoEl = sambutanSec.querySelector('img');
+                    if (photoEl) photoEl.src = s.photo;
+                }
+            }
+
+            // 5. Render Program Unggulan
+            if (data.program_section && data.program_section.items) {
+                const progGrid = document.querySelector('#program .grid');
+                if (progGrid) {
+                    progGrid.innerHTML = data.program_section.items.map(p => `
+                        <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
+                            <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-3xl mb-6">
+                                <i class="fa-solid ${p.icon || 'fa-star'}"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-amber-300">${p.title}</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">${p.desc}</p>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // 6. Kontrol Visibilitas Seksi
+            if (data.sections) {
+                Object.keys(data.sections).forEach(key => {
+                    const el = document.getElementById(key);
+                    if (el) el.style.display = data.sections[key] === false ? 'none' : 'block';
+                });
+            }
+
+        } catch (e) {
+            console.log("Error applying dynamic data", e);
+        }
+    }
+
+    // Handler Navigasi Halaman Custom (#page-slug)
+    function handleNavClick(e, url) {
+        if (url.startsWith('#page-')) {
+            e.preventDefault();
+            const slug = url.replace('#page-', '');
+            const page = globalCustomPages.find(p => p.slug === slug);
+            if (page) {
+                document.getElementById('customPageTitle').textContent = page.title;
+                document.getElementById('customPageContent').innerHTML = page.content;
+                openModal('customPageModal');
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', applyDynamicSiteData);
+</script>
 </body>
 </html>
