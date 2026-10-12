@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Super Dashboard - SIT Al Firdaus</title>
+    <title>Admin Dashboard Collapsible - SIT Al Firdaus</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-800 antialiased min-h-screen">
 
     <!-- LOGIN MODAL -->
-    <div id="login-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+    <div id="login-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
         <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border border-slate-200">
             <div class="text-center mb-6">
                 <div class="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3">
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-900">Login Admin Super</h2>
-                <p class="text-xs text-slate-500 mt-1">Masukkan Username & Password untuk mengelola website</p>
+                <h2 class="text-2xl font-bold text-slate-900">Login Administrator</h2>
+                <p class="text-xs text-slate-500 mt-1">Masukkan Username & Password Admin</p>
             </div>
             <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
@@ -36,198 +40,237 @@
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD -->
-    <div id="admin-dashboard" class="hidden p-4 sm:p-6 max-w-7xl mx-auto space-y-6">
+    <!-- MAIN DASHBOARD WITH SIDEBAR -->
+    <div id="admin-dashboard" class="hidden min-h-screen flex flex-col md:flex-row">
 
-        <!-- Top Bar -->
-        <div class="bg-emerald-950 text-white p-6 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                <h1 class="text-2xl font-extrabold flex items-center gap-2">
-                    <i class="fa-solid fa-sliders text-amber-400"></i> Super Admin Web Manager
-                </h1>
-                <p class="text-xs text-emerald-300 mt-1">Kelola Top Bar, Menu Navigasi, Halaman Custom, Sambutan, Program & Fasilitas</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-6 py-3 rounded-2xl transition shadow-lg flex items-center gap-2 text-sm">
-                    <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
-                </button>
-                <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white p-3 rounded-2xl transition text-sm" title="Keluar">
-                    <i class="fa-solid fa-right-from-bracket"></i>
+        <!-- SIDEBAR KIRI -->
+        <aside id="sidebar" class="w-64 bg-emerald-950 text-slate-300 transition-all duration-300 flex flex-col flex-shrink-0 min-h-screen">
+            <!-- Sidebar Header & Toggle Hamburger Button -->
+            <div class="p-4 border-b border-emerald-900 flex justify-between items-center">
+                <div class="flex items-center gap-3 sidebar-label">
+                    <div class="w-9 h-9 bg-amber-500 text-emerald-950 font-bold rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <span class="font-bold text-white text-sm tracking-wider">ADMIN PANEL</span>
+                </div>
+                <button id="sidebar-toggle" onclick="toggleSidebar()" class="p-2 text-amber-400 hover:bg-emerald-900 rounded-xl transition">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-        </div>
 
-        <!-- Token GitHub -->
-        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-            <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
-                <i class="fa-brands fa-github text-emerald-700"></i> Integrasi Repositori GitHub
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                <input type="text" id="gh-user" placeholder="Username GitHub" class="border p-2.5 rounded-xl bg-slate-50">
-                <input type="text" id="gh-repo" placeholder="Nama Repositori" class="border p-2.5 rounded-xl bg-slate-50">
-                <input type="password" id="gh-token" placeholder="Personal Access Token (ghp_...)" class="border p-2.5 rounded-xl bg-slate-50">
+            <!-- Sidebar Navigation Menu -->
+            <nav class="p-3 space-y-1 text-xs font-semibold overflow-y-auto no-scrollbar flex-1">
+                <button onclick="switchTab('topbar')" id="btn-tab-topbar" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl bg-emerald-800 text-white">
+                    <i class="fa-solid fa-[#1] fa-bars-staggered w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Top Bar & Sosmed</span>
+                </button>
+                <button onclick="switchTab('nav')" id="btn-tab-nav" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-compass w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Menu & Submenu</span>
+                </button>
+                <button onclick="switchTab('sambutan')" id="btn-tab-sambutan" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-user-tie w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Sambutan Mudir</span>
+                </button>
+                <button onclick="switchTab('program')" id="btn-tab-program" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-graduation-cap w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Jenjang Education</span>
+                </button>
+                <button onclick="switchTab('jadwal')" id="btn-tab-jadwal" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-clock-rotate-left w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Jadwal & Fasilitas</span>
+                </button>
+                <button onclick="switchTab('simulasi')" id="btn-tab-simulasi" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-calculator w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Transparansi Biaya</span>
+                </button>
+                <button onclick="switchTab('alumni')" id="btn-tab-alumni" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-trophy w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Alumni & Testimoni</span>
+                </button>
+                <button onclick="switchTab('footer')" id="btn-tab-footer" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-shoe-prints w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Pengaturan Footer</span>
+                </button>
+                <button onclick="switchTab('seksi')" id="btn-tab-seksi" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-eye w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Aktifkan Seksi</span>
+                </button>
+                <button onclick="switchTab('auth')" id="btn-tab-auth" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-lock w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Keamanan Admin</span>
+                </button>
+            </nav>
+
+            <div class="p-3 border-t border-emerald-900">
+                <button onclick="logout()" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-red-600/80 hover:bg-red-700 text-white font-bold text-xs">
+                    <i class="fa-solid fa-right-from-bracket w-5 text-center"></i>
+                    <span class="sidebar-label">Keluar</span>
+                </button>
             </div>
-        </div>
+        </aside>
 
-        <!-- Navigasi Tab -->
-        <div class="flex gap-2 overflow-x-auto pb-2 border-b border-slate-300 text-xs font-bold no-scrollbar">
-            <button onclick="switchTab('topbar')" id="btn-tab-topbar" class="tab-btn bg-emerald-800 text-white px-4 py-2.5 rounded-xl shadow">Top Bar & Sosmed</button>
-            <button onclick="switchTab('nav')" id="btn-tab-nav" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Menu & Dropdown</button>
-            <button onclick="switchTab('pages')" id="btn-tab-pages" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Halaman Custom</button>
-            <button onclick="switchTab('sambutan')" id="btn-tab-sambutan" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Sambutan Mudir</button>
-            <button onclick="switchTab('program')" id="btn-tab-program" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Program & Jenjang</button>
-            <button onclick="switchTab('jadwal')" id="btn-tab-jadwal" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Jadwal & Fasilitas</button>
-            <button onclick="switchTab('seksi')" id="btn-tab-seksi" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Aktifkan Seksi</button>
-            <button onclick="switchTab('auth')" id="btn-tab-auth" class="tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl">Keamanan</button>
-        </div>
+        <!-- AREA KONTEN UTAMA -->
+        <main class="flex-1 p-6 space-y-6 overflow-y-auto">
 
-        <!-- TAB 1: TOP BAR & SOSMED -->
-        <div id="tab-topbar" class="tab-content bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-            <h3 class="font-bold text-lg text-emerald-950">Pengaturan Top Bar Kiri & Kanan</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <!-- Header Top Bar Dashboard -->
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
-                    <label class="font-bold block mb-1">Alamat Singkat Top Bar</label>
-                    <input type="text" id="tb-address" class="w-full border p-3 rounded-xl bg-slate-50">
+                    <h1 class="text-xl font-extrabold text-emerald-950">Panel Kelola Konten Situs</h1>
+                    <p class="text-xs text-slate-500">Edit seluruh informasi website dan simpan ke repositori GitHub</p>
                 </div>
-                <div>
-                    <label class="font-bold block mb-1">Telepon Top Bar</label>
-                    <input type="text" id="tb-phone" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">Email Top Bar</label>
-                    <input type="email" id="tb-email" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">Link Facebook</label>
-                    <input type="text" id="tb-fb" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">Link Instagram</label>
-                    <input type="text" id="tb-ig" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">Link YouTube</label>
-                    <input type="text" id="tb-yt" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
+                <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-6 py-3 rounded-2xl shadow transition flex items-center gap-2 text-xs">
+                    <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan ke GitHub
+                </button>
             </div>
-        </div>
 
-        <!-- TAB 2: MENU & DROPDOWN -->
-        <div id="tab-nav" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg text-emerald-950">Pengaturan Menu Utama & Submenu Dropdown</h3>
-                <button onclick="tambahMenuUtama()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Menu Utama</button>
-            </div>
-            <div id="nav-items-container" class="space-y-4"></div>
-        </div>
-
-        <!-- TAB 3: HALAMAN CUSTOM -->
-        <div id="tab-pages" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg text-emerald-950">Buat & Edit Halaman Baru (Custom Pages)</h3>
-                <button onclick="tambahHalamanBaru()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Buat Halaman Baru</button>
-            </div>
-            <p class="text-xs text-slate-500">Halaman baru ini dapat dihubungkan ke Menu / Dropdown menggunakan link format <code class="bg-amber-100 p-1 rounded text-amber-900 font-bold">#page-slugnya</code>.</p>
-            <div id="pages-container" class="space-y-4"></div>
-        </div>
-
-        <!-- TAB 4: SAMBUTAN MUDIR -->
-        <div id="tab-sambutan" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-            <h3 class="font-bold text-lg text-emerald-950">Pengaturan Kata Sambutan Mudir</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                <div>
-                    <label class="font-bold block mb-1">Badge Atas</label>
-                    <input type="text" id="sam-badge" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">Nama Mudir</label>
-                    <input type="text" id="sam-name" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="font-bold block mb-1">Judul Sambutan</label>
-                    <input type="text" id="sam-title" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="font-bold block mb-1">Teks Bahasa Arab / Ayat</label>
-                    <input type="text" id="sam-arabic" class="w-full border p-3 rounded-xl bg-slate-50 font-serif">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="font-bold block mb-1">Paragraf 1</label>
-                    <textarea id="sam-p1" class="w-full border p-3 rounded-xl bg-slate-50 h-20"></textarea>
-                </div>
-                <div class="md:col-span-2">
-                    <label class="font-bold block mb-1">Paragraf 2</label>
-                    <textarea id="sam-p2" class="w-full border p-3 rounded-xl bg-slate-50 h-20"></textarea>
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">Jabatan Mudir</label>
-                    <input type="text" id="sam-position" class="w-full border p-3 rounded-xl bg-slate-50">
-                </div>
-                <div>
-                    <label class="font-bold block mb-1">URL Foto Mudir</label>
-                    <input type="text" id="sam-photo" class="w-full border p-3 rounded-xl bg-slate-50">
+            <!-- Token GitHub -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-xs text-slate-800 mb-2">Konfigurasi Repositori GitHub</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                    <input type="text" id="gh-user" placeholder="Username GitHub" class="border p-2.5 rounded-xl bg-slate-50">
+                    <input type="text" id="gh-repo" placeholder="Nama Repositori" class="border p-2.5 rounded-xl bg-slate-50">
+                    <input type="password" id="gh-token" placeholder="GitHub Access Token (ghp_...)" class="border p-2.5 rounded-xl bg-slate-50">
                 </div>
             </div>
-        </div>
 
-        <!-- TAB 5: PROGRAM UNGGULAN & JENJANG -->
-        <div id="tab-program" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
-            <div>
-                <h3 class="font-bold text-lg text-emerald-950 mb-3">Seksi Program Unggulan</h3>
-                <div id="program-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <!-- TAB 1: TOP BAR -->
+            <div id="tab-topbar" class="tab-content bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Top Bar Kiri & Kanan</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div><label class="font-bold block mb-1">Alamat Kampus</label><input type="text" id="tb-address" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Telepon</label><input type="text" id="tb-phone" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Email</label><input type="email" id="tb-email" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Facebook URL</label><input type="text" id="tb-fb" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Instagram URL</label><input type="text" id="tb-ig" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">YouTube URL</label><input type="text" id="tb-yt" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                </div>
             </div>
-            <hr>
-            <div>
-                <h3 class="font-bold text-lg text-emerald-950 mb-3">Seksi Formal & Non-Formal (Jenjang Pendidikan)</h3>
+
+            <!-- TAB 2: NAV & SUBMENU -->
+            <div id="tab-nav" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Menu Navigasi & Submenu</h3>
+                    <button onclick="tambahMenuUtama()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Menu</button>
+                </div>
+                <div id="nav-items-container" class="space-y-4"></div>
+            </div>
+
+            <!-- TAB 3: SAMBUTAN MUDIR -->
+            <div id="tab-sambutan" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Sambutan Mudir</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div><label class="font-bold block mb-1">Badge</label><input type="text" id="sam-badge" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Nama Mudir</label><input type="text" id="sam-name" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Judul Sambutan</label><input type="text" id="sam-title" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Bahasa Arab</label><input type="text" id="sam-arabic" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Paragraf 1</label><textarea id="sam-p1" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Paragraf 2</label><textarea id="sam-p2" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
+                    <div><label class="font-bold block mb-1">Jabatan</label><input type="text" id="sam-position" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">URL Foto</label><input type="text" id="sam-photo" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                </div>
+            </div>
+
+            <!-- TAB 4: JENJANG PENDIDIKAN (SMPIT & SMAIT INCLUDED) -->
+            <div id="tab-program" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Jenjang Pendidikan (RA, SDIT, SMPIT Boarding, SMAIT Boarding)</h3>
                 <div id="jenjang-items-container" class="space-y-4"></div>
             </div>
-        </div>
 
-        <!-- TAB 6: JADWAL HARIAN & FASILITAS -->
-        <div id="tab-jadwal" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
-            <div>
-                <div class="flex justify-between items-center mb-3">
-                    <h3 class="font-bold text-lg text-emerald-950">Rutinitas & Jadwal Harian Santri</h3>
-                    <button onclick="tambahJadwal()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Jadwal</button>
-                </div>
-                <div id="jadwal-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-            </div>
-            <hr>
-            <div>
-                <div class="flex justify-between items-center mb-3">
-                    <h3 class="font-bold text-lg text-emerald-950">Sarana & Fasilitas Kampus</h3>
-                    <button onclick="tambahFasilitas()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Fasilitas</button>
-                </div>
-                <div id="fasilitas-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-            </div>
-        </div>
-
-        <!-- TAB 7: AKTIFFKAN SEKSI -->
-        <div id="tab-seksi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-            <h3 class="font-bold text-lg text-emerald-950">Aktifkan / Sembunyikan Seksi Tampilan Website</h3>
-            <div id="seksi-toggles" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
-        </div>
-
-        <!-- TAB 8: KEAMANAN -->
-        <div id="tab-auth" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-            <h3 class="font-bold text-lg text-emerald-950">Ubah Pengaturan Akun Admin</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <!-- TAB 5: JADWAL & FASILITAS -->
+            <div id="tab-jadwal" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
                 <div>
-                    <label class="font-bold block mb-1">Username Admin Baru</label>
-                    <input type="text" id="auth-user" class="w-full border p-3 rounded-xl bg-slate-50">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-emerald-950">Jadwal Harian Santri</h3>
+                        <button onclick="tambahJadwal()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Jadwal</button>
+                    </div>
+                    <div id="jadwal-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                 </div>
+                <hr>
                 <div>
-                    <label class="font-bold block mb-1">Password Admin Baru</label>
-                    <input type="text" id="auth-pass" class="w-full border p-3 rounded-xl bg-slate-50">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-emerald-950">Fasilitas Kampus</h3>
+                        <button onclick="tambahFasilitas()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Fasilitas</button>
+                    </div>
+                    <div id="fasilitas-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                 </div>
             </div>
-        </div>
 
+            <!-- TAB 6: TRANSPARANSI BIAYA (SIMULASI) -->
+            <div id="tab-simulasi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Transparansi Biaya & Kalkulator PPDB</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <!-- SDIT -->
+                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2">
+                        <h4 class="font-bold text-emerald-800">SDIT Fullday</h4>
+                        <div><label class="block font-semibold">Uang Pangkal</label><input type="number" id="sim-sdit-pangkal" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="block font-semibold">SPP Bulanan</label><input type="number" id="sim-sdit-spp" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="block font-semibold">Seragam & Buku</label><input type="number" id="sim-sdit-seragam" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                    <!-- SMPIT -->
+                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2">
+                        <h4 class="font-bold text-emerald-800">SMPIT Boarding</h4>
+                        <div><label class="block font-semibold">Uang Pangkal</label><input type="number" id="sim-smpit-pangkal" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="block font-semibold">SPP Bulanan</label><input type="number" id="sim-smpit-spp" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="block font-semibold">Seragam & Buku</label><input type="number" id="sim-smpit-seragam" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                    <!-- SMAIT -->
+                    <div class="border p-4 rounded-2xl bg-slate-50 space-y-2">
+                        <h4 class="font-bold text-emerald-800">SMAIT Boarding</h4>
+                        <div><label class="block font-semibold">Uang Pangkal</label><input type="number" id="sim-smait-pangkal" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="block font-semibold">SPP Bulanan</label><input type="number" id="sim-smait-spp" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="block font-semibold">Seragam & Buku</label><input type="number" id="sim-smait-seragam" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: ALUMNI & TESTIMONI -->
+            <div id="tab-alumni" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg text-emerald-950 mb-2">Daftar Kampus Sebaran Alumni</h3>
+                    <textarea id="alumni-campuses" class="w-full border p-3 rounded-2xl text-xs h-20" placeholder="Pisahkan nama kampus dengan koma. Contoh: Univ. Islam Madinah, Al-Azhar Cairo, UI, ITB"></textarea>
+                </div>
+                <hr>
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-emerald-950">Testimoni Alumni & Wali Santri</h3>
+                        <button onclick="tambahTestimoni()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl">+ Tambah Testimoni</button>
+                    </div>
+                    <div id="testimoni-items-container" class="space-y-4"></div>
+                </div>
+            </div>
+
+            <!-- TAB 8: FOOTER -->
+            <div id="tab-footer" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Pengaturan Footer Website</h3>
+                <div class="space-y-3 text-xs">
+                    <div><label class="font-bold block mb-1">Teks Bio Footer</label><textarea id="ft-bio" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
+                    <div><label class="font-bold block mb-1">Teks Hak Cipta / Copyright</label><input type="text" id="ft-copy" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                </div>
+            </div>
+
+            <!-- TAB 9: SEKSI -->
+            <div id="tab-seksi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Aktifkan / Sembunyikan Seksi Tampilan</h3>
+                <div id="seksi-toggles" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+            </div>
+
+            <!-- TAB 10: AUTH -->
+            <div id="tab-auth" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Keamanan Admin</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div><label class="font-bold block mb-1">Username Baru</label><input type="text" id="auth-user" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Password Baru</label><input type="text" id="auth-pass" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                </div>
+            </div>
+
+        </main>
     </div>
 
     <script>
         let siteData = {};
         let fileSha = "";
+        let isExpanded = true;
 
         const sectionLabels = {
             hero: "Header & Hero Banner",
@@ -237,9 +280,31 @@
             jadwal: "Jadwal Harian Santri",
             fasilitas: "Fasilitas Kampus",
             simulasi: "Kalkulator Biaya",
+            alumni: "Sebaran Alumni & Testimoni",
             berita: "Berita & Pengumuman",
             kontak: "Footer & Kontak"
         };
+
+        // Sidebar Collapsible Toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleIcon = document.getElementById('sidebar-toggle-icon');
+            const labels = document.querySelectorAll('.sidebar-label');
+
+            isExpanded = !isExpanded;
+
+            if (isExpanded) {
+                sidebar.classList.remove('w-20');
+                sidebar.classList.add('w-64');
+                toggleIcon.className = "fa-solid fa-xmark text-xl";
+                labels.forEach(el => el.classList.remove('hidden'));
+            } else {
+                sidebar.classList.remove('w-64');
+                sidebar.classList.add('w-20');
+                toggleIcon.className = "fa-solid fa-bars text-xl";
+                labels.forEach(el => el.classList.add('hidden'));
+            }
+        }
 
         async function initData() {
             const user = localStorage.getItem('gh_user') || '';
@@ -263,19 +328,14 @@
                 } else {
                     siteData = json;
                 }
-            } catch (e) {
-                console.log("Error loading data.json", e);
-            }
+            } catch (e) { console.log(e); }
         }
 
         function handleLogin(e) {
             e.preventDefault();
             const u = document.getElementById('login-user').value;
             const p = document.getElementById('login-pass').value;
-            const validUser = siteData.auth ? siteData.auth.username : 'admin';
-            const validPass = siteData.auth ? siteData.auth.password : 'admin123';
-
-            if (u === validUser && p === validPass) {
+            if (u === (siteData.auth?.username || 'admin') && p === (siteData.auth?.password || 'admin123')) {
                 document.getElementById('login-modal').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
                 populateFields();
@@ -305,119 +365,59 @@
             document.getElementById('sam-position').value = siteData.sambutan?.position || '';
             document.getElementById('sam-photo').value = siteData.sambutan?.photo || '';
 
+            // Simulasi Biaya
+            if (siteData.simulasi_section?.pricing) {
+                const pr = siteData.simulasi_section.pricing;
+                document.getElementById('sim-sdit-pangkal').value = pr.sdit?.pangkal || 0;
+                document.getElementById('sim-sdit-spp').value = pr.sdit?.spp || 0;
+                document.getElementById('sim-sdit-seragam').value = pr.sdit?.seragam || 0;
+
+                document.getElementById('sim-smpit-pangkal').value = pr.smpit?.pangkal || 0;
+                document.getElementById('sim-smpit-spp').value = pr.smpit?.spp || 0;
+                document.getElementById('sim-smpit-seragam').value = pr.smpit?.seragam || 0;
+
+                document.getElementById('sim-smait-pangkal').value = pr.smait?.pangkal || 0;
+                document.getElementById('sim-smait-spp').value = pr.smait?.spp || 0;
+                document.getElementById('sim-smait-seragam').value = pr.smait?.seragam || 0;
+            }
+
+            // Alumni
+            document.getElementById('alumni-campuses').value = (siteData.alumni_section?.campuses || []).join(', ');
+
+            // Footer
+            document.getElementById('ft-bio').value = siteData.footer?.bio_text || '';
+            document.getElementById('ft-copy').value = siteData.footer?.copyright || '';
+
             // Auth
             document.getElementById('auth-user').value = siteData.auth?.username || 'admin';
             document.getElementById('auth-pass').value = siteData.auth?.password || 'admin123';
 
             renderNavItems();
-            renderCustomPages();
-            renderProgramItems();
             renderJenjangItems();
             renderJadwalItems();
             renderFasilitasItems();
+            renderTestimoniItems();
             renderSeksiToggles();
         }
 
-        // Render Navigation & Submenu
+        // Render Functions
         function renderNavItems() {
             const container = document.getElementById('nav-items-container');
             container.innerHTML = '';
             (siteData.navigation || []).forEach((nav, idx) => {
-                let dropdownHtml = (nav.dropdown || []).map((sub, sIdx) => `
-                    <div class="flex gap-2 items-center mt-2 pl-4 border-l-2 border-emerald-600">
-                        <input type="text" value="${sub.label}" onchange="siteData.navigation[${idx}].dropdown[${sIdx}].label=this.value" placeholder="Nama Submenu" class="border p-2 rounded-lg text-xs w-1/2">
-                        <input type="text" value="${sub.url}" onchange="siteData.navigation[${idx}].dropdown[${sIdx}].url=this.value" placeholder="Link (#halaman)" class="border p-2 rounded-lg text-xs w-1/2">
-                        <button onclick="hapusSubmenu(${idx}, ${sIdx})" class="text-red-600 text-xs font-bold px-2">X</button>
-                    </div>
-                `).join('');
-
-                container.innerHTML += `
-                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <div class="flex justify-between items-center font-bold text-emerald-900">
-                            <span>Menu #${idx + 1}</span>
-                            <button onclick="hapusMenuUtama(${idx})" class="text-red-600">Hapus Menu</button>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" value="${nav.label}" onchange="siteData.navigation[${idx}].label=this.value" placeholder="Nama Menu" class="border p-2 rounded-xl">
-                            <input type="text" value="${nav.url}" onchange="siteData.navigation[${idx}].url=this.value" placeholder="Link Target" class="border p-2 rounded-xl">
-                        </div>
-                        <div class="pt-2">
-                            <div class="flex justify-between text-[11px] font-bold text-slate-600">
-                                <span>Submenu (Dropdown)</span>
-                                <button onclick="tambahSubmenu(${idx})" class="text-emerald-700">+ Tambah Submenu</button>
-                            </div>
-                            ${dropdownHtml}
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function tambahMenuUtama() {
-            if (!siteData.navigation) siteData.navigation = [];
-            siteData.navigation.push({ label: "Menu Baru", url: "#", dropdown: [] });
-            renderNavItems();
-        }
-        function hapusMenuUtama(idx) { siteData.navigation.splice(idx, 1); renderNavItems(); }
-        function tambahSubmenu(idx) {
-            if (!siteData.navigation[idx].dropdown) siteData.navigation[idx].dropdown = [];
-            siteData.navigation[idx].dropdown.push({ label: "Submenu Baru", url: "#" });
-            renderNavItems();
-        }
-        function hapusSubmenu(idx, sIdx) { siteData.navigation[idx].dropdown.splice(sIdx, 1); renderNavItems(); }
-
-        // Render Custom Pages
-        function renderCustomPages() {
-            const container = document.getElementById('pages-container');
-            container.innerHTML = '';
-            (siteData.custom_pages || []).forEach((pg, idx) => {
-                container.innerHTML += `
-                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <div class="flex justify-between font-bold text-emerald-950">
-                            <span>Halaman Custom #${idx + 1}</span>
-                            <button onclick="hapusPage(${idx})" class="text-red-600">Hapus Halaman</button>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div>
-                                <label class="font-bold">Judul Halaman</label>
-                                <input type="text" value="${pg.title}" onchange="siteData.custom_pages[${idx}].title=this.value" class="w-full border p-2 rounded-xl mt-1">
-                            </div>
-                            <div>
-                                <label class="font-bold">Slug URL (tanpa spasi)</label>
-                                <input type="text" value="${pg.slug}" onchange="siteData.custom_pages[${idx}].slug=this.value" class="w-full border p-2 rounded-xl mt-1">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="font-bold">Isi Konten Halaman (HTML/Teks)</label>
-                            <textarea onchange="siteData.custom_pages[${idx}].content=this.value" class="w-full border p-2 rounded-xl mt-1 h-24">${pg.content}</textarea>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function tambahHalamanBaru() {
-            if (!siteData.custom_pages) siteData.custom_pages = [];
-            siteData.custom_pages.push({ slug: "halaman-baru", title: "Halaman Baru", content: "Isi konten halaman baru..." });
-            renderCustomPages();
-        }
-        function hapusPage(idx) { siteData.custom_pages.splice(idx, 1); renderCustomPages(); }
-
-        // Render Program Unggulan
-        function renderProgramItems() {
-            const container = document.getElementById('program-items-container');
-            container.innerHTML = '';
-            (siteData.program_section?.items || []).forEach((pr, idx) => {
                 container.innerHTML += `
                     <div class="border p-3 rounded-2xl bg-slate-50 text-xs space-y-2">
-                        <input type="text" value="${pr.title}" onchange="siteData.program_section.items[${idx}].title=this.value" class="w-full border p-2 rounded-xl font-bold">
-                        <textarea onchange="siteData.program_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl">${pr.desc}</textarea>
+                        <div class="flex justify-between font-bold"><span>Menu #${idx + 1}</span><button onclick="siteData.navigation.splice(${idx},1); renderNavItems();" class="text-red-600">Hapus</button></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" value="${nav.label}" onchange="siteData.navigation[${idx}].label=this.value" class="border p-2 rounded-xl">
+                            <input type="text" value="${nav.url}" onchange="siteData.navigation[${idx}].url=this.value" class="border p-2 rounded-xl">
+                        </div>
                     </div>
                 `;
             });
         }
+        function tambahMenuUtama() { siteData.navigation.push({ label: "Menu Baru", url: "#", dropdown: [] }); renderNavItems(); }
 
-        // Render Jenjang Pendidikan
         function renderJenjangItems() {
             const container = document.getElementById('jenjang-items-container');
             container.innerHTML = '';
@@ -435,7 +435,6 @@
             });
         }
 
-        // Render Jadwal Harian
         function renderJadwalItems() {
             const container = document.getElementById('jadwal-items-container');
             container.innerHTML = '';
@@ -452,13 +451,8 @@
                 `;
             });
         }
-        function tambahJadwal() {
-            if (!siteData.jadwal_section) siteData.jadwal_section = { items: [] };
-            siteData.jadwal_section.items.push({ time: "00.00 - 00.00 WIB", title: "Aktivitas Baru", desc: "Deskripsi aktivitas..." });
-            renderJadwalItems();
-        }
+        function tambahJadwal() { siteData.jadwal_section.items.push({ time: "00.00 - 00.00 WIB", title: "Kegiatan Baru", desc: "Deskripsi..." }); renderJadwalItems(); }
 
-        // Render Fasilitas
         function renderFasilitasItems() {
             const container = document.getElementById('fasilitas-items-container');
             container.innerHTML = '';
@@ -470,15 +464,34 @@
                             <button onclick="siteData.fasilitas_section.items.splice(${idx},1); renderFasilitasItems();" class="text-red-600">Hapus</button>
                         </div>
                         <textarea onchange="siteData.fasilitas_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl">${fs.desc}</textarea>
-                        <input type="text" value="${fs.image}" onchange="siteData.fasilitas_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl" placeholder="URL Gambar">
+                        <input type="text" value="${fs.image}" onchange="siteData.fasilitas_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl">
                     </div>
                 `;
             });
         }
-        function tambahFasilitas() {
-            if (!siteData.fasilitas_section) siteData.fasilitas_section = { items: [] };
-            siteData.fasilitas_section.items.push({ title: "Fasilitas Baru", desc: "Deskripsi fasilitas...", image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800" });
-            renderFasilitasItems();
+        function tambahFasilitas() { siteData.fasilitas_section.items.push({ title: "Fasilitas Baru", desc: "Deskripsi...", image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800" }); renderFasilitasItems(); }
+
+        function renderTestimoniItems() {
+            const container = document.getElementById('testimoni-items-container');
+            container.innerHTML = '';
+            (siteData.alumni_section?.testimonials || []).forEach((tm, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2">
+                        <div class="flex justify-between font-bold"><span>Testimoni #${idx + 1}</span><button onclick="siteData.alumni_section.testimonials.splice(${idx},1); renderTestimoniItems();" class="text-red-600">Hapus</button></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" value="${tm.name}" onchange="siteData.alumni_section.testimonials[${idx}].name=this.value" placeholder="Nama" class="border p-2 rounded-xl">
+                            <input type="text" value="${tm.role}" onchange="siteData.alumni_section.testimonials[${idx}].role=this.value" placeholder="Peran/Status" class="border p-2 rounded-xl">
+                        </div>
+                        <textarea onchange="siteData.alumni_section.testimonials[${idx}].quote=this.value" class="w-full border p-2 rounded-xl" placeholder="Kutipan Testimoni">${tm.quote}</textarea>
+                        <input type="text" value="${tm.photo}" onchange="siteData.alumni_section.testimonials[${idx}].photo=this.value" class="w-full border p-2 rounded-xl" placeholder="URL Foto">
+                    </div>
+                `;
+            });
+        }
+        function tambahTestimoni() {
+            if (!siteData.alumni_section) siteData.alumni_section = { testimonials: [] };
+            siteData.alumni_section.testimonials.push({ name: "Nama Tokoh", role: "Alumni 2024", quote: "Pesan testimoni...", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" });
+            renderTestimoniItems();
         }
 
         function renderSeksiToggles() {
@@ -497,12 +510,13 @@
 
         function switchTab(tabKey) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.className = 'tab-btn text-slate-600 hover:bg-emerald-100 px-4 py-2.5 rounded-xl');
+            document.querySelectorAll('.tab-btn').forEach(el => el.className = 'tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white');
             document.getElementById('tab-' + tabKey).classList.remove('hidden');
-            document.getElementById('btn-tab-' + tabKey).className = 'tab-btn bg-emerald-800 text-white px-4 py-2.5 rounded-xl shadow';
+            document.getElementById('btn-tab-' + tabKey).className = 'tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl bg-emerald-800 text-white';
         }
 
         async function simpanKeGithub() {
+            // Update Topbar
             siteData.topbar.address = document.getElementById('tb-address').value;
             siteData.topbar.phone = document.getElementById('tb-phone').value;
             siteData.topbar.email = document.getElementById('tb-email').value;
@@ -510,6 +524,7 @@
             siteData.topbar.instagram = document.getElementById('tb-ig').value;
             siteData.topbar.youtube = document.getElementById('tb-yt').value;
 
+            // Update Sambutan
             siteData.sambutan.badge = document.getElementById('sam-badge').value;
             siteData.sambutan.title = document.getElementById('sam-title').value;
             siteData.sambutan.arabic = document.getElementById('sam-arabic').value;
@@ -519,6 +534,24 @@
             siteData.sambutan.position = document.getElementById('sam-position').value;
             siteData.sambutan.photo = document.getElementById('sam-photo').value;
 
+            // Update Simulasi
+            if (!siteData.simulasi_section) siteData.simulasi_section = { pricing: {} };
+            siteData.simulasi_section.pricing = {
+                sdit: { pangkal: +document.getElementById('sim-sdit-pangkal').value, spp: +document.getElementById('sim-sdit-spp').value, seragam: +document.getElementById('sim-sdit-seragam').value },
+                smpit: { pangkal: +document.getElementById('sim-smpit-pangkal').value, spp: +document.getElementById('sim-smpit-spp').value, seragam: +document.getElementById('sim-smpit-seragam').value },
+                smait: { pangkal: +document.getElementById('sim-smait-pangkal').value, spp: +document.getElementById('sim-smait-spp').value, seragam: +document.getElementById('sim-smait-seragam').value }
+            };
+
+            // Update Alumni
+            if (!siteData.alumni_section) siteData.alumni_section = {};
+            siteData.alumni_section.campuses = document.getElementById('alumni-campuses').value.split(',').map(s => s.trim());
+
+            // Update Footer
+            if (!siteData.footer) siteData.footer = {};
+            siteData.footer.bio_text = document.getElementById('ft-bio').value;
+            siteData.footer.copyright = document.getElementById('ft-copy').value;
+
+            // Update Auth
             siteData.auth.username = document.getElementById('auth-user').value;
             siteData.auth.password = document.getElementById('auth-pass').value;
 
@@ -526,7 +559,7 @@
             const r = document.getElementById('gh-repo').value.trim();
             const t = document.getElementById('gh-token').value.trim();
 
-            if (!u || !r || !t) { alert("Isi Username, Repo, dan Token GitHub!"); return; }
+            if (!u || !r || !t) { alert("Isi Username, Repo, dan Token!"); return; }
 
             localStorage.setItem('gh_user', u);
             localStorage.setItem('gh_repo', r);
@@ -539,19 +572,15 @@
                 const res = await fetch(`https://api.github.com/repos/${u}/${r}/contents/data.json`, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${t}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: "Super admin update content", content: encoded, sha: fileSha })
+                    body: JSON.stringify({ message: "Update website content via admin panel", content: encoded, sha: fileSha })
                 });
 
                 if (res.ok) {
                     const result = await res.json();
                     fileSha = result.content.sha;
                     alert("Berhasil disimpan ke GitHub!");
-                } else {
-                    alert("Gagal menyimpan. Cek Token!");
-                }
-            } catch (e) {
-                alert("Kesalahan koneksi API.");
-            }
+                } else { alert("Gagal menyimpan ke GitHub!"); }
+            } catch (e) { alert("Error koneksi!"); }
         }
 
         window.onload = initData;
