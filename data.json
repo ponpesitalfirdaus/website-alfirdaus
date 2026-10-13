@@ -52,6 +52,33 @@
     { "id": "asatidzh", "label": "Asatidzh & Ustazdhah", "count": 85, "icon": "fa-chalkboard-user" },
     { "id": "prestasi", "label": "Prestasi Nasional", "count": 142, "icon": "fa-trophy" }
   ],
+  "pengurus_yayasan": {
+    "badge": "Struktur Keorganisasian",
+    "title": "Pengurus Yayasan Atmo Taruno Joyo",
+    "subtitle": "Membimbing dan Memastikan Keberlangsungan Pendidikan Islam Terpadu Al Firdaus",
+    "items": [
+      {
+        "name": "KH. Amiruddin Muslih, S.Ag., M.Pd.I.",
+        "role": "Ketua Yayasan Atmo Taruno Joyo",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+      },
+      {
+        "name": "Drs. Kuswarak",
+        "role": "Sekretaris Yayasan Atmo Taruno Joyo",
+        "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+      },
+      {
+        "name": "Bunda dr. Endang Roesanti, M.Kes.",
+        "role": "Direktur Keuangan Yayasan Atmo Taruno Joyo",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+      },
+      {
+        "name": "Ani Himah Wisuda, M.Pd.",
+        "role": "Direktur Pendidikan Yayasan Atmo Taruno Joyo",
+        "photo": "https://images.unsplash.com/photo-1580894732413-a72359773820?auto=format&fit=crop&q=80&w=400"
+      }
+    ]
+  },
   "sambutan": {
     "badge": "Kata Sambutan Mudir",
     "title": "Mendidik dengan Hati, Membimbing dengan Sunnah, Menggapai Prestasi Dunia & Akhirat",
@@ -129,6 +156,43 @@
         "desc": "Mempersiapkan santri menuju universitas favorit dalam dan luar negeri (Al-Azhar Mesir, Madinah, UI, ITB, IPB, UGM). Jurusan IPA, IPS, & Keagamaan.",
         "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
         "enabled": true
+      }
+    ]
+  },
+  "prestasi_section": {
+    "badge": "Kebanggaan Pesantren",
+    "title": "Prestasi Santri & GTK",
+    "subtitle": "Apresiasi atas pencapaian santri serta Guru dan Tenaga Kependidikan di tingkat Regional, Nasional, hingga Internasional.",
+    "items": [
+      {
+        "nama_lomba": "Olimpiade Coding & Robotik Nasional 2026",
+        "juara": "Juara 1 (Medali Emas)",
+        "desc": "Tim Robotik Santri SMAIT menciptakan sistem AI pemilah sampah otomatis berbasis IoT dan meraih predikat Inovasi Terbaik.",
+        "gambar": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "nama_lomba": "Musabaqah Tilawatil Qur'an (MTQ) Internasional",
+        "juara": "Juara 2 Tahfizh 30 Juz",
+        "desc": "Santri Al Firdaus mewakili Indonesia dalam kejuaraan MTQ tingkat internasional dan meraih predikat Hafizh Terbaik.",
+        "gambar": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "nama_lomba": "Anugerah Guru & Tenaga Kependidikan (GTK) Berprestasi",
+        "juara": "Guru Inovatif Terbaik 1",
+        "desc": "Ust. Ahmad Syarif, M.Pd. meraih penghargaan GTK Kemendikbudristek berkat pengembangan Media Pembelajaran Digital berbasis Augmented Reality.",
+        "gambar": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "nama_lomba": "Kompetisi Sains Madrasah (KSM) Tingkat Nasional",
+        "juara": "Medali Emas Bidang Matematika",
+        "desc": "Santri SMPIT berhasil mengalahkan 500 peserta nasional dalam ajang KSM Kemenag kategori Matematika Terintegrasi.",
+        "gambar": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "nama_lomba": "Lomba Pidato 3 Bahasa (Arab, Inggris, Indonesia) Se-Sumatera",
+        "juara": "Juara Umum & Juara 1 Pidato Arab",
+        "desc": "Santri MA Boarding memborong piala bergilir Lomba Pidato Bahasa Asing antar pesantren se-Sumatera.",
+        "gambar": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
       }
     ]
   },
@@ -314,9 +378,11 @@
   "sections": {
     "hero": true,
     "stats": true,
+    "pengurus": true,
     "sambutan": true,
     "program": true,
     "jenjang": true,
+    "prestasi": true,
     "jadwal": true,
     "fasilitas": true,
     "simulasi": true,
