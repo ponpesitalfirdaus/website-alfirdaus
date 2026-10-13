@@ -67,10 +67,26 @@
     "title": "Program Unggulan Pesantren",
     "subtitle": "Empat pilar utama pendidikan di SIT Al Firdaus dalam mencetak santri unggul.",
     "items": [
-      { "icon": "fa-book-quran", "title": "Tahfizh Qur'an 30 Juz", "desc": "Metode Al-Firdaus Mutqin dengan bimbingan Asatidzh Al-Hafizh ber-sanad. Target kelulusan hafal 30 juz." },
-      { "icon": "fa-comments", "title": "Bilingual Arabic & English", "desc": "Penerapan bahasa Arab dan Inggris secara aktif dalam muhadatsah harian dan pidato 3 bahasa." },
-      { "icon": "fa-code", "title": "STEM & Digital Academy", "desc": "Pelatihan Coding, Web Development, Robotik, dan Desain Grafis untuk santri era digital." },
-      { "icon": "fa-scroll", "title": "Turats & Kitab Kuning", "desc": "Kajian mendalam Nahwu Sharaf, Fiqih Syafi'i, Hadits, dan Aqidah Ahlus Sunnah wal Jama'ah." }
+      {
+        "icon": "fa-book-quran",
+        "title": "Tahfizh Qur'an 30 Juz",
+        "desc": "Metode Al-Firdaus Mutqin dengan bimbingan Asatidzh Al-Hafizh ber-sanad. Target kelulusan hafal 30 juz dengan tajwid dan matan."
+      },
+      {
+        "icon": "fa-comments",
+        "title": "Bilingual Arabic & English",
+        "desc": "Penerapan bahasa Arab dan Inggris secara aktif dalam muhadatsah harian, pidato 3 bahasa, serta kajian literatur."
+      },
+      {
+        "icon": "fa-code",
+        "title": "STEM & Digital Academy",
+        "desc": "Pelatihan Coding, Web Development, Robotik, dan Desain Grafis untuk membekali santri menghadapi tantangan era digital."
+      },
+      {
+        "icon": "fa-scroll",
+        "title": "Turats & Kitab Kuning",
+        "desc": "Kajian mendalam Nahwu Sharaf, Fiqih Syafi'i, Hadits Bulughul Maram, dan Aqidah Ahlus Sunnah wal Jama'ah."
+      }
     ]
   },
   "jenjang_section": {
@@ -116,6 +132,86 @@
       }
     ]
   },
+  "jadwal_section": {
+    "badge": "Rutinitas Santri",
+    "title": "Jadwal Harian Santri Boarding",
+    "subtitle": "Disiplin dan pembiasaan ibadah dari sebelum Subuh hingga malam hari.",
+    "items": [
+      {
+        "time": "03.30 - 05.00 WIB",
+        "title": "Qiyamul Lail & Subuh",
+        "desc": "Sholat Tahajjud, Sahur Sunnah, Sholat Subuh Berjamaah & Zikir Pagi.",
+        "icon": "fa-moon"
+      },
+      {
+        "time": "05.00 - 06.30 WIB",
+        "title": "Halaqah Tahfizh Pagi",
+        "desc": "Setor hafalan baru (Ziyadah) kepada Ustadz Halqah masing-masing.",
+        "icon": "fa-book-quran"
+      },
+      {
+        "time": "07.00 - 15.00 WIB",
+        "title": "Sekolah Formal & STEM",
+        "desc": "KBM Kurikulum Formal, Sholat Dhuha, Dzuhur, dan Makan Siang.",
+        "icon": "fa-school"
+      },
+      {
+        "time": "15.30 - 17.00 WIB",
+        "title": "Kajian Kitab & Ekstrakurikuler",
+        "desc": "Kajian Fiqih, Bahasa Arab, Olahraga Panahan/Berkuda/Pencak Silat.",
+        "icon": "fa-book-open"
+      },
+      {
+        "time": "18.00 - 20.00 WIB",
+        "title": "Maghrib, Muraja'ah & Isya",
+        "desc": "Mengerjakan Muraja'ah hafalan bersama dan Sholat Isya Berjamaah.",
+        "icon": "fa-mosque"
+      },
+      {
+        "time": "20.00 - 21.30 WIB",
+        "title": "Belajar Mandiri & Istirahat",
+        "desc": "Persiapan tugas sekolah, evaluasi harian, adab tidur sunnah Rasulullah.",
+        "icon": "fa-bed"
+      }
+    ]
+  },
+  "fasilitas_section": {
+    "badge": "Sarana Berstandar Internasional",
+    "title": "Fasilitas Kampus & Boarding",
+    "subtitle": "Menunjang kenyamanan santri dalam beribadah, belajar, dan beraktivitas.",
+    "items": [
+      {
+        "title": "Masjid Utama Al Firdaus",
+        "desc": "Masjid ber-AC kapasitas 2.000 jamaah dengan karpet standar Madinah.",
+        "image": "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "title": "Asrama Ber-AC & Kamar Mandi Dalam",
+        "desc": "Kamar yang bersih, nyaman, ber-AC dengan pendampingan Musyrif 24 jam.",
+        "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "title": "Laboratorium STEM & Bahasa",
+        "desc": "Dilengkapi perangkat komputer modern, internet cepat, dan audio lab.",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "title": "Perpustakaan Turats & Digital",
+        "desc": "Koleksi ribuan kitab klasik Turats dan e-book referensi internasional.",
+        "image": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "title": "Lapangan Futsal & Arena Panahan",
+        "desc": "Fasilitas olahraga outdoor & indoor untuk menjaga kebugaran jasmani santri.",
+        "image": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "title": "Dining Hall & Dapur Higienis",
+        "desc": "Menu makanan 3x sehari dengan standar gizi seimbang dan halal thayyib.",
+        "image": "https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
   "simulasi_section": {
     "badge": "Transparansi Biaya",
     "title": "Simulasi & Estimasi Biaya PPDB",
@@ -125,31 +221,83 @@
         "id": "sdit",
         "name": "SDIT Fullday",
         "items": [
-          { "name": "Uang Pangkal / Infaq Gedung", "cost": 8500000, "discountable": true },
-          { "name": "SPP Bulanan", "cost": 850000, "discountable": false },
-          { "name": "Seragam & Buku Paket", "cost": 1800000, "discountable": false }
+          { "name": "Uang Pangkal / Infaq Gedung", "cost": 8500000 },
+          { "name": "SPP Bulanan", "cost": 850000 },
+          { "name": "Seragam & Buku Paket", "cost": 1800000 }
         ]
       },
       {
         "id": "smpit",
         "name": "SMPIT Boarding",
         "items": [
-          { "name": "Uang Pangkal / Infaq Gedung", "cost": 12500000, "discountable": true },
-          { "name": "SPP Bulanan (Termasuk Asrama & Makan)", "cost": 1800000, "discountable": false },
-          { "name": "Seragam Lengkap & Perlengkapan", "cost": 2200000, "discountable": false }
+          { "name": "Uang Pangkal / Infaq Gedung", "cost": 12500000 },
+          { "name": "SPP Bulanan (Termasuk Asrama & Makan)", "cost": 1800000 },
+          { "name": "Seragam Lengkap & Perlengkapan", "cost": 2200000 }
         ]
       },
       {
         "id": "smait",
         "name": "SMAIT / MA Boarding",
         "items": [
-          { "name": "Uang Pangkal / Infaq Gedung", "cost": 14500000, "discountable": true },
-          { "name": "SPP Bulanan (Termasuk Asrama & Makan)", "cost": 2100000, "discountable": false },
-          { "name": "Seragam Lengkap & Perlengkapan", "cost": 2400000, "discountable": false }
+          { "name": "Uang Pangkal / Infaq Gedung", "cost": 14500000 },
+          { "name": "SPP Bulanan (Termasuk Asrama & Makan)", "cost": 2100000 },
+          { "name": "Seragam Lengkap & Perlengkapan", "cost": 2400000 }
         ]
       }
     ]
   },
+  "alumni_section": {
+    "badge": "Sebaran Alumni SIT Al Firdaus",
+    "title": "Diterima Di Perguruan Tinggi Terkemuka",
+    "subtitle": "Alumni Al Firdaus tersebar di berbagai universitas terbaik dalam dan luar negeri.",
+    "campuses": [
+      "Univ. Islam Madinah",
+      "Al-Azhar Cairo",
+      "Universitas Indonesia",
+      "ITB Bandung",
+      "LIPIA Jakarta"
+    ],
+    "testimonials": [
+      {
+        "name": "Hj. Siti Rahmah, S.E.",
+        "role": "Wali Santri Ananda Muhammad Rizky (SMAIT)",
+        "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+        "quote": "Alhamdulillah, keputusan terbaik memasukkan anak kami ke Ponpes Al Firdaus. Tidak hanya hafalan Qur'annya capai 30 juz, tetapi kemampuan Bahasa Arab dan IT-nya sangat menonjol hingga lolos Beasiswa di Madinah."
+      },
+      {
+        "name": "Ustadz Farhan Kamil, Lc.",
+        "role": "Alumni 2022 - Mahasiswa Al-Azhar Mesir",
+        "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
+        "quote": "Gemblengan kedisiplinan, bahasa harian, dan mutqin hafalan di Al Firdaus menjadi modal utama saya saat menempuh ujian muadalah ke Kairo tanpa kendala berarti."
+      }
+    ]
+  },
+  "posts": [
+    {
+      "id": "1",
+      "judul": "Wisuda Khotmil Qur’an Ke-12: 45 Santri Berhasil Raih Sanad Mutqin",
+      "label": "Wisuda Tahfizh",
+      "tanggal": "2026-10-12",
+      "ringkasan": "Suasana haru dan bangga menyelimuti aula utama Ponpes SIT Al Firdaus saat prosesi wisuda dan penyematan mahkota bagi para hafizh.",
+      "gambar": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "2",
+      "judul": "Santri SMAIT Al Firdaus Sabet Medali Emas Olimpiade Coding & Robotik Nasional",
+      "label": "Prestasi",
+      "tanggal": "2026-10-05",
+      "ringkasan": "Tim Robotik Al Firdaus menciptakan inovasi alat pemilah sampah otomatis berbasis AI Islami dalam kejuaraan nasional.",
+      "gambar": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "3",
+      "judul": "Kunjungan Syaikh Dari Universitas Al-Azhar Kairo dalam Dauroh Tajwid & Qira'at",
+      "label": "Dauroh Syari'ah",
+      "tanggal": "2026-09-28",
+      "ringkasan": "Kunjungan spesial dosen Al-Azhar memberikan ijazah Sanad Matan Jazariyyah kepada santri dan jajaran asatidzh.",
+      "gambar": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800"
+    }
+  ],
   "cta_banner": {
     "title": "Siap Bergabung Bersama Keluarga Besar SIT Al Firdaus?",
     "subtitle": "Kuota pendaftaran terbatas untuk setiap jenjang. Segera amalkan investasi terbaik bagi masa depan buah hati Anda.",
@@ -172,8 +320,8 @@
     "jadwal": true,
     "fasilitas": true,
     "simulasi": true,
-    "alumni": true,
     "berita": true,
+    "alumni": true,
     "cta": true,
     "kontak": true
   }
