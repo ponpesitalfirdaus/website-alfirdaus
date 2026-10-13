@@ -120,9 +120,11 @@
 
                     <div class="hidden lg:flex items-center gap-1 xl:gap-2 font-medium text-sm text-slate-700">
                         <a href="#beranda" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors font-semibold text-emerald-700">Beranda</a>
+                        <a href="#pengurus" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Pengurus</a>
                         <a href="#sambutan" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Profil</a>
                         <a href="#program" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Program</a>
                         <a href="#jenjang" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Jenjang</a>
+                        <a href="#prestasi" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Prestasi</a>
                         <a href="#fasilitas" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Fasilitas</a>
                         <a href="#jadwal" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Jadwal Harian</a>
                         <a href="#berita" class="px-3 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Berita</a>
@@ -142,6 +144,21 @@
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Mobile Menu Drawer -->
+            <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-6 space-y-2 shadow-xl">
+                <a href="#beranda" class="block px-3 py-2 rounded-lg font-semibold text-emerald-800 bg-emerald-50">Beranda</a>
+                <a href="#pengurus" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Pengurus Yayasan</a>
+                <a href="#sambutan" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Profil Mudir</a>
+                <a href="#program" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Program Unggulan</a>
+                <a href="#jenjang" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Jenjang Pendidikan</a>
+                <a href="#prestasi" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Prestasi Santri & GTK</a>
+                <a href="#fasilitas" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Fasilitas Kampus</a>
+                <a href="#jadwal" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Jadwal Harian</a>
+                <a href="#simulasi" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Simulasi Biaya</a>
+                <a href="#berita" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Berita & Pengumuman</a>
+                <a href="#kontak" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Kontak Sekretariat</a>
             </div>
         </nav>
     </header>
@@ -172,6 +189,20 @@
     <!-- STAT CARDS COUNTER -->
     <section id="stats" class="relative z-30 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6" id="stats-grid-container"></div>
+    </section>
+
+    <!-- SEKSI PENGURUS YAYASAN -->
+    <section id="pengurus" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-md text-xs uppercase tracking-wider border border-amber-300">
+                    Struktur Organisasi
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-3">Pengurus Yayasan Atmo Taruno Joyo</h2>
+                <p class="text-slate-600 text-sm mt-2">Membimbing dan Memastikan Keberlangsungan Pendidikan Islam Terpadu Al Firdaus</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" id="pengurus-grid-container"></div>
+        </div>
     </section>
 
     <!-- SAMBUTAN MUDIR -->
@@ -223,6 +254,37 @@
         </div>
     </section>
 
+    <!-- SEKSI PRESTASI SANTRI DAN GTK (SLIDESHOW SLIDER) -->
+    <section id="prestasi" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-amber-400/20 text-amber-300 font-bold px-3 py-1 rounded-md text-xs uppercase tracking-wider border border-amber-400/30">
+                    Kebanggaan Pesantren
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Prestasi Santri & GTK</h2>
+                <p class="text-slate-300 text-sm mt-2">Apresiasi atas pencapaian santri serta Guru dan Tenaga Kependidikan di tingkat Regional, Nasional, hingga Internasional.</p>
+            </div>
+
+            <!-- Slideshow Container -->
+            <div class="relative max-w-5xl mx-auto">
+                <div id="prestasi-slider-container"></div>
+
+                <!-- Slider Controls & Dots -->
+                <div class="flex items-center justify-between mt-8">
+                    <div class="flex items-center gap-2" id="prestasi-dots"></div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="prevPrestasiSlide()" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-amber-500 hover:text-emerald-950 border border-slate-700 flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+                        <button onclick="nextPrestasiSlide()" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-amber-500 hover:text-emerald-950 border border-slate-700 flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- RUTINITAS SANTRI (JADWAL HARIAN) -->
     <section id="jadwal" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -235,11 +297,11 @@
     </section>
 
     <!-- SARANA BERSTANDAR (FASILITAS KAMPUS) -->
-    <section id="fasilitas" class="py-20 bg-slate-900 text-white relative">
+    <section id="fasilitas" class="py-20 bg-slate-100 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full">Sarana Berstandar</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Fasilitas Kampus & Boarding</h2>
+                <span class="text-emerald-800 font-bold text-xs uppercase tracking-widest bg-emerald-200 px-3 py-1 rounded-full">Sarana Berstandar</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-3">Fasilitas Kampus & Boarding</h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="fasilitas-grid-container"></div>
         </div>
@@ -318,6 +380,7 @@
                     <h4 class="text-white font-bold text-sm tracking-wider uppercase border-b border-emerald-800 pb-2">Menu Cepat</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="#beranda" class="hover:text-amber-400 transition-colors">Beranda</a></li>
+                        <li><a href="#pengurus" class="hover:text-amber-400 transition-colors">Pengurus Yayasan</a></li>
                         <li><a href="#sambutan" class="hover:text-amber-400 transition-colors">Profil Mudir</a></li>
                         <li><a href="#program" class="hover:text-amber-400 transition-colors">Program Unggulan</a></li>
                         <li><a href="#jenjang" class="hover:text-amber-400 transition-colors">Jenjang Sekolah</a></li>
@@ -371,6 +434,18 @@
         </div>
     </div>
 
+    <div id="portalModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('portalModal')" class="absolute top-4 right-4 text-slate-400 text-xl w-8 h-8 rounded-full hover:bg-slate-100">X</button>
+            <h3 class="text-2xl font-extrabold text-emerald-950 text-center mb-4">Portal SIMAK Wali Santri</h3>
+            <form onsubmit="event.preventDefault(); closeModal('portalModal'); alert('Login Portal Berhasil!');" class="space-y-3 text-xs">
+                <input type="text" placeholder="NIS Santri" required class="w-full border p-3 rounded-xl bg-slate-50">
+                <input type="password" placeholder="Passcode" required class="w-full border p-3 rounded-xl bg-slate-50">
+                <button type="submit" class="w-full bg-amber-500 text-emerald-950 font-bold py-3 rounded-xl shadow">Masuk Portal</button>
+            </form>
+        </div>
+    </div>
+
     <!-- SCRIPT LOGIC MAIN SITE -->
     <script>
         let currentSlide = 0;
@@ -379,8 +454,17 @@
         let heroSlidesData = [];
         let simulasiLevelsData = [];
 
+        let currentPrestasiSlide = 0;
+        let prestasiSlidesData = [];
+
         function openModal(id) { document.getElementById(id)?.classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id)?.classList.add('hidden'); }
+
+        // Toggle Drawer Mobile
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('hidden');
+        });
 
         async function applyDynamicSiteData() {
             try {
@@ -418,6 +502,22 @@
                                     <div class="text-2xl sm:text-3xl font-extrabold text-emerald-950">${s.count}</div>
                                     <div class="text-xs sm:text-sm font-medium text-slate-500">${s.label}</div>
                                 </div>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Pengurus Yayasan
+                if (data.pengurus_yayasan && data.pengurus_yayasan.items) {
+                    const pBox = document.getElementById('pengurus-grid-container');
+                    if (pBox) {
+                        pBox.innerHTML = data.pengurus_yayasan.items.map(p => `
+                            <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 text-center group">
+                                <div class="relative w-32 h-32 sm:w-36 sm:h-36 mx-auto mb-4 rounded-full overflow-hidden border-4 border-emerald-600/20 group-hover:border-emerald-600 transition-colors shadow-inner">
+                                    <img src="${p.photo}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                </div>
+                                <h4 class="font-bold text-emerald-950 text-sm sm:text-base group-hover:text-emerald-700 transition-colors leading-snug">${p.name}</h4>
+                                <p class="text-[11px] sm:text-xs text-amber-700 font-semibold mt-2 bg-amber-50 px-3 py-1 rounded-full inline-block border border-amber-200">${p.role}</p>
                             </div>
                         `).join('');
                     }
@@ -478,6 +578,12 @@
                             </div>
                         `).join('');
                     }
+                }
+
+                // Prestasi Santri & GTK
+                if (data.prestasi_section && data.prestasi_section.items && data.prestasi_section.items.length > 0) {
+                    prestasiSlidesData = data.prestasi_section.items;
+                    renderPrestasiSlider();
                 }
 
                 // Rutinitas Santri (Jadwal Harian)
@@ -652,6 +758,71 @@
         document.getElementById('nextSlideBtn')?.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
         document.getElementById('prevSlideBtn')?.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
         document.getElementById('pausePlayBtn')?.addEventListener('click', toggleAutoplay);
+
+        // Prestasi Santri & GTK Slider Logic
+        function renderPrestasiSlider() {
+            const container = document.getElementById('prestasi-slider-container');
+            const dotsContainer = document.getElementById('prestasi-dots');
+            if (!container || !prestasiSlidesData.length) return;
+
+            container.innerHTML = prestasiSlidesData.map((p, i) => `
+                <div class="prestasi-slide ${i === 0 ? 'block' : 'hidden'} duration-500 ease-in-out transition-all">
+                    <div class="bg-slate-800/90 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 grid grid-cols-1 md:grid-cols-12 gap-0">
+                        <div class="md:col-span-6 relative h-64 md:h-96">
+                            <img src="${p.gambar}" alt="${p.nama_lomba}" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-amber-400 text-emerald-950 font-extrabold px-3 py-1.5 rounded-full text-xs shadow-lg flex items-center gap-1.5">
+                                <i class="fa-solid fa-trophy"></i> ${p.juara}
+                            </div>
+                        </div>
+                        <div class="md:col-span-6 p-6 sm:p-10 flex flex-col justify-center space-y-4">
+                            <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full w-fit uppercase tracking-wider border border-amber-400/30">
+                                Lomba & Kejuaraan
+                            </span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                                ${p.nama_lomba}
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                ${p.desc}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            if (dotsContainer) {
+                dotsContainer.innerHTML = prestasiSlidesData.map((_, i) => `
+                    <button onclick="goToPrestasiSlide(${i})" class="${i === 0 ? 'w-8 bg-amber-400' : 'w-3 bg-slate-600'} h-2.5 rounded-full transition-all duration-300"></button>
+                `).join('');
+            }
+        }
+
+        function showPrestasiSlide(idx) {
+            const slides = document.querySelectorAll('.prestasi-slide');
+            const dots = document.querySelectorAll('#prestasi-dots button');
+
+            slides.forEach((s, i) => {
+                s.classList.toggle('block', i === idx);
+                s.classList.toggle('hidden', i !== idx);
+            });
+
+            dots.forEach((d, i) => {
+                d.className = i === idx ? 'w-8 bg-amber-400 h-2.5 rounded-full transition-all duration-300' : 'w-3 bg-slate-600 h-2.5 rounded-full transition-all duration-300';
+            });
+
+            currentPrestasiSlide = idx;
+        }
+
+        function nextPrestasiSlide() {
+            if (!prestasiSlidesData.length) return;
+            showPrestasiSlide((currentPrestasiSlide + 1) % prestasiSlidesData.length);
+        }
+
+        function prevPrestasiSlide() {
+            if (!prestasiSlidesData.length) return;
+            showPrestasiSlide((currentPrestasiSlide - 1 + prestasiSlidesData.length) % prestasiSlidesData.length);
+        }
+
+        function goToPrestasiSlide(idx) { showPrestasiSlide(idx); }
 
         // Switch Jenjang Tab
         function switchJenjangTab(tabId) {
