@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pondok Pesantren & SIT Al Firdaus | Islami, Modern & Berprestasi</title>
-    <meta name="description" content="Website Resmi Pondok Pesantren & Sekolah Islam Terpadu Al Firdaus.">
+    <meta name="description" content="Website Resmi Pondok Pesantren & Sekolah Islam Terpadu Al Firdaus. Mencetak Generasi Rabbani, Hafizh Qur'an, Berbahasa Internasional, dan Menguasai Teknologi.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,7 +146,7 @@
         </nav>
     </header>
 
-    <!-- HERO SLIDER SECTION WITH CONTROLS, DOTS & AUTOPLAY -->
+    <!-- HERO SLIDER SECTION -->
     <section id="hero" class="relative bg-emerald-950 overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
         <div class="absolute inset-0 bg-islamic-pattern opacity-30"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 to-transparent z-10"></div>
@@ -198,14 +198,14 @@
         </div>
     </section>
 
-    <!-- PROGRAM UNGGULAN -->
+    <!-- KEUNGGULAN KAMI (PROGRAM UNGGULAN) -->
     <section id="program" class="py-20 bg-emerald-950 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="bg-amber-500/20 text-amber-300 font-semibold px-4 py-1 rounded-full text-xs uppercase border border-amber-400/30">Keunggulan Kami</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Program Unggulan Pesantren</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="program-grid-container"></div>
         </div>
     </section>
 
@@ -223,29 +223,29 @@
         </div>
     </section>
 
-    <!-- JADWAL HARIAN SANTRI -->
+    <!-- RUTINITAS SANTRI (JADWAL HARIAN) -->
     <section id="jadwal" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-md text-xs uppercase">Rutinitas Santri</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Jadwal Harian Santri Boarding</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="jadwal-grid-container"></div>
         </div>
     </section>
 
-    <!-- FASILITAS KAMPUS -->
+    <!-- SARANA BERSTANDAR (FASILITAS KAMPUS) -->
     <section id="fasilitas" class="py-20 bg-slate-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full">Sarana Berstandar</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Fasilitas Kampus & Boarding</h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="fasilitas-grid-container"></div>
         </div>
     </section>
 
-    <!-- SIMULASI KALKULATOR BIAYA DINAMIS -->
+    <!-- SIMULASI KALKULATOR BIAYA -->
     <section id="simulasi" class="py-20 bg-emerald-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-emerald-100">
@@ -280,11 +280,11 @@
         </div>
     </section>
 
-    <!-- BERITA & PENGUMUMAN -->
+    <!-- BERITA & PENGUMUMAN TERBARU -->
     <section id="berita" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12"><span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-md uppercase">Kabar Pesantren</span><h2 class="text-3xl font-extrabold text-emerald-950 mt-2">Berita & Pengumuman Terbaru</h2></div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="berita-grid-container"></div>
         </div>
     </section>
 
@@ -436,7 +436,23 @@
                     if (document.getElementById('sam-p2-text')) document.getElementById('sam-p2-text').textContent = s.p2;
                 }
 
-                // Jenjang (With Individual Enable/Disable Filter)
+                // Keunggulan Kami (Program Unggulan)
+                if (data.program_section && data.program_section.items) {
+                    const progBox = document.getElementById('program-grid-container');
+                    if (progBox) {
+                        progBox.innerHTML = data.program_section.items.map(p => `
+                            <div class="glass-dark p-8 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-2">
+                                <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-3xl mb-6">
+                                    <i class="fa-solid ${p.icon || 'fa-star'}"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3 text-amber-300">${p.title}</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">${p.desc}</p>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Jenjang (Dengan Filter Enabled)
                 if (data.jenjang_section && data.jenjang_section.items) {
                     const enabledItems = data.jenjang_section.items.filter(i => i.enabled !== false);
                     const tabsHeader = document.getElementById('jenjang-tabs-header');
@@ -464,13 +480,71 @@
                     }
                 }
 
-                // Dynamic Fee Calculator Setup
+                // Rutinitas Santri (Jadwal Harian)
+                if (data.jadwal_section && data.jadwal_section.items) {
+                    const jBox = document.getElementById('jadwal-grid-container');
+                    if (jBox) {
+                        jBox.innerHTML = data.jadwal_section.items.map(j => `
+                            <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50 hover:shadow-lg transition-all border-l-4 border-l-emerald-600">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-xs font-bold bg-amber-200 text-amber-900 px-2.5 py-1 rounded-md">${j.time}</span>
+                                    <i class="fa-solid ${j.icon || 'fa-clock'} text-emerald-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg text-emerald-950">${j.title}</h4>
+                                <p class="text-xs text-slate-600 mt-1">${j.desc}</p>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Sarana Berstandar (Fasilitas Kampus)
+                if (data.fasilitas_section && data.fasilitas_section.items) {
+                    const fBox = document.getElementById('fasilitas-grid-container');
+                    if (fBox) {
+                        fBox.innerHTML = data.fasilitas_section.items.map(f => `
+                            <div class="group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800">
+                                <img src="${f.image}" alt="${f.title}" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                                    <h3 class="text-xl font-bold text-amber-300">${f.title}</h3>
+                                    <p class="text-xs text-slate-300 mt-1">${f.desc}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Dynamic Fee Calculator
                 if (data.simulasi_section && data.simulasi_section.levels) {
                     simulasiLevelsData = data.simulasi_section.levels;
                     const selectEl = document.getElementById('calc-jenjang');
                     if (selectEl) {
                         selectEl.innerHTML = simulasiLevelsData.map(lvl => `<option value="${lvl.id}">${lvl.name}</option>`).join('');
                         calculateFee();
+                    }
+                }
+
+                // Berita & Pengumuman Terbaru
+                if (data.posts) {
+                    const bBox = document.getElementById('berita-grid-container');
+                    if (bBox) {
+                        bBox.innerHTML = data.posts.map(post => `
+                            <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <img src="${post.gambar}" alt="${post.judul}" class="h-48 w-full object-cover">
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 text-xs text-slate-500 mb-2">
+                                        <span><i class="fa-regular fa-calendar text-emerald-600"></i> ${post.tanggal}</span>
+                                        <span>•</span>
+                                        <span class="text-emerald-700 font-semibold">${post.label}</span>
+                                    </div>
+                                    <h3 class="font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors line-clamp-2">
+                                        ${post.judul}
+                                    </h3>
+                                    <p class="text-xs text-slate-600 mt-2 line-clamp-3">
+                                        ${post.ringkasan}
+                                    </p>
+                                </div>
+                            </article>
+                        `).join('');
                     }
                 }
 
@@ -487,7 +561,7 @@
                     if (document.getElementById('ft-copy-text')) document.getElementById('ft-copy-text').textContent = data.footer.copyright;
                 }
 
-                // Section Visibility
+                // Seksi Visibilitas
                 if (data.sections) {
                     Object.keys(data.sections).forEach(key => {
                         const el = document.getElementById(key);
@@ -498,7 +572,7 @@
             } catch (e) { console.log(e); }
         }
 
-        // Hero Slider Dynamic Functions
+        // Hero Slider Controls & Autoplay Logic
         function renderHeroSlider() {
             const container = document.getElementById('hero-slider');
             const dotsContainer = document.getElementById('slider-dots');
@@ -603,7 +677,7 @@
             let total = 0;
             container.innerHTML = selectedLvl.items.map((item, idx) => {
                 let cost = item.cost;
-                if (isPrestasi && idx === 0) cost = cost * 0.75; // Diskon 25% Uang Pangkal
+                if (isPrestasi && idx === 0) cost = cost * 0.75;
                 total += cost;
                 return `
                     <div class="flex justify-between">
