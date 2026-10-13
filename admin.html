@@ -71,6 +71,10 @@
                     <i class="fa-solid fa-chart-line w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Stat Cards</span>
                 </button>
+                <button onclick="switchTab('pengurus')" id="btn-tab-pengurus" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-users-rectangle w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Pengurus Yayasan</span>
+                </button>
                 <button onclick="switchTab('sambutan')" id="btn-tab-sambutan" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-user-tie w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Sambutan Mudir</span>
@@ -82,6 +86,10 @@
                 <button onclick="switchTab('jenjang')" id="btn-tab-jenjang" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-graduation-cap w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Jenjang Pendidikan</span>
+                </button>
+                <button onclick="switchTab('prestasi')" id="btn-tab-prestasi" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-trophy w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Prestasi Santri & GTK</span>
                 </button>
                 <button onclick="switchTab('jadwal')" id="btn-tab-jadwal" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-clock-rotate-left w-5 text-center text-amber-400"></i>
@@ -127,7 +135,7 @@
             <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
                     <h1 class="text-xl font-extrabold text-emerald-950">Dashboard Pengelolaan Website</h1>
-                    <p class="text-xs text-slate-500">Kelola Hero, Program, Jenjang, Rutinitas, Fasilitas, Berita, Biaya & Multiuser</p>
+                    <p class="text-xs text-slate-500">Kelola Hero, Pengurus, Prestasi, Program, Jenjang, Rutinitas, Fasilitas, Berita, Biaya & Multiuser</p>
                 </div>
                 <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-6 py-3 rounded-2xl shadow transition flex items-center gap-2 text-xs">
                     <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan ke GitHub
@@ -170,6 +178,15 @@
                 <div id="stats-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
             </div>
 
+            <!-- TAB: PENGURUS YAYASAN -->
+            <div id="tab-pengurus" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Kelola Pengurus Yayasan Atmo Taruno Joyo</h3>
+                    <button onclick="tambahPengurusItem()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Pengurus</button>
+                </div>
+                <div id="pengurus-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+
             <!-- TAB: SAMBUTAN MUDIR -->
             <div id="tab-sambutan" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <h3 class="font-bold text-lg text-emerald-950">Sambutan Mudir</h3>
@@ -201,6 +218,15 @@
                     <button onclick="tambahJenjangUnit()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Unit Jenjang</button>
                 </div>
                 <div id="jenjang-items-container" class="space-y-4"></div>
+            </div>
+
+            <!-- TAB: PRESTASI SANTRI & GTK -->
+            <div id="tab-prestasi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Kelola Prestasi Santri & GTK</h3>
+                    <button onclick="tambahPrestasiItem()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Prestasi</button>
+                </div>
+                <div id="prestasi-items-container" class="space-y-4"></div>
             </div>
 
             <!-- TAB: RUTINITAS SANTRI (JADWAL HARIAN) -->
@@ -286,9 +312,11 @@
         const sectionLabels = {
             hero: "Hero Slider Modern",
             stats: "Stat Cards Counter",
+            pengurus: "Pengurus Yayasan",
             sambutan: "Kata Sambutan Mudir",
             program: "Keunggulan Kami",
             jenjang: "Jenjang Pendidikan",
+            prestasi: "Prestasi Santri & GTK",
             jadwal: "Rutinitas Santri",
             fasilitas: "Sarana Berstandar",
             simulasi: "Transparansi Biaya",
@@ -388,8 +416,10 @@
 
             renderHeroItems();
             renderStatsItems();
+            renderPengurusItems();
             renderProgramItems();
             renderJenjangItems();
+            renderPrestasiItems();
             renderJadwalItems();
             renderFasilitasItems();
             renderSimulasiLevels();
@@ -433,6 +463,33 @@
                     </div>
                 `;
             });
+        }
+
+        // Pengurus Yayasan Manager
+        function renderPengurusItems() {
+            const container = document.getElementById('pengurus-items-container');
+            if (!container) return;
+            container.innerHTML = '';
+            (siteData.pengurus_yayasan?.items || []).forEach((pg, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.pengurus_yayasan.items.splice(${idx},1); renderPengurusItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="font-bold text-emerald-950">Pengurus #${idx + 1}</div>
+                        <div><label class="font-bold block">Nama Lengkap & Gelar</label><input type="text" value="${pg.name}" onchange="siteData.pengurus_yayasan.items[${idx}].name=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                        <div><label class="font-bold block">Jabatan Yayasan</label><input type="text" value="${pg.role}" onchange="siteData.pengurus_yayasan.items[${idx}].role=this.value" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="font-bold block">URL Foto</label><input type="text" value="${pg.photo}" onchange="siteData.pengurus_yayasan.items[${idx}].photo=this.value" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                `;
+            });
+        }
+        function tambahPengurusItem() {
+            if (!siteData.pengurus_yayasan) siteData.pengurus_yayasan = { items: [] };
+            siteData.pengurus_yayasan.items.push({
+                name: "Nama Pengurus Baru",
+                role: "Jabatan Yayasan",
+                photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+            });
+            renderPengurusItems();
         }
 
         // Program Unggulan Manager
@@ -496,6 +553,37 @@
                 enabled: true
             });
             renderJenjangItems();
+        }
+
+        // Prestasi Santri & GTK Manager
+        function renderPrestasiItems() {
+            const container = document.getElementById('prestasi-items-container');
+            if (!container) return;
+            container.innerHTML = '';
+            (siteData.prestasi_section?.items || []).forEach((pr, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.prestasi_section.items.splice(${idx},1); renderPrestasiItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="font-bold text-emerald-950">Prestasi #${idx + 1}</div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><label class="font-bold block">Nama Lomba / Kejuaraan</label><input type="text" value="${pr.nama_lomba}" onchange="siteData.prestasi_section.items[${idx}].nama_lomba=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                            <div><label class="font-bold block">Juara / Capaian</label><input type="text" value="${pr.juara}" onchange="siteData.prestasi_section.items[${idx}].juara=this.value" class="w-full border p-2 rounded-xl"></div>
+                        </div>
+                        <div><label class="font-bold block">Deskripsi Kegiatan Lomba</label><textarea onchange="siteData.prestasi_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl h-16">${pr.desc}</textarea></div>
+                        <div><label class="font-bold block">URL Gambar</label><input type="text" value="${pr.gambar}" onchange="siteData.prestasi_section.items[${idx}].gambar=this.value" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                `;
+            });
+        }
+        function tambahPrestasiItem() {
+            if (!siteData.prestasi_section) siteData.prestasi_section = { items: [] };
+            siteData.prestasi_section.items.push({
+                nama_lomba: "Nama Kejuaraan Baru",
+                juara: "Juara 1",
+                desc: "Deskripsi pencapaian lomba...",
+                gambar: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
+            });
+            renderPrestasiItems();
         }
 
         // Rutinitas Santri Manager
