@@ -71,13 +71,33 @@
                     <i class="fa-solid fa-chart-line w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Stat Cards</span>
                 </button>
+                <button onclick="switchTab('sambutan')" id="btn-tab-sambutan" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-user-tie w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Sambutan Mudir</span>
+                </button>
+                <button onclick="switchTab('program')" id="btn-tab-program" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-star w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Keunggulan Kami</span>
+                </button>
                 <button onclick="switchTab('jenjang')" id="btn-tab-jenjang" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-graduation-cap w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Jenjang Pendidikan</span>
                 </button>
+                <button onclick="switchTab('jadwal')" id="btn-tab-jadwal" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-clock-rotate-left w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Rutinitas Santri</span>
+                </button>
+                <button onclick="switchTab('fasilitas')" id="btn-tab-fasilitas" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-building-columns w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Sarana Berstandar</span>
+                </button>
                 <button onclick="switchTab('simulasi')" id="btn-tab-simulasi" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-calculator w-5 text-center text-amber-400"></i>
                     <span class="sidebar-label">Transparansi Biaya</span>
+                </button>
+                <button onclick="switchTab('berita')" id="btn-tab-berita" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
+                    <i class="fa-solid fa-newspaper w-5 text-center text-amber-400"></i>
+                    <span class="sidebar-label">Berita & Pengumuman</span>
                 </button>
                 <button onclick="switchTab('footer')" id="btn-tab-footer" class="tab-btn w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-emerald-900 hover:text-white">
                     <i class="fa-solid fa-shoe-prints w-5 text-center text-amber-400"></i>
@@ -104,18 +124,16 @@
         <!-- AREA KONTEN UTAMA DASHBOARD -->
         <main class="flex-1 p-6 space-y-6 overflow-y-auto">
 
-            <!-- Top Header Action -->
             <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
                     <h1 class="text-xl font-extrabold text-emerald-950">Dashboard Pengelolaan Website</h1>
-                    <p class="text-xs text-slate-500">Kelola Hero Slider, Stat Cards, Jenjang, Biaya & Multiuser</p>
+                    <p class="text-xs text-slate-500">Kelola Hero, Program, Jenjang, Rutinitas, Fasilitas, Berita, Biaya & Multiuser</p>
                 </div>
                 <button onclick="simpanKeGithub()" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-extrabold px-6 py-3 rounded-2xl shadow transition flex items-center gap-2 text-xs">
                     <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan ke GitHub
                 </button>
             </div>
 
-            <!-- GitHub Access Config -->
             <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
                 <h3 class="font-bold text-xs text-slate-800 mb-2">Konfigurasi GitHub Repositori</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
@@ -125,7 +143,7 @@
                 </div>
             </div>
 
-            <!-- TAB 1: HEADER & BRAND -->
+            <!-- TAB: HEADER -->
             <div id="tab-header" class="tab-content bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <h3 class="font-bold text-lg text-emerald-950">Header & Identitas Website</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -137,7 +155,7 @@
                 </div>
             </div>
 
-            <!-- TAB 2: HERO SLIDER MANAGER -->
+            <!-- TAB: HERO SLIDER -->
             <div id="tab-hero" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="font-bold text-lg text-emerald-950">Kelola Banner Hero Slider Modern</h3>
@@ -146,19 +164,64 @@
                 <div id="hero-items-container" class="space-y-4"></div>
             </div>
 
-            <!-- TAB 3: STAT CARDS MANAGER -->
+            <!-- TAB: STAT CARDS -->
             <div id="tab-stats" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <h3 class="font-bold text-lg text-emerald-950">Kelola Stat Cards Counter</h3>
                 <div id="stats-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
             </div>
 
-            <!-- TAB 4: JENJANG PENDIDIKAN (TOGGLE SUB-JENJANG) -->
+            <!-- TAB: SAMBUTAN MUDIR -->
+            <div id="tab-sambutan" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <h3 class="font-bold text-lg text-emerald-950">Sambutan Mudir</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div><label class="font-bold block mb-1">Badge</label><input type="text" id="sam-badge" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">Nama Mudir</label><input type="text" id="sam-name" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Judul Sambutan</label><input type="text" id="sam-title" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Bahasa Arab</label><input type="text" id="sam-arabic" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Paragraf 1</label><textarea id="sam-p1" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
+                    <div class="md:col-span-2"><label class="font-bold block mb-1">Paragraf 2</label><textarea id="sam-p2" class="w-full border p-2.5 rounded-xl bg-slate-50 h-20"></textarea></div>
+                    <div><label class="font-bold block mb-1">Jabatan</label><input type="text" id="sam-position" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                    <div><label class="font-bold block mb-1">URL Foto</label><input type="text" id="sam-photo" class="w-full border p-2.5 rounded-xl bg-slate-50"></div>
+                </div>
+            </div>
+
+            <!-- TAB: KEUNGGULAN KAMI (PROGRAM UNGGULAN) -->
+            <div id="tab-program" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Keunggulan Kami (Program Unggulan)</h3>
+                    <button onclick="tambahProgramItem()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Program</button>
+                </div>
+                <div id="program-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+
+            <!-- TAB: JENJANG PENDIDIKAN (DENGAN TOMBOL TAMBAH UNIT) -->
             <div id="tab-jenjang" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
-                <h3 class="font-bold text-lg text-emerald-950">Kelola & Aktifkan / Nonaktifkan Unit Jenjang</h3>
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Jenjang Pendidikan (Kelola, Tambah & Aktifkan Unit)</h3>
+                    <button onclick="tambahJenjangUnit()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Unit Jenjang</button>
+                </div>
                 <div id="jenjang-items-container" class="space-y-4"></div>
             </div>
 
-            <!-- TAB 5: TRANSPARANSI BIAYA (DINAMIS ITEM & JENJANG) -->
+            <!-- TAB: RUTINITAS SANTRI (JADWAL HARIAN) -->
+            <div id="tab-jadwal" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Rutinitas Santri (Jadwal Harian Boarding)</h3>
+                    <button onclick="tambahJadwalItem()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Jadwal</button>
+                </div>
+                <div id="jadwal-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+
+            <!-- TAB: SARANA BERSTANDAR (FASILITAS KAMPUS) -->
+            <div id="tab-fasilitas" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Sarana Berstandar (Fasilitas Kampus)</h3>
+                    <button onclick="tambahFasilitasItem()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Fasilitas</button>
+                </div>
+                <div id="fasilitas-items-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+
+            <!-- TAB: TRANSPARANSI BIAYA -->
             <div id="tab-simulasi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="font-bold text-lg text-emerald-950">Transparansi Biaya & Item Calculator</h3>
@@ -167,7 +230,16 @@
                 <div id="simulasi-levels-container" class="space-y-6"></div>
             </div>
 
-            <!-- TAB 6: FOOTER & CTA BANNER -->
+            <!-- TAB: BERITA & PENGUMUMAN -->
+            <div id="tab-berita" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg text-emerald-950">Berita & Pengumuman Terbaru</h3>
+                    <button onclick="tambahBeritaItem()" class="bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-xl">+ Tambah Berita Baru</button>
+                </div>
+                <div id="berita-items-container" class="space-y-4"></div>
+            </div>
+
+            <!-- TAB: FOOTER & CTA -->
             <div id="tab-footer" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-6">
                 <div>
                     <h3 class="font-bold text-lg text-emerald-950 mb-3">CTA Banner Ajakan Pendaftaran</h3>
@@ -188,7 +260,7 @@
                 </div>
             </div>
 
-            <!-- TAB 7: MULTIUSER & ROLE MANAGER -->
+            <!-- TAB: MULTIUSER -->
             <div id="tab-users" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="font-bold text-lg text-emerald-950">Manajemen Pengguna (Multiuser & Roles)</h3>
@@ -197,7 +269,7 @@
                 <div id="users-items-container" class="space-y-3"></div>
             </div>
 
-            <!-- TAB 8: AKTIFKAN SEKSI -->
+            <!-- TAB: SEKSI TOGGLES -->
             <div id="tab-seksi" class="tab-content hidden bg-white p-6 rounded-3xl shadow-sm border space-y-4">
                 <h3 class="font-bold text-lg text-emerald-950">Kontrol Visibilitas Seksi Website</h3>
                 <div id="seksi-toggles" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
@@ -215,18 +287,18 @@
             hero: "Hero Slider Modern",
             stats: "Stat Cards Counter",
             sambutan: "Kata Sambutan Mudir",
-            program: "Program Unggulan",
+            program: "Keunggulan Kami",
             jenjang: "Jenjang Pendidikan",
-            jadwal: "Jadwal Harian Santri",
-            fasilitas: "Fasilitas Kampus",
+            jadwal: "Rutinitas Santri",
+            fasilitas: "Sarana Berstandar",
             simulasi: "Transparansi Biaya",
-            alumni: "Sebaran Alumni & Testimoni",
             berita: "Berita & Pengumuman",
+            alumni: "Sebaran Alumni & Testimoni",
             cta: "CTA Banner Pendaftaran",
             kontak: "Footer & Maps Kontak"
         };
 
-        // Sidebar Collapsible Toggle
+        // Sidebar Collapsible Toggle (Garis 3 <-> X)
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const toggleIcon = document.getElementById('sidebar-toggle-icon');
@@ -292,14 +364,21 @@
         function logout() { location.reload(); }
 
         function populateFields() {
-            // Header
             document.getElementById('hdr-brand').value = siteData.header?.brand_name || '';
             document.getElementById('hdr-tagline').value = siteData.header?.tagline || '';
             document.getElementById('tb-address').value = siteData.topbar?.address || '';
             document.getElementById('tb-phone').value = siteData.topbar?.phone || '';
             document.getElementById('tb-email').value = siteData.topbar?.email || '';
 
-            // CTA Banner & Footer
+            document.getElementById('sam-badge').value = siteData.sambutan?.badge || '';
+            document.getElementById('sam-title').value = siteData.sambutan?.title || '';
+            document.getElementById('sam-arabic').value = siteData.sambutan?.arabic || '';
+            document.getElementById('sam-p1').value = siteData.sambutan?.p1 || '';
+            document.getElementById('sam-p2').value = siteData.sambutan?.p2 || '';
+            document.getElementById('sam-name').value = siteData.sambutan?.name || '';
+            document.getElementById('sam-position').value = siteData.sambutan?.position || '';
+            document.getElementById('sam-photo').value = siteData.sambutan?.photo || '';
+
             document.getElementById('cta-title').value = siteData.cta_banner?.title || '';
             document.getElementById('cta-sub').value = siteData.cta_banner?.subtitle || '';
             document.getElementById('cta-btn').value = siteData.cta_banner?.btn_text || '';
@@ -309,13 +388,16 @@
 
             renderHeroItems();
             renderStatsItems();
+            renderProgramItems();
             renderJenjangItems();
+            renderJadwalItems();
+            renderFasilitasItems();
             renderSimulasiLevels();
+            renderBeritaItems();
             renderUsersItems();
             renderSeksiToggles();
         }
 
-        // Render Hero Slides
         function renderHeroItems() {
             const container = document.getElementById('hero-items-container');
             container.innerHTML = '';
@@ -338,7 +420,6 @@
             renderHeroItems();
         }
 
-        // Render Stat Cards
         function renderStatsItems() {
             const container = document.getElementById('stats-items-container');
             container.innerHTML = '';
@@ -354,40 +435,123 @@
             });
         }
 
-        // Render Jenjang (Including Individual Enable/Disable)
+        // Program Unggulan Manager
+        function renderProgramItems() {
+            const container = document.getElementById('program-items-container');
+            container.innerHTML = '';
+            (siteData.program_section?.items || []).forEach((pr, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.program_section.items.splice(${idx},1); renderProgramItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div><label class="font-bold block">Ikon (FontAwesome Class)</label><input type="text" value="${pr.icon}" onchange="siteData.program_section.items[${idx}].icon=this.value" class="w-full border p-2 rounded-xl"></div>
+                        <div><label class="font-bold block">Judul Program</label><input type="text" value="${pr.title}" onchange="siteData.program_section.items[${idx}].title=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                        <div><label class="font-bold block">Deskripsi</label><textarea onchange="siteData.program_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl h-20">${pr.desc}</textarea></div>
+                    </div>
+                `;
+            });
+        }
+        function tambahProgramItem() {
+            if (!siteData.program_section) siteData.program_section = { items: [] };
+            siteData.program_section.items.push({ icon: "fa-star", title: "Program Baru", desc: "Deskripsi program baru..." });
+            renderProgramItems();
+        }
+
+        // Jenjang Education Manager (Tambah Unit & Toggle Enable)
         function renderJenjangItems() {
             const container = document.getElementById('jenjang-items-container');
             container.innerHTML = '';
             (siteData.jenjang_section?.items || []).forEach((jn, idx) => {
                 container.innerHTML += `
-                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-3">
-                        <div class="flex justify-between items-center font-bold">
-                            <span class="text-emerald-950">${jn.label}</span>
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-3 relative">
+                        <button onclick="siteData.jenjang_section.items.splice(${idx},1); renderJenjangItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus Unit</button>
+                        <div class="flex justify-between items-center font-bold pr-20">
+                            <span class="text-emerald-950">${jn.label || 'Unit Jenjang'}</span>
                             <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1 rounded-xl border">
-                                <span>Aktifkan</span>
+                                <span>Tampilkan</span>
                                 <input type="checkbox" ${jn.enabled !== false ? 'checked' : ''} onchange="siteData.jenjang_section.items[${idx}].enabled=this.checked" class="w-4 h-4 accent-emerald-600">
                             </label>
                         </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" value="${jn.title}" onchange="siteData.jenjang_section.items[${idx}].title=this.value" class="border p-2 rounded-xl">
-                            <input type="text" value="${jn.badge}" onchange="siteData.jenjang_section.items[${idx}].badge=this.value" class="border p-2 rounded-xl">
+                        <div class="grid grid-cols-3 gap-2">
+                            <div><label class="font-bold block">ID Tab (tanpa spasi)</label><input type="text" value="${jn.id}" onchange="siteData.jenjang_section.items[${idx}].id=this.value" class="w-full border p-2 rounded-xl"></div>
+                            <div><label class="font-bold block">Label Tab</label><input type="text" value="${jn.label}" onchange="siteData.jenjang_section.items[${idx}].label=this.value" class="w-full border p-2 rounded-xl"></div>
+                            <div><label class="font-bold block">Badge Usia/Status</label><input type="text" value="${jn.badge}" onchange="siteData.jenjang_section.items[${idx}].badge=this.value" class="w-full border p-2 rounded-xl"></div>
                         </div>
-                        <textarea onchange="siteData.jenjang_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl">${jn.desc}</textarea>
-                        <input type="text" value="${jn.image}" onchange="siteData.jenjang_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl">
+                        <div><label class="font-bold block">Judul Lengkap</label><input type="text" value="${jn.title}" onchange="siteData.jenjang_section.items[${idx}].title=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                        <div><label class="font-bold block">Deskripsi</label><textarea onchange="siteData.jenjang_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl h-20">${jn.desc}</textarea></div>
+                        <div><label class="font-bold block">URL Gambar</label><input type="text" value="${jn.image}" onchange="siteData.jenjang_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl"></div>
                     </div>
                 `;
             });
         }
+        function tambahJenjangUnit() {
+            if (!siteData.jenjang_section) siteData.jenjang_section = { items: [] };
+            const newId = "unit_" + Date.now();
+            siteData.jenjang_section.items.push({
+                id: newId,
+                label: "Unit Baru",
+                badge: "Program Baru",
+                title: "Nama Unit Pendidikan Baru",
+                desc: "Deskripsi singkat unit pendidikan baru...",
+                image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800",
+                enabled: true
+            });
+            renderJenjangItems();
+        }
 
-        // Render Dynamic Biaya Levels & Itemized Costs
+        // Rutinitas Santri Manager
+        function renderJadwalItems() {
+            const container = document.getElementById('jadwal-items-container');
+            container.innerHTML = '';
+            (siteData.jadwal_section?.items || []).forEach((jd, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.jadwal_section.items.splice(${idx},1); renderJadwalItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><label class="font-bold block">Waktu / Jam</label><input type="text" value="${jd.time}" onchange="siteData.jadwal_section.items[${idx}].time=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                            <div><label class="font-bold block">Ikon FontAwesome</label><input type="text" value="${jd.icon || 'fa-clock'}" onchange="siteData.jadwal_section.items[${idx}].icon=this.value" class="w-full border p-2 rounded-xl"></div>
+                        </div>
+                        <div><label class="font-bold block">Aktivitas</label><input type="text" value="${jd.title}" onchange="siteData.jadwal_section.items[${idx}].title=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                        <div><label class="font-bold block">Rincian Kegiatan</label><textarea onchange="siteData.jadwal_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl h-16">${jd.desc}</textarea></div>
+                    </div>
+                `;
+            });
+        }
+        function tambahJadwalItem() {
+            if (!siteData.jadwal_section) siteData.jadwal_section = { items: [] };
+            siteData.jadwal_section.items.push({ time: "00.00 - 00.00 WIB", title: "Kegiatan Baru", desc: "Deskripsi kegiatan...", icon: "fa-clock" });
+            renderJadwalItems();
+        }
+
+        // Sarana Berstandar Manager
+        function renderFasilitasItems() {
+            const container = document.getElementById('fasilitas-items-container');
+            container.innerHTML = '';
+            (siteData.fasilitas_section?.items || []).forEach((fs, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.fasilitas_section.items.splice(${idx},1); renderFasilitasItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div><label class="font-bold block">Nama Fasilitas</label><input type="text" value="${fs.title}" onchange="siteData.fasilitas_section.items[${idx}].title=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                        <div><label class="font-bold block">Deskripsi</label><textarea onchange="siteData.fasilitas_section.items[${idx}].desc=this.value" class="w-full border p-2 rounded-xl h-16">${fs.desc}</textarea></div>
+                        <div><label class="font-bold block">URL Gambar</label><input type="text" value="${fs.image}" onchange="siteData.fasilitas_section.items[${idx}].image=this.value" class="w-full border p-2 rounded-xl"></div>
+                    </div>
+                `;
+            });
+        }
+        function tambahFasilitasItem() {
+            if (!siteData.fasilitas_section) siteData.fasilitas_section = { items: [] };
+            siteData.fasilitas_section.items.push({ title: "Fasilitas Baru", desc: "Deskripsi fasilitas...", image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=800" });
+            renderFasilitasItems();
+        }
+
+        // Simulasi Biaya Manager
         function renderSimulasiLevels() {
             const container = document.getElementById('simulasi-levels-container');
             container.innerHTML = '';
             (siteData.simulasi_section?.levels || []).forEach((lvl, lIdx) => {
                 let itemsHtml = (lvl.items || []).map((itm, iIdx) => `
                     <div class="flex gap-2 items-center text-xs">
-                        <input type="text" value="${itm.name}" onchange="siteData.simulasi_section.levels[${lIdx}].items[${iIdx}].name=this.value" class="border p-2 rounded-xl w-1/2">
-                        <input type="number" value="${itm.cost}" onchange="siteData.simulasi_section.levels[${lIdx}].items[${iIdx}].cost=+this.value" class="border p-2 rounded-xl w-1/3">
+                        <input type="text" value="${itm.name}" onchange="siteData.simulasi_section.levels[${lIdx}].items[${iIdx}].name=this.value" class="border p-2 rounded-xl w-1/2" placeholder="Nama Biaya">
+                        <input type="number" value="${itm.cost}" onchange="siteData.simulasi_section.levels[${lIdx}].items[${iIdx}].cost=+this.value" class="border p-2 rounded-xl w-1/3" placeholder="Nominal (Rp)">
                         <button onclick="siteData.simulasi_section.levels[${lIdx}].items.splice(${iIdx},1); renderSimulasiLevels();" class="text-red-600 font-bold px-2">X</button>
                     </div>
                 `).join('');
@@ -406,19 +570,51 @@
                 `;
             });
         }
-
         function tambahJenjangBiaya() {
             if (!siteData.simulasi_section) siteData.simulasi_section = { levels: [] };
             siteData.simulasi_section.levels.push({ id: "jenjang_" + Date.now(), name: "Jenjang Baru", items: [{ name: "Uang Pangkal", cost: 5000000 }] });
             renderSimulasiLevels();
         }
-
         function tambahItemBiaya(lIdx) {
             siteData.simulasi_section.levels[lIdx].items.push({ name: "Biaya Baru", cost: 1000000 });
             renderSimulasiLevels();
         }
 
-        // Render Multi-Users Management
+        // Berita & Pengumuman Manager
+        function renderBeritaItems() {
+            const container = document.getElementById('berita-items-container');
+            container.innerHTML = '';
+            (siteData.posts || []).forEach((post, idx) => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-2xl bg-slate-50 text-xs space-y-2 relative">
+                        <button onclick="siteData.posts.splice(${idx},1); renderBeritaItems();" class="absolute top-3 right-3 text-red-600 font-bold"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><label class="font-bold block">Judul Berita</label><input type="text" value="${post.judul}" onchange="siteData.posts[${idx}].judul=this.value" class="w-full border p-2 rounded-xl font-bold"></div>
+                            <div><label class="font-bold block">Label / Kategori</label><input type="text" value="${post.label}" onchange="siteData.posts[${idx}].label=this.value" class="w-full border p-2 rounded-xl"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><label class="font-bold block">Tanggal</label><input type="date" value="${post.tanggal}" onchange="siteData.posts[${idx}].tanggal=this.value" class="w-full border p-2 rounded-xl"></div>
+                            <div><label class="font-bold block">URL Gambar</label><input type="text" value="${post.gambar}" onchange="siteData.posts[${idx}].gambar=this.value" class="w-full border p-2 rounded-xl"></div>
+                        </div>
+                        <div><label class="font-bold block">Ringkasan Berita</label><textarea onchange="siteData.posts[${idx}].ringkasan=this.value" class="w-full border p-2 rounded-xl h-16">${post.ringkasan}</textarea></div>
+                    </div>
+                `;
+            });
+        }
+        function tambahBeritaItem() {
+            if (!siteData.posts) siteData.posts = [];
+            siteData.posts.unshift({
+                id: Date.now().toString(),
+                judul: "Judul Berita Baru",
+                label: "Pengumuman",
+                tanggal: new Date().toISOString().split('T')[0],
+                ringkasan: "Ringkasan berita baru...",
+                gambar: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800"
+            });
+            renderBeritaItems();
+        }
+
+        // Multiuser Manager
         function renderUsersItems() {
             const container = document.getElementById('users-items-container');
             container.innerHTML = '';
@@ -439,7 +635,6 @@
                 `;
             });
         }
-
         function tambahUser() {
             if (!siteData.users) siteData.users = [];
             siteData.users.push({ name: "Pengelola Baru", username: "user" + Date.now(), password: "pass" + Date.now(), role: "Editor Konten" });
@@ -474,6 +669,15 @@
             siteData.topbar.phone = document.getElementById('tb-phone').value;
             siteData.topbar.email = document.getElementById('tb-email').value;
 
+            siteData.sambutan.badge = document.getElementById('sam-badge').value;
+            siteData.sambutan.title = document.getElementById('sam-title').value;
+            siteData.sambutan.arabic = document.getElementById('sam-arabic').value;
+            siteData.sambutan.p1 = document.getElementById('sam-p1').value;
+            siteData.sambutan.p2 = document.getElementById('sam-p2').value;
+            siteData.sambutan.name = document.getElementById('sam-name').value;
+            siteData.sambutan.position = document.getElementById('sam-position').value;
+            siteData.sambutan.photo = document.getElementById('sam-photo').value;
+
             siteData.cta_banner.title = document.getElementById('cta-title').value;
             siteData.cta_banner.subtitle = document.getElementById('cta-sub').value;
             siteData.cta_banner.btn_text = document.getElementById('cta-btn').value;
@@ -499,7 +703,7 @@
                 const res = await fetch(`https://api.github.com/repos/${u}/${r}/contents/data.json`, {
                     method: 'PUT',
                     headers: { 'Authorization': `token ${t}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: "Multiuser update website data", content: encoded, sha: fileSha })
+                    body: JSON.stringify({ message: "Admin update website data", content: encoded, sha: fileSha })
                 });
 
                 if (res.ok) {
